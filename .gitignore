@@ -1,0 +1,13 @@
+# OS / editor noise
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Local
+.claude/

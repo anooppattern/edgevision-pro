@@ -1,0 +1,1335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EdgeVision — Pattern AI Labs · RetailTrack &amp; RiderTrack</title>
+  <meta name="description" content="EdgeVision is Pattern AI Labs' edge AI platform. RetailTrack for store floors, RiderTrack for delivery hubs. High-performance Intel edge compute. Real-time analytics, on-prem, privacy-first." />
+  <meta name="theme-color" content="#000000" />
+
+  <meta property="og:title" content="EdgeVision — Pattern AI Labs" />
+  <meta property="og:description" content="Two products. One edge platform. RetailTrack for store floors. RiderTrack for delivery hubs. Real-time, on-prem, privacy-first." />
+  <meta property="og:image" content="/assets/images/cover-retail.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.edgevision.pro/" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cg fill='%23F52E67'%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(15 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(30 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(45 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(60 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(75 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(90 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(105 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(120 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(135 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(150 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(165 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(180 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(195 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(210 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(225 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(240 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(255 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(270 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(285 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(300 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(315 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(330 24 24)'/%3E%3Crect x='22.7' y='2.4' width='2.6' height='13.6' rx='1.3' transform='rotate(345 24 24)'/%3E%3C/g%3E%3C/svg%3E" />
+  <link rel="preload" as="image" href="/assets/images/cover-retail.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body data-context="Cover">
+
+  <!-- ───────────── PERSISTENT HEADER ───────────── -->
+  <header class="topbar" id="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#top" aria-label="Pattern AI Labs · EdgeVision home">
+        <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+          <g fill="currentColor" class="brand__spokes">
+            <!-- 24 thick rounded petals around an empty hollow centre -->
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(15 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(30 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(45 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(60 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(75 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(90 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(105 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(120 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(135 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(150 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(165 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(180 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(195 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(210 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(225 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(240 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(255 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(270 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(285 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(300 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(315 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(330 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(345 24 24)"/>
+          </g>
+        </svg>
+        <span class="brand__txt">
+          <b>PATTERN</b><span>AI&nbsp;LABS</span>
+        </span>
+        <span class="brand__div" aria-hidden="true">/</span>
+        <span class="brand__product">EDGEVISION</span>
+      </a>
+
+      <nav class="topnav" aria-label="Primary">
+        <a href="#retailtrack">RetailTrack</a>
+        <a href="#ridertrack">RiderTrack</a>
+        <a href="#platform">Platform</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#engagement">Pilot</a>
+        <a href="#contact" class="topnav__cta">Contact →</a>
+      </nav>
+
+      <span class="topbar__ctx" id="topbarCtx">COVER</span>
+
+      <button class="topbar__menu" id="navMenu" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="topbar__rule" aria-hidden="true"></div>
+  </header>
+
+  <!-- ───────────── HERO / COVER ───────────── -->
+  <section class="hero" id="top" data-ctx="COVER">
+    <img class="hero__bg" src="/assets/images/cover-retail.png" alt="" />
+    <div class="hero__veil" aria-hidden="true"></div>
+
+    <div class="container hero__inner">
+      <p class="meta-row">
+        <span class="meta-stamp">3/11/2026 · 18:00:01</span>
+        <span class="meta-loc">CAM-07 · FOOTWEAR_SECTION</span>
+      </p>
+
+      <p class="eyebrow eyebrow--hero">
+        EDITION · 2026 · RETAILTRACK · RIDERTRACK
+      </p>
+
+      <h1 class="wordmark">
+        <span class="wordmark__edge">Edge</span><span class="wordmark__vision">Vision</span>
+      </h1>
+
+      <p class="hero__sub">
+        Intelligent AI surveillance at the edge — turning every camera<br />
+        into a real-time operations engine. <b>RetailTrack</b> for store floors,<br />
+        <b>RiderTrack</b> for delivery hubs. High-performance Intel edge compute.
+      </p>
+
+      <ul class="hero__tags">
+        <li><i></i> EDGE-FIRST</li>
+        <li><i></i> PRIVACY BY DESIGN</li>
+        <li><i></i> INTEL POWERED</li>
+      </ul>
+
+      <div class="hero__foot">
+        <span class="hero__site">EDGEVISION.PRO</span>
+        <span class="hero__sigil">FOR RETAIL FLOORS<br/>&amp; DELIVERY HUBS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── TWO PRODUCTS. ONE PLATFORM. ───────────── -->
+  <section class="section section--alt" data-ctx="TWO PRODUCTS">
+    <div class="container">
+      <p class="eyebrow">Two Products · One Platform</p>
+      <h2 class="display">One edge appliance.<br/>Two operational lenses.</h2>
+      <p class="lede">EdgeVision is the on-prem Vision + GenAI runtime. RetailTrack and RiderTrack are the two products built on top of it — same edge platform, same privacy guarantees, same control plane.</p>
+
+      <div class="products">
+        <a class="product-card" href="#retailtrack">
+          <div class="product-card__img">
+            <img src="/assets/images/cover-retail.png" alt="A retail store floor with AI detection overlays on customers and staff" />
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__eye"><span></span> RETAILTRACK</p>
+            <h3>Intelligence for the Store Floor.</h3>
+            <p>Footfall, dwell, VIP recognition, staff coverage, hidden loops, hygiene — every camera on the floor becomes a real-time operations sensor.</p>
+            <ul class="product-card__feat">
+              <li>Customer &amp; staff analytics on the same feed</li>
+              <li>VIP recognition in &lt; 3 s · zero biometrics off-device</li>
+              <li>Heat-map dwell, queue, hygiene &amp; loss-prevention</li>
+            </ul>
+            <span class="link">Explore RetailTrack →</span>
+          </div>
+        </a>
+
+        <a class="product-card" href="#ridertrack">
+          <div class="product-card__img">
+            <img src="/assets/images/rider-cover.png" alt="A dark-store loading bay at night with delivery riders and AI overlays" />
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__eye"><span></span> RIDERTRACK</p>
+            <h3>Intelligence for the Last Mile.</h3>
+            <p>Idle-cluster detection, presence verification, demand-and-weather correlation. The hub finally sees what the dispatcher can't.</p>
+            <ul class="product-card__feat">
+              <li>Cluster detection before the surge model fires</li>
+              <li>Privacy-preserving presence vs roster verification</li>
+              <li>Helmet, bag, parking &amp; COD-intake compliance</li>
+            </ul>
+            <span class="link">Explore RiderTrack →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       ▼  RETAILTRACK
+       ════════════════════════════════════════════════════════════ -->
+
+  <!-- ───────────── RETAILTRACK COVER ───────────── -->
+  <section class="section chapter product-chapter" id="retailtrack" data-ctx="RETAILTRACK">
+    <div class="container">
+      <p class="chapter__num">PRODUCT 01 · RETAILTRACK</p>
+      <h2 class="display display--xl">Intelligence for<br/>the Store Floor.</h2>
+      <p class="lede">High-performance Intel edge compute on the store LAN. Hybrid Vision + GenAI on-prem. Every camera becomes a customer-and-staff intelligence sensor — without storing a single face.</p>
+      <div class="chapter__rule"></div>
+    </div>
+  </section>
+
+  <!-- ───────────── RETAILTRACK · THE CHALLENGE ───────────── -->
+  <section class="section chapter" id="challenge" data-ctx="RETAILTRACK · CHAPTER 01">
+    <div class="container">
+      <p class="chapter__num">RETAILTRACK · CHAPTER 01</p>
+      <h2 class="display display--xl">The Visibility Gap</h2>
+      <p class="lede">Modern apparel retail captures thousands of hours of CCTV every week. Almost none of it becomes a decision.</p>
+      <div class="chapter__rule"></div>
+    </div>
+  </section>
+
+  <section class="section section--tight" data-ctx="THE CHALLENGE">
+    <div class="container split">
+      <div class="split__copy">
+        <p class="eyebrow">The Challenge</p>
+        <h2 class="display">The In-Store<br/>Visibility Gap.</h2>
+        <p class="lede">Stores capture hours of CCTV every shift. But almost none of it becomes a decision.</p>
+      </div>
+      <div class="split__media">
+        <img src="/assets/images/challenge-cctv.png" alt="A dim apparel retail store interior with a dome CCTV camera visible in the upper right corner" />
+      </div>
+    </div>
+
+    <div class="container num-grid num-grid--2">
+      <article class="num-card">
+        <span class="num-card__n">01</span>
+        <h3>Staff effort &amp; productivity is opaque</h3>
+        <p>Floor managers can't see who is attending, grouping, or on the phone. Wall locations sit unmanned. Conversion is attributed by gut feel.</p>
+      </article>
+      <article class="num-card">
+        <span class="num-card__n">02</span>
+        <h3>Customer journey is invisible after entry</h3>
+        <p>VM decisions are made without knowing which entry, gondola, wall, or centre table actually pulls dwell. Footfall ≠ engagement.</p>
+      </article>
+      <article class="num-card">
+        <span class="num-card__n">03</span>
+        <h3>High-value customers walk in unannounced</h3>
+        <p>Store managers learn about a tier-gold visitor only at the bill counter. Loyalty runs blind to the first 60 seconds.</p>
+      </article>
+      <article class="num-card">
+        <span class="num-card__n">04</span>
+        <h3>Floor hygiene fails surface late</h3>
+        <p>Footwear scattered, displays disturbed, &gt; 4 staff in back store — visible-but-unmonitored issues that drive complaints and shrink.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ───────────── CHAPTER · THE PLATFORM ───────────── -->
+  <section class="section chapter" id="platform" data-ctx="RETAILTRACK · CHAPTER 02">
+    <div class="container split chapter__split">
+      <div>
+        <p class="chapter__num">RETAILTRACK · CHAPTER 02</p>
+        <h2 class="display display--xl">The Platform</h2>
+        <p class="lede">High-performance Intel edge AI on the store LAN. Hybrid Vision + GenAI on-prem. Insights in seconds.</p>
+        <div class="chapter__rule"></div>
+      </div>
+      <div class="chapter__art">
+        <img src="/assets/images/nuc-device.png" alt="A compact Intel-powered edge compute device on a counter next to a slim monitor" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-ctx="THE SOLUTION">
+    <div class="container">
+      <p class="eyebrow">The Solution</p>
+      <h2 class="display">EdgeVision Platform.</h2>
+      <p class="lede">High-performance Intel edge compute on the store LAN ingests existing CCTV, runs hybrid Vision + GenAI on-prem, and produces real-time alerts, dashboards, and APIs.</p>
+
+      <div class="pipeline">
+        <div class="pipe-card">
+          <span class="pipe-card__n">01</span>
+          <div class="pipe-card__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h4l2-3h6l2 3h4v12H3z"/><circle cx="12" cy="13" r="3.5"/></svg>
+          </div>
+          <h3>Connect Cameras</h3>
+          <p>Existing IP / CCTV via RTSP. No new wiring.</p>
+        </div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-card">
+          <span class="pipe-card__n">02</span>
+          <div class="pipe-card__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>
+          </div>
+          <h3>Process on Edge</h3>
+          <p>Intel edge compute inside store. Air-gapped &amp; isolated.</p>
+        </div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-card">
+          <span class="pipe-card__n">03</span>
+          <div class="pipe-card__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>Analyse &amp; Detect</h3>
+          <p>Vision + GenAI models reason over the scene.</p>
+        </div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-card">
+          <span class="pipe-card__n">04</span>
+          <div class="pipe-card__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 16V11a6 6 0 1 0-12 0v5l-2 2h16zM10 20a2 2 0 0 0 4 0"/></svg>
+          </div>
+          <h3>Generate Insights</h3>
+          <p>Alerts, KPIs, clips, dashboards, APIs, WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="stats4">
+        <div><b>Real-time</b><span>Detection</span></div>
+        <div><b>Multi-cam</b><span>Per edge node</span></div>
+        <div><b>0<i>KB</i></b><span>Cloud bandwidth</span></div>
+        <div><b>&lt;1<i>wk</i></b><span>Deployment</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── OPERATIONS CONSOLE ───────────── -->
+  <section class="section section--alt" data-ctx="OPERATIONS CONSOLE">
+    <div class="container">
+      <p class="eyebrow">Live Operations Console</p>
+      <h2 class="display">One Pane of Glass<br/>for the Store Floor.</h2>
+
+      <div class="console">
+        <div class="console__stats">
+          <div><label>FOOTFALL</label><b>1,284</b></div>
+          <div><label>ACTIVE STAFF</label><b>12 / 14</b></div>
+          <div><label>ALERTS</label><b>3</b></div>
+          <div><label>AVG DWELL</label><b>4:21</b></div>
+        </div>
+
+        <div class="console__chart">
+          <label>HOURLY FOOTFALL</label>
+          <div class="bars">
+            <i style="--h:18%"></i><i style="--h:32%"></i><i style="--h:48%"></i>
+            <i style="--h:62%"></i><i style="--h:74%"></i><i style="--h:86%"></i>
+            <i style="--h:70%"></i><i style="--h:96%" class="bars__hi"></i><i style="--h:78%"></i>
+            <i style="--h:58%"></i><i style="--h:42%"></i><i style="--h:28%"></i>
+          </div>
+          <div class="bars__axis"><span>10AM</span><span>2PM</span><span>6PM</span><span>10PM</span></div>
+        </div>
+
+        <div class="console__alerts">
+          <label>ALERT STREAM</label>
+          <ul>
+            <li><i class="dot dot--brand"></i> VIP entered · gold tier</li>
+            <li><i class="dot"></i> Wall #3 unattended 2m</li>
+            <li><i class="dot"></i> Queue &gt; 4 at till 2</li>
+            <li><i class="dot dot--brand"></i> Back store &gt; 4 staff</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cam-strip">
+        <span>CAM 01</span><span>CAM 02</span><span>CAM 03</span>
+        <span>CAM 04</span><span>CAM 05</span><span>CAM 06</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── CHAPTER · TWO LENSES ───────────── -->
+  <section class="section chapter" id="capabilities" data-ctx="RETAILTRACK · CHAPTER 03">
+    <div class="container split chapter__split">
+      <div>
+        <p class="chapter__num">RETAILTRACK · CHAPTER 03</p>
+        <h2 class="display display--xl">Two Lenses,<br/>One Network</h2>
+        <p class="lede">The same feeds answer two questions at once: what is the customer experiencing? And how is the team performing?</p>
+        <div class="chapter__rule"></div>
+      </div>
+      <div class="chapter__art">
+        <img src="/assets/images/two-lenses.png" alt="A dark apparel store with magenta detection overlays tracking customers and staff" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" data-ctx="TWO LENSES">
+    <div class="container">
+      <p class="eyebrow">Two Lenses</p>
+      <h2 class="display">Customer &amp; Staff Analytics.</h2>
+
+      <div class="two-col">
+        <article class="lens">
+          <p class="lens__head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"/><circle cx="17" cy="6" r="2.5"/><path d="M22 18c0-2.5-2-4.5-5-4.5"/></svg>
+            CUSTOMER ANALYTICS
+          </p>
+          <h3>What customers do, where they linger, who they are.</h3>
+          <ul class="dashlist">
+            <li>Heat-mapping by entry, fixture and category</li>
+            <li>Walk-in flow between apparel and footwear</li>
+            <li>Self-service vs assisted journey detection</li>
+            <li>VIP / loyalty member recognition at entry</li>
+            <li>POS ↔ camera time-stitch for billing intelligence</li>
+          </ul>
+        </article>
+
+        <article class="lens">
+          <p class="lens__head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12h3l2-6 4 12 3-9 2 5h6"/></svg>
+            STAFF ANALYTICS
+          </p>
+          <h3>Who is attending, who is missing, who is grouping.</h3>
+          <ul class="dashlist">
+            <li>Peak vs non-peak presence by zone</li>
+            <li>Grouping &gt; 1 min, mobile use, back-store time</li>
+            <li>Style/size run timing — wall to back-store</li>
+            <li>Per-staff customer attention &amp; conversion proxy</li>
+            <li>Brand-level heat-map for back-store activity</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="pullquote">
+        <span class="pullquote__bar"></span>
+        <span><b>Same hardware. Same cameras. Two outcomes.</b> Intel edge compute on the store LAN — no extra installation.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ───────────── DETECTION AT WORK ───────────── -->
+  <section class="section section--alt" data-ctx="DETECTION AT WORK">
+    <div class="container">
+      <p class="eyebrow">In-Store Detection</p>
+      <h2 class="display">Tracking Customers<br/>&amp; Staff Simultaneously.</h2>
+      <p class="lede">Every person on the floor is detected, classified, and tracked — without ever storing a face.</p>
+
+      <figure class="detection">
+        <img src="/assets/images/cover-retail.png" alt="A live overhead view of a retail store with customers and staff outlined by AI detection boxes" />
+        <span class="det-chip det-chip--cam">CAM 03 · WOMEN'S FLOOR · LIVE</span>
+        <span class="det-chip det-chip--rec">● REC</span>
+        <span class="det-chip det-chip--key"><i class="sq sq--staff"></i> STAFF · 2 &nbsp;&nbsp; <i class="sq sq--cust"></i> CUSTOMERS · 3</span>
+        <span class="det-chip det-chip--note">NO BIOMETRIC DATA RETAINED</span>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ───────────── CAPABILITY 01 — CUSTOMER ANALYTICS ELABORATED ───────────── -->
+  <section class="section" data-ctx="CAPABILITY 01">
+    <div class="container">
+      <p class="eyebrow">Capability 01</p>
+      <h2 class="display">Customer Analytics,<br/>Elaborated.</h2>
+
+      <div class="circle-grid">
+        <article class="circ">
+          <span class="circ__n">1</span>
+          <h3>Heat Mapping</h3>
+          <p>By entry, fixture, category. Walk-in flow between categories becomes a measurable cross-category insight.</p>
+        </article>
+        <article class="circ">
+          <span class="circ__n">2</span>
+          <h3>Customer Tracking</h3>
+          <p>VIP &amp; loyalty recognition at entrance. Auto-enroll dwell &gt; 15 min. No biometric data leaves the store.</p>
+        </article>
+        <article class="circ">
+          <span class="circ__n">3</span>
+          <h3>Self-Service vs Assisted</h3>
+          <p>Identifies customers who buy without staff help — critical for VM, range planning and staffing.</p>
+        </article>
+        <article class="circ">
+          <span class="circ__n">4</span>
+          <h3>POS ↔ Camera Stitch</h3>
+          <p>Correlate bills with in-store trail. Every transaction becomes a journey: dwell, attended-by, time-to-bill.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── HEAT MAPPING VIZ ───────────── -->
+  <section class="section section--alt" data-ctx="HEAT MAPPING">
+    <div class="container">
+      <p class="eyebrow">Heat Mapping</p>
+      <h2 class="display">Customer Dwell, Visualised.</h2>
+
+      <div class="heat">
+        <figure class="heat__img">
+          <img src="/assets/images/heat-floor.png" alt="A retail floor with magenta heat zones overlaid on the brand wall, centre table and gondola areas" />
+          <span class="heat__cap">CONCEPT FLOOR · DWELL HEAT</span>
+        </figure>
+        <div class="heat__bars">
+          <label>TOP DWELL ZONES</label>
+          <div class="hbar"><span class="hbar__l">Brand Wall</span><span class="hbar__t" data-w="92"><i style="width:92%"></i></span><span class="hbar__v">92%</span></div>
+          <div class="hbar"><span class="hbar__l">Centre Table</span><span class="hbar__t" data-w="78"><i style="width:78%"></i></span><span class="hbar__v">78%</span></div>
+          <div class="hbar"><span class="hbar__l">Gondola</span><span class="hbar__t" data-w="54"><i style="width:54%"></i></span><span class="hbar__v">54%</span></div>
+          <div class="hbar"><span class="hbar__l">Entry</span><span class="hbar__t" data-w="41"><i style="width:41%"></i></span><span class="hbar__v">41%</span></div>
+          <div class="hbar"><span class="hbar__l">Cash Desk</span><span class="hbar__t" data-w="32"><i style="width:32%"></i></span><span class="hbar__v">32%</span></div>
+          <p class="heat__fine">Generated entirely on the in-store edge box. No cloud round-trip.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── VIP RECOGNITION FLOW ───────────── -->
+  <section class="section" data-ctx="VIP RECOGNITION">
+    <div class="container split">
+      <div class="split__copy">
+        <p class="eyebrow">VIP Recognition Flow</p>
+        <h2 class="display">From CCTV Frame<br/>to Manager's Phone.</h2>
+        <p class="lede">A loyalty member walks in. Within 3 seconds the manager has identity, history, and a recommended action — without a single cloud round-trip.</p>
+      </div>
+      <div class="split__media">
+        <img src="/assets/images/vip-entrance.png" alt="A well-dressed customer entering an upscale store, greeted by a sales associate with a tablet" />
+      </div>
+    </div>
+
+    <div class="container timeline">
+      <article class="tl-card">
+        <header><span class="tl-card__n">01</span><span class="tl-card__t">0.4s</span></header>
+        <h3>Recognition</h3>
+        <p>Privacy-preserving embedding match against the store-local gallery. No raw faces leave the box.</p>
+      </article>
+      <span class="tl-arr">→</span>
+      <article class="tl-card">
+        <header><span class="tl-card__n">02</span><span class="tl-card__t">2.1s</span></header>
+        <h3>Notification</h3>
+        <p>Manager pinged via WhatsApp / app — name, tier, last visit, last basket, preferences.</p>
+      </article>
+      <span class="tl-arr">→</span>
+      <article class="tl-card">
+        <header><span class="tl-card__n">03</span><span class="tl-card__t">3.0s</span></header>
+        <h3>Activation</h3>
+        <p>Next-best-action: assign senior associate, push targeted POS offer, trigger follow-up sequence.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ───────────── CAPABILITY 02 — STAFF ANALYTICS ───────────── -->
+  <section class="section section--alt" data-ctx="CAPABILITY 02">
+    <div class="container">
+      <p class="eyebrow">Capability 02</p>
+      <h2 class="display">Staff Analytics,<br/>Elaborated.</h2>
+
+      <div class="circle-grid circle-grid--3">
+        <article class="circ">
+          <span class="circ__n">1</span>
+          <h3>Grouping &amp; Inattention</h3>
+          <p>Flags clusters of staff grouped &gt; 1 minute without an active customer. Manager receives a real-time alert with clip.</p>
+        </article>
+        <article class="circ">
+          <span class="circ__n">2</span>
+          <h3>Wall-Location Coverage</h3>
+          <p>Detects when a staffed wall is unattended beyond threshold during peak hours. Trended hourly, store by store.</p>
+        </article>
+        <article class="circ">
+          <span class="circ__n">3</span>
+          <h3>Mobile-Use Tracking</h3>
+          <p>Phone use detected with thresholds (1 min floor, 2 min back store). Coaching tool, not a surveillance tool.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── HIDDEN LOOPS ───────────── -->
+  <section class="section" data-ctx="CAPABILITY 02 · CONT">
+    <div class="container split">
+      <div class="split__copy">
+        <p class="eyebrow">Capability 02 · Continued</p>
+        <h2 class="display">The Hidden Loops<br/>That Decide a Sale.</h2>
+
+        <div class="ll-grid">
+          <article class="ll">
+            <span class="ll__n">4</span>
+            <div>
+              <h3>Style / Size Run-Time</h3>
+              <p>Time between staff leaving the brand location to look for a size and returning with stock. Per-brand, per-staff, per-shift.</p>
+            </div>
+          </article>
+          <article class="ll">
+            <span class="ll__n">5</span>
+            <div>
+              <h3>Per-Staff Sale Conversion</h3>
+              <p>Stitching the journey to attending staff and POS bill yields an objective attended-conversion score.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="split__media">
+        <img src="/assets/images/paths.png" alt="A retail store with customer trajectories traced in magenta dotted lines" />
+      </div>
+    </div>
+
+    <div class="container">
+      <figure class="shift-chart">
+        <label>PER-STAFF ACTIVITY · S04 · SHIFT 10–8</label>
+        <div class="track"><span>Attended</span><div class="bar"><i class="seg seg--brand" style="left:14%; width:14%"></i><i class="seg seg--brand" style="left:32%; width:13%"></i><i class="seg seg--brand" style="left:55%; width:15%"></i><i class="seg seg--brand" style="left:74%; width:11%"></i></div></div>
+        <div class="track"><span>Wall Station</span><div class="bar"><i class="seg seg--white" style="left:48%; width:10%"></i><i class="seg seg--white" style="left:88%; width:8%"></i></div></div>
+        <div class="track"><span>Back Store</span><div class="bar"><i class="seg seg--grey" style="left:20%; width:7%"></i><i class="seg seg--grey" style="left:60%; width:6%"></i></div></div>
+        <div class="track"><span>Mobile Use</span><div class="bar"><i class="seg seg--amber" style="left:42%; width:5%"></i></div></div>
+        <div class="track"><span>Grouping</span><div class="bar"><i class="seg seg--maroon" style="left:46%; width:5%"></i></div></div>
+        <div class="track-axis"><span>10AM</span><span>12</span><span>2PM</span><span>4</span><span>6</span><span>8PM</span></div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ───────────── BRAND-LEVEL STAFF HEAT MAP ───────────── -->
+  <section class="section section--alt" data-ctx="BRAND-LEVEL HEAT">
+    <div class="container">
+      <p class="eyebrow">Brand-Level Staff Heat Map</p>
+      <h2 class="display">Where Your Staff<br/>Actually Spend Time.</h2>
+
+      <div class="two-col">
+        <article class="lens">
+          <p class="lens__head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s7-7 7-13a7 7 0 1 0-14 0c0 6 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            FLOOR MOVEMENT MAP
+          </p>
+          <ul class="checklist">
+            <li>Per-staff movement trail across the floor</li>
+            <li>Brand-zone occupancy heat by 30-min slot</li>
+            <li>Hand-off detection between brand zones</li>
+            <li>Comparison: peak vs non-peak coverage</li>
+          </ul>
+        </article>
+        <article class="lens">
+          <p class="lens__head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8l10-5 10 5-10 5z"/><path d="M2 12l10 5 10-5"/><path d="M2 16l10 5 10-5"/></svg>
+            BACK-STORE ACTIVITY
+          </p>
+          <ul class="checklist">
+            <li>Round-trips per brand per day (size hunts)</li>
+            <li>Time spent by each staff in back store</li>
+            <li>Alert if &gt; 4 staff in back store at once</li>
+            <li>End-of-day back-store occupancy report</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── CHAPTER · MORE OUT OF THE BOX ───────────── -->
+  <section class="section chapter" data-ctx="RETAILTRACK · CHAPTER 04">
+    <div class="container">
+      <p class="chapter__num">RETAILTRACK · CHAPTER 04</p>
+      <h2 class="display display--xl">More Out of the Box</h2>
+      <p class="lede">A long tail of operational use-cases — each individually worth the install — running on the same edge appliance.</p>
+      <div class="chapter__rule"></div>
+    </div>
+  </section>
+
+  <section class="section section--tight" data-ctx="LONG TAIL">
+    <div class="container">
+      <p class="eyebrow">More Out-of-the-Box</p>
+      <h2 class="display">The Long Tail<br/>of Use-Cases.</h2>
+
+      <div class="num-grid num-grid--4">
+        <article class="num-card num-card--brand">
+          <span class="num-card__n">01</span>
+          <h3>Floor &amp; Display Hygiene</h3>
+          <ul class="dotlist">
+            <li>Footwear out of place &gt; 2 min triggers alert</li>
+            <li>Restore-display task auto-assigned</li>
+            <li>Daily hygiene compliance score per zone</li>
+            <li>End-of-day VM delta photos</li>
+          </ul>
+        </article>
+        <article class="num-card num-card--brand">
+          <span class="num-card__n">02</span>
+          <h3>Queue &amp; Cash-Desk</h3>
+          <ul class="dotlist">
+            <li>Live queue length &amp; wait time per till</li>
+            <li>Auto-alert when queue &gt; 4 customers</li>
+            <li>Bagging / hand-off duration tracking</li>
+            <li>Trial-room turnover &amp; queue at fitting bay</li>
+          </ul>
+        </article>
+        <article class="num-card num-card--brand">
+          <span class="num-card__n">03</span>
+          <h3>Loss Prevention</h3>
+          <ul class="dotlist">
+            <li>Tag-removal &amp; concealment cues</li>
+            <li>After-hours motion in restricted zones</li>
+            <li>Unauthorised back-store entries</li>
+            <li>Door-open / cash-drawer correlation</li>
+          </ul>
+        </article>
+        <article class="num-card num-card--brand">
+          <span class="num-card__n">04</span>
+          <h3>Operations &amp; Compliance</h3>
+          <ul class="dotlist">
+            <li>Opening &amp; closing procedure audit</li>
+            <li>Mannequin / dummy-presence at promo zones</li>
+            <li>Camera health &amp; obstruction monitoring</li>
+            <li>Daily / weekly executive summary email</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       ▼  RIDERTRACK
+       ════════════════════════════════════════════════════════════ -->
+
+  <!-- ───────────── RIDERTRACK COVER ───────────── -->
+  <section class="section chapter product-chapter" id="ridertrack" data-ctx="RIDERTRACK">
+    <div class="container split chapter__split">
+      <div>
+        <p class="chapter__num">PRODUCT 02 · RIDERTRACK</p>
+        <h2 class="display display--xl">Intelligence for<br/>the Last Mile.</h2>
+        <p class="lede">An AI-powered surveillance and video-summarisation product for quick-commerce dark stores — running on high-performance Intel edge compute that sees what the dispatcher cannot.</p>
+        <div class="chapter__rule"></div>
+      </div>
+      <div class="chapter__art">
+        <img src="/assets/images/rider-cover.png" alt="A delivery hub at night with riders and magenta AI detection overlays" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── RIDERTRACK · THE HUB VISIBILITY GAP ───────────── -->
+  <section class="section section--tight" data-ctx="RIDERTRACK · CHALLENGE">
+    <div class="container split">
+      <div class="split__copy">
+        <p class="eyebrow">RiderTrack · The Challenge</p>
+        <h2 class="display">The Dark-Store<br/>Visibility Gap.</h2>
+        <p class="lede">Quick-commerce dark stores face inefficiencies as delivery agents exploit the system during difficult conditions — rain, traffic, low-demand windows. The dispatcher sees the symptom; nobody sees the cause.</p>
+      </div>
+      <div class="split__media">
+        <img src="/assets/images/rider-cluster.png" alt="A cluster of idle delivery riders standing together at a hub at night" />
+      </div>
+    </div>
+
+    <div class="container num-grid num-grid--2">
+      <article class="num-card">
+        <span class="num-card__n">01</span>
+        <h3>Idle behaviour during difficult conditions</h3>
+        <p>During rain or heavy traffic, some agents deliberately remain idle in waiting areas — falsely signalling a shortage of available riders to the dispatch system.</p>
+      </article>
+      <article class="num-card">
+        <span class="num-card__n">02</span>
+        <h3>Unverified agent presence</h3>
+        <p>The roster says the rider is on shift. Without privacy-preserving recognition, the hub has no objective record of who is actually on the apron and active.</p>
+      </article>
+      <article class="num-card">
+        <span class="num-card__n">03</span>
+        <h3>Artificial surge &amp; cost spikes</h3>
+        <p>False scarcity triggers artificial surge pricing and unnecessary cost spikes. Customer charges go up, customer satisfaction goes down — both manufactured by the gap.</p>
+      </article>
+      <article class="num-card">
+        <span class="num-card__n">04</span>
+        <h3>Operational opacity</h3>
+        <p>Floor managers and HQ have no transparent insight into idle patterns, exploitation, or accountability — until an audit, weeks later. Workforce decisions stay gut-driven.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ───────────── RIDERTRACK · THE SOLUTION ───────────── -->
+  <section class="section" data-ctx="RIDERTRACK · SOLUTION">
+    <div class="container">
+      <p class="eyebrow">RiderTrack · The Solution</p>
+      <h2 class="display">RiderTrack Platform.</h2>
+      <p class="lede">An AI-powered surveillance and video-summarisation product. RiderTrack onboards agents via privacy-preserving recognition, tracks presence and movement, monitors real-time activity, and flags idle behaviour — providing transparent insights to operations teams and enabling timely intervention before the surge model fires.</p>
+
+      <div class="pipeline">
+        <div class="pipe-card">
+          <span class="pipe-card__n">01</span>
+          <div class="pipe-card__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h4l2-3h6l2 3h4v12H3z"/><circle cx="12" cy="13" r="3.5"/></svg>
+          </div>
+          <h3>Watch the Hub</h3>
+          <p>Existing apron, gate &amp; loading-bay CCTV via RTSP.</p>
+        </div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-card">
+          <span class="pipe-card__n">02</span>
+          <div class="pipe-card__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>
+          </div>
+          <h3>Process on Edge</h3>
+          <p>Intel edge compute. Air-gapped. ~100 TOPS on-prem.</p>
+        </div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-card">
+          <span class="pipe-card__n">03</span>
+          <div class="pipe-card__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+          </div>
+          <h3>Detect Patterns</h3>
+          <p>Clusters · presence · demand-weather correlation.</p>
+        </div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-card">
+          <span class="pipe-card__n">04</span>
+          <div class="pipe-card__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 11l5-7v5h11v4H9v5z"/></svg>
+          </div>
+          <h3>Route the Action</h3>
+          <p>Dispatcher console · WhatsApp · surge-model guardrail API.</p>
+        </div>
+      </div>
+
+      <div class="stats4">
+        <div><b>Real-time</b><span>Cluster detection</span></div>
+        <div><b>Multi-cam</b><span>Per edge node</span></div>
+        <div><b>0</b><span>Faces leave the box</span></div>
+        <div><b>On-prem</b><span>Full data sovereignty</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── HUB OPERATIONS CONSOLE ───────────── -->
+  <section class="section section--alt" data-ctx="RIDERTRACK · HUB CONSOLE">
+    <div class="container">
+      <p class="eyebrow">Live Hub Console</p>
+      <h2 class="display">One Pane of Glass<br/>for the Apron.</h2>
+
+      <div class="console">
+        <div class="console__stats">
+          <div><label>ROSTERED</label><b>42</b></div>
+          <div><label>ON APRON</label><b>31 / 42</b></div>
+          <div><label>IDLE &gt; 5m</label><b>7</b></div>
+          <div><label>AVG TURNAROUND</label><b>6:18</b></div>
+        </div>
+
+        <div class="console__chart">
+          <label>RIDERS ON APRON · LAST 12 HRS</label>
+          <div class="bars">
+            <i style="--h:32%"></i><i style="--h:42%"></i><i style="--h:58%"></i>
+            <i style="--h:74%"></i><i style="--h:88%"></i><i style="--h:94%" class="bars__hi"></i>
+            <i style="--h:72%"></i><i style="--h:62%"></i><i style="--h:80%"></i>
+            <i style="--h:70%"></i><i style="--h:48%"></i><i style="--h:36%"></i>
+          </div>
+          <div class="bars__axis"><span>10AM</span><span>1PM</span><span>4PM</span><span>10PM</span></div>
+        </div>
+
+        <div class="console__alerts">
+          <label>ALERT STREAM</label>
+          <ul>
+            <li><i class="dot dot--brand"></i> Idle cluster · gate · 4 riders · 3m18s</li>
+            <li><i class="dot"></i> Helmet down · R-204 · clip ↗</li>
+            <li><i class="dot dot--brand"></i> Surge guardrail · supplier paused</li>
+            <li><i class="dot"></i> Bag missing · order #92837</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cam-strip">
+        <span>APRON 01</span><span>GATE</span><span>BAY 1</span>
+        <span>BAY 2</span><span>RETURNS</span><span>PARKING</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── RIDERTRACK · CAPABILITY 01 ───────────── -->
+  <section class="section" data-ctx="RIDERTRACK · CAPABILITY 01">
+    <div class="container">
+      <p class="eyebrow">RiderTrack · Capability 01</p>
+      <h2 class="display">Rider Analytics,<br/>Elaborated.</h2>
+
+      <div class="circle-grid">
+        <article class="circ">
+          <span class="circ__n">1</span>
+          <h3>Cluster Detection</h3>
+          <p>Detects clusters of ≥ 3 riders idle &gt; N minutes at a hub zone. Pings dispatch before the surge model fires.</p>
+        </article>
+        <article class="circ">
+          <span class="circ__n">2</span>
+          <h3>Presence Verification</h3>
+          <p>Privacy-preserving embedding match against the on-shift roster. Confirms the apron rider is the rider on the system.</p>
+        </article>
+        <article class="circ">
+          <span class="circ__n">3</span>
+          <h3>Demand &amp; Weather Correlation</h3>
+          <p>Stitches local weather, event calendar, app order velocity and hub footage into one curve — surface spikes before they hit ETAs.</p>
+        </article>
+        <article class="circ">
+          <span class="circ__n">4</span>
+          <h3>Loss &amp; Bag Audit</h3>
+          <p>Bag in / bag out, helmet-down, unauthorised vehicle — every event is a clip and a timestamp, indexed for review.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── SURGE GUARDRAIL FLOW ───────────── -->
+  <section class="section section--alt" data-ctx="RIDERTRACK · SURGE GUARDRAIL">
+    <div class="container split">
+      <div class="split__copy">
+        <p class="eyebrow">Surge Guardrail Flow</p>
+        <h2 class="display">From Apron Cluster<br/>to Surge Decision.</h2>
+        <p class="lede">A cluster of riders is detected. Within three seconds the surge model has a guardrail signal, the dispatcher has the clip, and the riders have a nudge — long before the customer sees an inflated price.</p>
+      </div>
+      <div class="split__media">
+        <img src="/assets/images/rider-bike.png" alt="A delivery rider on an electric scooter at night with magenta accent glow" />
+      </div>
+    </div>
+
+    <div class="container timeline">
+      <article class="tl-card">
+        <header><span class="tl-card__n">01</span><span class="tl-card__t">0.4s</span></header>
+        <h3>Detection</h3>
+        <p>Cluster of 4 riders idle &gt; 3 min at Gate-A. Edge runtime produces an event, a count, and a clip pointer.</p>
+      </article>
+      <span class="tl-arr">→</span>
+      <article class="tl-card">
+        <header><span class="tl-card__n">02</span><span class="tl-card__t">1.8s</span></header>
+        <h3>Notification</h3>
+        <p>Dispatcher + duty manager pinged via WhatsApp / console with a one-tap clip. Surge API receives a "real-capacity = 4" hint.</p>
+      </article>
+      <span class="tl-arr">→</span>
+      <article class="tl-card">
+        <header><span class="tl-card__n">03</span><span class="tl-card__t">3.0s</span></header>
+        <h3>Guardrail</h3>
+        <p>Surge multiplier delayed until cluster clears or quorum drops. Riders nudged via app. Customer sees the true price.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ───────────── RIDERTRACK · RESULTS ───────────── -->
+  <section class="section section--alt" data-ctx="RIDERTRACK · RESULTS">
+    <div class="container">
+      <p class="eyebrow">RiderTrack · Results</p>
+      <h2 class="display">Outcomes Operations<br/>Teams See.</h2>
+      <p class="lede">RiderTrack measurably shifts the operating curve of a quick-commerce hub — across cost, productivity, customer experience, and transparency.</p>
+
+      <div class="results-grid">
+        <article class="result-card">
+          <span class="result-card__chk" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 10 18 20 6"/></svg>
+          </span>
+          <h3>Reduced artificial surge</h3>
+          <p>Reduction in artificially triggered surge pricing and unnecessary cost spikes — the dispatch model sees true on-apron capacity.</p>
+        </article>
+        <article class="result-card">
+          <span class="result-card__chk" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 10 18 20 6"/></svg>
+          </span>
+          <h3>Higher agent productivity</h3>
+          <p>Improved delivery-agent productivity and resource utilisation. Idle behaviour gets flagged and addressed in the same shift, not weeks later.</p>
+        </article>
+        <article class="result-card">
+          <span class="result-card__chk" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 10 18 20 6"/></svg>
+          </span>
+          <h3>Better customer experience</h3>
+          <p>Enhanced customer satisfaction through better availability and reduced delivery charges — fewer manufactured "no riders nearby" moments.</p>
+        </article>
+        <article class="result-card">
+          <span class="result-card__chk" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 10 18 20 6"/></svg>
+          </span>
+          <h3>Operational transparency</h3>
+          <p>Increased operational transparency and data-driven workforce management. Floor managers and HQ see the same objective view, on the same console.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── RIDERTRACK · CAPABILITY 02 — SAFETY ───────────── -->
+  <section class="section" data-ctx="RIDERTRACK · CAPABILITY 02">
+    <div class="container">
+      <p class="eyebrow">RiderTrack · Capability 02</p>
+      <h2 class="display">Rider Safety,<br/>Coaching-First.</h2>
+
+      <div class="two-col">
+        <article class="lens">
+          <p class="lens__head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6z"/></svg>
+            SAFETY DETECTION
+          </p>
+          <ul class="dashlist">
+            <li>Helmet-down detection at the apron line</li>
+            <li>Bag-strap unclipped before departure</li>
+            <li>High-speed approach to gate · near-miss flag</li>
+            <li>Wrong-way exit / unauthorised vehicle entry</li>
+            <li>Wet-weather PPE coverage during rain windows</li>
+          </ul>
+        </article>
+        <article class="lens">
+          <p class="lens__head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            COACHING WORKFLOW
+          </p>
+          <ul class="checklist">
+            <li>Daily safety digest per hub manager</li>
+            <li>Weekly per-rider clip library for coaching</li>
+            <li>Trend lines per shift, per zone, per weather window</li>
+            <li>Post-incident clip lookup in &lt; 30 seconds</li>
+            <li>Anonymised aggregates for HQ — no personal IDs</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="pullquote">
+        <span class="pullquote__bar"></span>
+        <span><b>RiderTrack is a coaching tool, not a surveillance tool.</b> No raw faces or biometrics leave the hub. Clips are retained on a FIFO policy you configure.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ───────────── RIDERTRACK · LONG TAIL ───────────── -->
+  <section class="section section--alt section--tight" data-ctx="RIDERTRACK · LONG TAIL">
+    <div class="container">
+      <p class="eyebrow">More Out-of-the-Box</p>
+      <h2 class="display">The Long Tail<br/>of Hub Use-Cases.</h2>
+
+      <div class="num-grid num-grid--4">
+        <article class="num-card num-card--brand">
+          <span class="num-card__n">01</span>
+          <h3>Hub &amp; Apron Hygiene</h3>
+          <ul class="dotlist">
+            <li>Spillage / litter on apron auto-detected</li>
+            <li>Fire-exit blockage by parked vehicles</li>
+            <li>End-of-shift housekeeping audit photos</li>
+            <li>Loading-bay congestion heat by hour</li>
+          </ul>
+        </article>
+        <article class="num-card num-card--brand">
+          <span class="num-card__n">02</span>
+          <h3>Returns &amp; COD Intake</h3>
+          <ul class="dotlist">
+            <li>Returns-counter wait time per shift</li>
+            <li>Cash hand-off correlation with POS</li>
+            <li>Bag-back-in confirmation per order</li>
+            <li>Auto-flag if return clip missing for a tagged order</li>
+          </ul>
+        </article>
+        <article class="num-card num-card--brand">
+          <span class="num-card__n">03</span>
+          <h3>Vehicle &amp; Parking</h3>
+          <ul class="dotlist">
+            <li>Parking-discipline scoring per rider</li>
+            <li>Unauthorised vehicle entry alert</li>
+            <li>Two-wheeler health / breakdown detection</li>
+            <li>EV-charging bay queue length</li>
+          </ul>
+        </article>
+        <article class="num-card num-card--brand">
+          <span class="num-card__n">04</span>
+          <h3>Compliance &amp; Audit</h3>
+          <ul class="dotlist">
+            <li>Opening &amp; closing procedure audit</li>
+            <li>Branded-jacket / helmet compliance check</li>
+            <li>Camera health &amp; obstruction monitoring</li>
+            <li>Daily / weekly executive hub-health email</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       ▼  SHARED PLATFORM (paradigm shift onward)
+       ════════════════════════════════════════════════════════════ -->
+
+  <!-- ───────────── CHAPTER · PARADIGM SHIFT ───────────── -->
+  <section class="section chapter" data-ctx="PLATFORM · CHAPTER 05">
+    <div class="container split chapter__split">
+      <div>
+        <p class="chapter__num">PLATFORM · CHAPTER 05</p>
+        <h2 class="display display--xl">The Paradigm Shift</h2>
+        <p class="lede">Why GenAI-powered analytics finally makes the in-store camera a primary business sensor.</p>
+        <div class="chapter__rule"></div>
+      </div>
+      <div class="chapter__art">
+        <img src="/assets/images/paradigm.png" alt="A dark luxury store with magenta data streams flowing from a CCTV camera" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" data-ctx="PARADIGM SHIFT">
+    <div class="container">
+      <p class="eyebrow">The Paradigm Shift</p>
+      <h2 class="display">Why GenAI Analytics<br/>Changes Everything.</h2>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Traditional CV</th>
+            <th class="cmp__hi">EdgeVision GenAI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Detection</td>     <td>Bounding boxes &amp; pixel thresholds</td>     <td class="cmp__hi">Contextual scene understanding</td></tr>
+          <tr><td>Accuracy</td>      <td>High false-positive in varying light</td>     <td class="cmp__hi">Adaptive to lighting &amp; occlusions</td></tr>
+          <tr><td>Self-Service</td>  <td>Cannot determine purchase intent</td>         <td class="cmp__hi">Full customer journey with billing</td></tr>
+          <tr><td>Hygiene</td>       <td>Static detection, frequent false alerts</td>  <td class="cmp__hi">Scene-aware: items vs. decor</td></tr>
+          <tr><td>Adaptability</td>  <td>Manual re-calibration per store</td>          <td class="cmp__hi">Self-adapting, zero retraining</td></tr>
+          <tr><td>Insights</td>      <td>Counts and timestamps only</td>               <td class="cmp__hi">Rich descriptions: why, not what</td></tr>
+        </tbody>
+      </table>
+
+      <p class="pullquote">
+        <span class="pullquote__bar"></span>
+        <span><i>"Traditional analytics tells you someone entered the store. EdgeVision tells you they browsed for 4 minutes, showed interest in the brand wall, and left without purchasing — and which staff member was nearest."</i></span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ───────────── HYBRID INTELLIGENCE ───────────── -->
+  <section class="section" data-ctx="HYBRID INTELLIGENCE">
+    <div class="container">
+      <p class="eyebrow">Hybrid Intelligence</p>
+      <h2 class="display">Real-Time Vision<br/>+ On-Device GenAI.</h2>
+
+      <div class="circle-grid circle-grid--3 circle-grid--icon">
+        <article class="circ">
+          <span class="circ__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>
+          </span>
+          <h3>Hybrid Intelligence</h3>
+          <p>Vision AI runs continuously at 15+ FPS. GenAI (VLM) is triggered only when the rule engine demands context — about 90% compute reduction.</p>
+        </article>
+        <article class="circ">
+          <span class="circ__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          </span>
+          <h3>Zero Cloud Dependency</h3>
+          <p>Everything happens on Intel edge compute inside the site. No frames, no biometrics, no PII transmitted off-premise. Full data sovereignty.</p>
+        </article>
+        <article class="circ">
+          <span class="circ__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="4" r="2"/><circle cx="5" cy="20" r="2"/><circle cx="19" cy="20" r="2"/><path d="M12 6v6M5 18l7-6 7 6"/></svg>
+          </span>
+          <h3>Configurable Rules</h3>
+          <p>Node-RED-style rule engine. Tune thresholds (e.g. "&gt; 4 staff in back store") without code changes or retraining.</p>
+        </article>
+      </div>
+
+      <div class="stats4 stats4--3">
+        <div><b>15<i>+</i></b><span>FPS continuous Vision AI per camera</span></div>
+        <div><b>~90<i>%</i></b><span>Compute reduction via VLM triggering</span></div>
+        <div><b>0</b><span>Frames, biometrics or PII off-premise</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── ARCHITECTURE ───────────── -->
+  <section class="section section--alt" id="architecture" data-ctx="ARCHITECTURE">
+    <div class="container">
+      <p class="eyebrow">Edge-First Architecture</p>
+      <h2 class="display">Built for<br/>the Store LAN.</h2>
+      <p class="lede">High-performance Intel edge compute on the site LAN. Reads existing CCTV via RTSP. Runs the full pipeline locally.</p>
+
+      <div class="pipeline pipeline--5">
+        <div class="pipe-card"><span class="pipe-card__n">STAGE 01</span><h3>Store Cameras</h3><p>Existing IP CCTV via RTSP</p></div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-card"><span class="pipe-card__n">STAGE 02</span><h3>Edge Compute</h3><p>Intel Core Ultra · ~100 TOPS</p></div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-card"><span class="pipe-card__n">STAGE 03</span><h3>AI Pipeline</h3><p>Vision + GenAI inference</p></div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-card"><span class="pipe-card__n">STAGE 04</span><h3>Rule Engine</h3><p>Configurable thresholds</p></div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-card"><span class="pipe-card__n">STAGE 05</span><h3>Outputs</h3><p>Dashboards · APIs · WhatsApp</p></div>
+      </div>
+
+      <div class="lan-bar">
+        <span class="lan-bar__l">INSIDE STORE LAN</span>
+        <span class="lan-bar__line"></span>
+        <span class="lan-bar__r">AIR-GAPPED · NO CLOUD</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── HARDWARE + PRIVACY ───────────── -->
+  <section class="section" data-ctx="HARDWARE &amp; PRIVACY">
+    <div class="container">
+      <div class="split split--narrow">
+        <div>
+          <p class="eyebrow">Hardware &amp; Privacy</p>
+          <h2 class="display">Intel-Powered.<br/>Privacy by Design.</h2>
+        </div>
+        <div class="intel-badge" aria-label="Intel partner">
+          <div class="intel-badge__inner">
+            <span>intel</span><i>partner</i>
+          </div>
+        </div>
+      </div>
+
+      <div class="two-col two-col--narrow">
+        <article class="lens">
+          <p class="lens__head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>
+            HARDWARE · REFERENCE EDGE NODE
+          </p>
+          <dl class="speclist">
+            <div><dt>PLATFORM</dt><dd>ASUS NUC15CRSU9</dd></div>
+            <div><dt>PROCESSOR</dt><dd>Intel Core Ultra 9 285H · ~100 TOPS</dd></div>
+            <div><dt>MEMORY</dt><dd>32 GB</dd></div>
+            <div><dt>STORAGE</dt><dd>1 TB NVMe</dd></div>
+            <div><dt>OS</dt><dd>Ubuntu 24.04 LTS</dd></div>
+            <div><dt>NETWORK</dt><dd>Closed LAN, isolated</dd></div>
+          </dl>
+        </article>
+        <article class="lens">
+          <p class="lens__head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6z"/></svg>
+            PRIVACY &amp; SECURITY
+          </p>
+          <ul class="checklist">
+            <li>On-prem deployment — all processing inside the store</li>
+            <li>Air-gapped — no external API calls required</li>
+            <li>Role-based access (RBAC) for managers &amp; HQ</li>
+            <li>FIFO video retention with configurable policy</li>
+            <li>Tamper-resistant edge appliance</li>
+            <li>Zero biometric data leaves the device</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── ENGAGEMENT MODEL ───────────── -->
+  <section class="section section--alt" id="engagement" data-ctx="ENGAGEMENT">
+    <div class="container">
+      <p class="eyebrow">Engagement Model</p>
+      <h2 class="display">From CCTV to Insights<br/>in Three Weeks.</h2>
+
+      <div class="weeks">
+        <article class="week week--first">
+          <span class="week__n">WEEK 01</span>
+          <h3>Audit &amp; Install</h3>
+          <p>Site survey, camera audit, RTSP setup. Intel edge compute installed on the site LAN. Baseline data collection starts.</p>
+        </article>
+        <article class="week">
+          <span class="week__n">WEEK 02</span>
+          <h3>Calibrate &amp; Tune</h3>
+          <p>Zone definitions, threshold tuning per fixture, alert routing setup, custom rules wired to messaging stack.</p>
+        </article>
+        <article class="week">
+          <span class="week__n">WEEK 03</span>
+          <h3>Handover &amp; Train</h3>
+          <p>Manager training, dashboard onboarding, alert rehearsal, first weekly executive insights report delivered.</p>
+        </article>
+      </div>
+
+      <p class="pullquote">
+        <span class="pullquote__bar"></span>
+        <span><b>What you get at end of week 3:</b> a fully running EdgeVision installation, two weeks of baseline analytics, a configured alert pipeline, and an operations team that has run a full daily cycle on the new console.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ───────────── ABOUT ───────────── -->
+  <section class="section" id="about" data-ctx="ABOUT">
+    <div class="container">
+      <p class="eyebrow">About</p>
+      <h2 class="display">The Team Behind<br/>EdgeVision.</h2>
+      <p class="lede">Pattern AI Labs builds intelligent edge AI for enterprise operations — democratising real-time video intelligence with privacy and actionable insights in seconds.</p>
+
+      <div class="num-grid num-grid--4 about-grid">
+        <article class="num-card">
+          <span class="num-card__n">01</span>
+          <h3>Generative AI &amp; CV</h3>
+          <p>Multi-modal models for scene understanding, contextual reasoning and visual intelligence — tuned for enterprise edge.</p>
+        </article>
+        <article class="num-card">
+          <span class="num-card__n">02</span>
+          <h3>Edge AI Optimisation</h3>
+          <p>Inference optimised for Intel NPU + iGPU on Core Ultra series. OpenVINO toolchain. Performance &amp; thermal-aware.</p>
+        </article>
+        <article class="num-card">
+          <span class="num-card__n">03</span>
+          <h3>Real-Time Anomaly</h3>
+          <p>Instant alerts for unusual activity, safety violations and compliance — backed by configurable rule logic.</p>
+        </article>
+        <article class="num-card">
+          <span class="num-card__n">04</span>
+          <h3>Enterprise Integration</h3>
+          <p>REST APIs, webhooks, WhatsApp, dashboard plugins. Integrates with POS, BI stack, &amp; loyalty platform.</p>
+        </article>
+      </div>
+
+      <p class="pullquote">
+        <span class="pullquote__bar"></span>
+        <span><b style="color:var(--brand)">INTEL EDGE AI PARTNER SPOTLIGHT</b><br/>Featured as a leading edge-AI innovator in Intel's exclusive partner ecosystem. Optimised on Intel hardware for real-time inference at the edge.</span>
+      </p>
+
+      <div class="trusted">
+        <span class="trusted__l">BUILT WITH</span>
+        <span>Intel · Edge AI Partner</span><span>OpenVINO Toolchain</span><span>Ubuntu LTS</span><span>Privacy-First Stack</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── CONTACT ───────────── -->
+  <section class="section section--contact" id="contact" data-ctx="CONTACT">
+    <div class="container">
+      <div class="brand brand--contact">
+        <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+          <g fill="currentColor" class="brand__spokes">
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(15 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(30 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(45 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(60 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(75 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(90 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(105 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(120 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(135 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(150 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(165 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(180 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(195 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(210 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(225 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(240 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(255 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(270 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(285 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(300 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(315 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(330 24 24)"/>
+            <rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(345 24 24)"/>
+          </g>
+        </svg>
+        <span class="brand__txt"><b>PATTERN</b><span>AI&nbsp;LABS</span></span>
+      </div>
+
+      <h2 class="display display--xl">
+        Let's bring <span class="grad">intelligence</span><br/>to every store.
+      </h2>
+      <p class="lede">A focused 3-week pilot. Same cameras. New decisions. Measurable lift in customer experience and staff productivity.</p>
+
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:info@pattern-ai.com">
+          <span class="contact-card__h">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            EMAIL
+          </span>
+          <span class="contact-card__v">info@pattern-ai.com</span>
+        </a>
+        <a class="contact-card" href="https://www.edgevision.pro">
+          <span class="contact-card__h">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+            WEB
+          </span>
+          <span class="contact-card__v">www.edgevision.pro</span>
+        </a>
+        <a class="contact-card" href="tel:+919961871254">
+          <span class="contact-card__h">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 4l4 1 1 4-2 2a12 12 0 0 0 5 5l2-2 4 1 1 4a2 2 0 0 1-2 2A18 18 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+            PHONE
+          </span>
+          <span class="contact-card__v">+91 99618 71254</span>
+        </a>
+      </div>
+
+      <div class="contact-foot">
+        <span class="contact-foot__locs">SAN FRANCISCO, USA &nbsp;&nbsp;·&nbsp;&nbsp; KOCHI, INDIA &nbsp;&nbsp;·&nbsp;&nbsp; REMOTE, GLOBAL</span>
+        <span class="contact-foot__copy">© 2026 PATTERN AI LABS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── BOTTOM PROGRESS BAR ───────────── -->
+  <footer class="progress" aria-hidden="true">
+    <div class="container progress__inner">
+      <span class="progress__l">www.edgevision.pro</span>
+      <span class="progress__bar"><i id="progressFill"></i></span>
+      <span class="progress__r">EDGEVISION · PATTERN AI LABS</span>
+    </div>
+  </footer>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>
