@@ -444,7 +444,7 @@ S.append(slide("PLATFORM · ARCHITECTURE", body))
 spec = ('<article class="lens"><p class="lens__head">HARDWARE · REFERENCE EDGE NODE</p>'
         '<dl class="speclist">' + "".join(
     '<div><dt>{k}</dt><dd>{v}</dd></div>'.format(k=esc(k), v=esc(v)) for k, v in [
-      ("PLATFORM", "ASUS NUC15CRSU9"), ("PROCESSOR", "Intel Core Ultra 9 285H · ~100 TOPS"),
+      ("PLATFORM", "Lenovo · Model TBD"), ("PROCESSOR", "Intel Core Ultra 9 285H · ~100 TOPS"),
       ("MEMORY", "32 GB"), ("STORAGE", "1 TB NVMe"),
       ("OS", "Ubuntu 24.04 LTS"), ("NETWORK", "Closed LAN, isolated"),
     ]) + '</dl></article>')
