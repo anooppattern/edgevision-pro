@@ -11,6 +11,7 @@
   --maroon:#5A1729;--cyan:#5BC5E8;--amber:#F0B85A;
   --tx:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono','SF Mono',Menlo,monospace;
 }
+@page{size:13.333in 7.5in;margin:0}
 *,*::before,*::after{box-sizing:border-box}
 html,body{margin:0;padding:0;background:#000}
 body{font-family:var(--tx);font-weight:300;color:var(--text);-webkit-font-smoothing:antialiased;
