@@ -465,3 +465,11 @@ ul{margin:0;padding:0;list-style:none}
 .uc__n{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--brand);padding-top:3px}
 .uc h3{font-family:var(--tx);font-weight:500;font-size:1rem;letter-spacing:-.01em;color:#fff;margin:0 0 4px}
 .uc p{font-size:.8rem;line-height:1.4;color:var(--text-dim);margin:0}
+
+/* Bulletproof cover tag dot (inline SVG — round in every renderer) */
+.cover__tags .cdot{flex:0 0 auto;display:inline-block}
+/* Use-case slide with an image (split) */
+.split--uc{grid-template-columns:1.4fr 1fr;gap:34px;margin-top:6px;align-items:stretch}
+.split--uc .split__media{aspect-ratio:auto}
+.ucards--col{grid-template-columns:1fr}
+.ucards--col .uc{padding:13px 22px}

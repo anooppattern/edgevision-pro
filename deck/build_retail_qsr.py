@@ -101,8 +101,8 @@ S.append('<section class="slide slide--cover"><img class="slide__bg" src="{img}/
   '<p class="cover__sub">Intelligent AI surveillance at the edge — turning every store and restaurant camera '
   'into a real-time operations &amp; customer-intelligence engine. One on-prem edge platform across '
   'retail floors and quick-service restaurants.</p>'
-  '<ul class="cover__tags"><li><i></i> EDGE-FIRST</li><li><i></i> PRIVACY BY DESIGN</li>'
-  '<li><i></i> INTEL POWERED</li></ul>'
+  '<ul class="cover__tags"><li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> EDGE-FIRST</li><li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> PRIVACY BY DESIGN</li>'
+  '<li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> INTEL POWERED</li></ul>'
   '<div class="cover__foot"><span>EDGEVISION.PRO · PATTERN AI LABS</span>'
   '<span class="cover__sigil">RETAIL<br/>&amp; QUICK-SERVICE</span></div></div></section>'.format(img=IMG,mk=mark("mark--lg")))
 
@@ -196,7 +196,7 @@ body=(eyebrow("Capability 01")+display("Customer Analytics, Elaborated.","displa
 S.append(slide("CAPABILITY 01",body))
 
 # 11 · Heat Mapping
-heat=('<div class="heat"><figure class="heat__img"><img src="{i}/ev-heat.png" alt=""/>'
+heat=('<div class="heat"><figure class="heat__img"><img src="{i}/fw-heat.png" alt=""/>'
   '<span class="heat__cap">CONCEPT FLOOR · DWELL HEAT</span></figure>'
   '<div class="heat__bars"><label style="font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;color:var(--text-mute);margin-bottom:14px;display:block">TOP DWELL ZONES</label>'
   +"".join('<div class="hbar"><span class="hbar__l">{l}</span><span class="hbar__v">{v}%</span>'
@@ -215,7 +215,7 @@ for i,(t,h,p) in enumerate([("0.4s","Recognition","Privacy-preserving embedding 
          '<span class="tl-card__t">{t}</span></header><h3>{h}</h3><p>{p}</p></article>').format(n=i,t=t,h=esc(h),p=esc(p))
 copy=(eyebrow("VIP Recognition Flow")+display("From CCTV Frame<br/>to Manager’s Phone.","display--mid")
   +lede("A loyalty member walks in. Within 3 seconds the manager has identity, history and a recommended action — without a single cloud round-trip."))
-body=split(copy,"ev-vip.png","LOYALTY · TIER-GOLD ARRIVAL")+'<div class="timeline timeline--3" style="grid-template-columns:1fr auto 1fr auto 1fr;margin-top:16px">'+ \
+body=split(copy,"fw-vip.png","LOYALTY · TIER-GOLD ARRIVAL")+'<div class="timeline timeline--3" style="grid-template-columns:1fr auto 1fr auto 1fr;margin-top:16px">'+ \
   tl.replace('</article><article','</article><span class="tl-arr" style="align-self:center;color:var(--brand);font-size:1.2rem">→</span><article')+'</div>'
 S.append(slide("VIP RECOGNITION",body))
 
@@ -332,7 +332,7 @@ S.append(slide("ARCHITECTURE",body))
 # 25 · Hardware & Privacy
 spec=('<article class="lens"><p class="lens__head">HARDWARE · REFERENCE EDGE NODE</p>'
   '<dl class="speclist">'+"".join('<div><dt>{k}</dt><dd>{v}</dd></div>'.format(k=esc(k),v=esc(v)) for k,v in
-    [("PLATFORM","Lenovo · Model TBD"),("PROCESSOR","Intel Core Ultra 9 285H · ~100 TOPS"),
+    [("PLATFORM","Lenovo · ThinkEdge"),("PROCESSOR","Intel Core Ultra 9 285H · ~100 TOPS"),
      ("MEMORY","32 GB"),("STORAGE","1 TB NVMe"),("OS","Ubuntu 24.04 LTS"),("NETWORK","Closed LAN, isolated")])+'</dl></article>')
 priv=lenscard("PRIVACY & SECURITY","",["On-prem deployment — all processing inside the site",
   "Air-gapped — no external API calls required","Role-based access (RBAC) for managers & HQ",

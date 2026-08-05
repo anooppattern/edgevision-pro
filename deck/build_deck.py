@@ -134,8 +134,8 @@ S.append(
     '<p class="cover__sub">Custom-installed computer vision for quick-service restaurants — '
       'purpose-built cameras, on-site edge compute, and real-time intervention at the stations you '
       'choose. Machine oversight that is more accurate, more consistent, and never looks away.</p>'
-    '<ul class="cover__tags"><li><i></i> EDGE-FIRST</li><li><i></i> PRIVACY BY DESIGN</li>'
-      '<li><i></i> REAL-TIME INTERVENTION</li></ul>'
+    '<ul class="cover__tags"><li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> EDGE-FIRST</li><li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> PRIVACY BY DESIGN</li>'
+      '<li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> REAL-TIME INTERVENTION</li></ul>'
     '<div class="cover__foot"><span>EDGEVISION.PRO · PATTERN AI LABS</span>'
       '<span class="cover__sigil">RETAIL · QSR<br/>&amp; DELIVERY HUBS</span></div>'
   '</div></section>'
@@ -444,7 +444,7 @@ S.append(slide("PLATFORM · ARCHITECTURE", body))
 spec = ('<article class="lens"><p class="lens__head">HARDWARE · REFERENCE EDGE NODE</p>'
         '<dl class="speclist">' + "".join(
     '<div><dt>{k}</dt><dd>{v}</dd></div>'.format(k=esc(k), v=esc(v)) for k, v in [
-      ("PLATFORM", "Lenovo · Model TBD"), ("PROCESSOR", "Intel Core Ultra 9 285H · ~100 TOPS"),
+      ("PLATFORM", "Lenovo · ThinkEdge"), ("PROCESSOR", "Intel Core Ultra 9 285H · ~100 TOPS"),
       ("MEMORY", "32 GB"), ("STORAGE", "1 TB NVMe"),
       ("OS", "Ubuntu 24.04 LTS"), ("NETWORK", "Closed LAN, isolated"),
     ]) + '</dl></article>')

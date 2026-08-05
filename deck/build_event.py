@@ -107,6 +107,13 @@ def ucards(items):  # (title, one-sentence) -> 2-col detailed use-case grid
         '<div><h3>{h}</h3><p>{p}</p></div></article>'.format(n=i,h=esc(h),p=esc(p)) for i,(h,p) in enumerate(items,1))
     return '<div class="ucards">{}</div>'.format(cells)
 
+def ucsplit(items,img,cap):  # detailed use-cases beside a relevant photo
+    cells="".join('<article class="uc"><span class="uc__n">{n:02d}</span>'
+        '<div><h3>{h}</h3><p>{p}</p></div></article>'.format(n=i,h=esc(h),p=esc(p)) for i,(h,p) in enumerate(items,1))
+    return ('<div class="split split--uc"><div class="split__copy"><div class="ucards ucards--col">{cells}</div></div>'
+        '<div class="split__media"><img src="{i}/{m}" alt=""/><span class="mediacap">{cap}</span></div></div>').format(
+        cells=cells,i=IMG,m=img,cap=esc(cap))
+
 def console(stats, hi, alerts, cams):
     kv="".join('<div class="kv"><label>{l}</label><b>{v}</b></div>'.format(l=esc(l),v=esc(v)) for l,v in stats)
     heights=[18,32,48,62,74,86,70,96,78,58,42,28]
@@ -132,8 +139,8 @@ S.append('<section class="slide slide--cover"><img class="slide__bg" src="{img}/
   '<p class="cover__tag">Turn the cameras you already have into a decision engine.</p>'
   '<p class="cover__sub">Real-time AI that watches every store and restaurant camera — and tells your team '
   'exactly what to do, the moment it matters. On-site. Private. Intel-powered.</p>'
-  '<ul class="cover__tags"><li><i></i> EDGE-FIRST</li><li><i></i> PRIVACY BY DESIGN</li>'
-  '<li><i></i> INTEL POWERED</li></ul>'
+  '<ul class="cover__tags"><li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> EDGE-FIRST</li><li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> PRIVACY BY DESIGN</li>'
+  '<li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> INTEL POWERED</li></ul>'
   '<div class="cover__foot"><span>PATTERN AI LABS · INTEL EDGE AI PARTNER</span>'
   '<span class="cover__sigil">EDGEVISION.PRO</span></div></div></section>'.format(img=IMG,mk=mark("mark--lg")))
 
@@ -176,7 +183,7 @@ S.append(slide("WHAT YOU GET",
 # 7 RETAIL divider (reuse statement style)
 S.append(statement("RETAIL","For your stores",
   "In your stores.",
-  "See every moment that decides a sale — as it happens.","ev-retail.png"))
+  "See every moment that decides a sale — as it happens.","fw-retail.png"))
 
 # 8 RETAIL what it sees
 a=lenscard("CUSTOMERS","Who walks in, where they linger, who’s a VIP.",
@@ -192,26 +199,26 @@ S.append(slide("RETAIL · WHAT IT SEES",
 # 9 RETAIL — use cases (customers & conversion)
 S.append(slide("RETAIL · USE CASES · CUSTOMERS",
   eyebrow("Retail · Use Cases")+display("What it sees for your customers.","display--mid")
-  +ucards([
-    ("Footfall & dwell heat-maps","See where shoppers actually go and linger, so layout and merchandising follow real behaviour."),
-    ("Window & display pull-rate","Measure how many passers-by each window or display draws inside — and prove what merchandising works."),
-    ("Browse-to-buy conversion","Track how many browsers become buyers, by zone and hour, and act on drop-off the same day."),
-    ("VIP & loyalty recognition","Spot a high-value guest the moment they enter and cue the right associate — with no faces ever stored."),
-    ("Queue & checkout wait","Get an alert the instant a queue builds, so you open a till before a customer walks out."),
-    ("Category cross-shopping","See how customers flow between departments, and place ranges where journeys naturally lead."),
-  ])))
+  +ucsplit([
+    ("Footfall & dwell heat-maps","See where shoppers go and linger, so layout follows real behaviour."),
+    ("Window & display pull-rate","Measure how many passers-by each display draws inside — and prove what works."),
+    ("Browse-to-buy conversion","Track how many browsers become buyers, by zone and hour, and act the same day."),
+    ("VIP & loyalty recognition","Spot a high-value guest at the door and cue the right associate — no faces stored."),
+    ("Queue & checkout wait","Get an alert the instant a queue builds, so you open a till before a walk-out."),
+    ("Category cross-shopping","See how customers flow between sections, and place ranges where journeys lead."),
+  ],"fw-uc-customers.png","STORE FLOOR · SHOPPER JOURNEY")))
 
 # 10 RETAIL — use cases (operation)
 S.append(slide("RETAIL · USE CASES · OPERATIONS",
   eyebrow("Retail · Use Cases")+display("What it sees for your operation.","display--mid")
-  +ucards([
-    ("Zone coverage at peak","Know whether every section is staffed when it’s busy, and get alerted when a key area goes unattended."),
-    ("Service attentiveness","Understand how quickly customers are acknowledged and helped, turning service standards into something you can measure."),
-    ("Conversion by associate","Link who was helping to what sold, so coaching is based on real outcomes rather than opinion."),
-    ("Shrink & concealment cues","Flag tag-tampering, concealment and other loss signals as they happen — not at stock-take."),
-    ("Slips, spills & blocked exits","Catch safety hazards the moment they appear and send the fix before anyone is at risk."),
-    ("Display & compliance checks","Verify planogram, housekeeping and open/close standards automatically, store by store."),
-  ])))
+  +ucsplit([
+    ("Zone coverage at peak","Know whether every section is staffed when it’s busy, and get alerted when it isn’t."),
+    ("Service attentiveness","Measure how quickly customers are acknowledged and helped — a real service metric."),
+    ("Conversion by associate","Link who was helping to what sold, so coaching is based on outcomes, not opinion."),
+    ("Shrink & concealment cues","Flag tag-tampering and concealment as they happen — not at stock-take."),
+    ("Slips, spills & blocked exits","Catch safety hazards the moment they appear and send the fix at once."),
+    ("Display & compliance checks","Verify planogram, housekeeping and open/close standards automatically."),
+  ],"fw-uc-ops.png","COUNTER & FLOOR · STAFF IN ACTION")))
 
 # 10 RETAIL — one screen (ops console)
 S.append(slide("RETAIL · ONE SCREEN",
@@ -227,7 +234,7 @@ copy=(eyebrow("A Moment That Matters")+display("A VIP walks in. Your<br/>team kn
              "Name, tier, last visit and favourites — ready for a warm welcome",
              "The right associate and the right offer, before they reach the rail"])
   +'<p class="steps-note">No faces are stored · it all happens inside your store</p>')
-S.append(slide("RETAIL · THE VIP MOMENT",split(copy,"ev-vip.png","LOYALTY · TIER-GOLD ARRIVAL")))
+S.append(slide("RETAIL · THE VIP MOMENT",split(copy,"fw-vip.png","LOYALTY · HIGH-VALUE GUEST")))
 
 # 10 QSR divider
 S.append(statement("QSR","For your restaurants",
@@ -237,41 +244,35 @@ S.append(statement("QSR","For your restaurants",
 # 11 QSR three numbers
 S.append(slide("QSR · THE THREE NUMBERS",
   eyebrow("Quick-Service")+display("The three numbers<br/>every shift lives by.","display--mid")
-  +wins([("clock","Speed","Drive-thru wait, counter queues and time-to-first-bag — measured live, every daypart."),
+  +wins([("clock","Speed","Counter and kiosk queues, mobile-pickup dwell and time-to-first-bag — measured live, every daypart."),
          ("check","Accuracy","Right items, right modifiers — caught before the bag ever leaves the counter."),
          ("shield","Safety","Gloves, handwash and hold-times — checked continuously, ready for the next audit.")])))
 
 # 15 QSR — use cases (speed & accuracy)
 S.append(slide("QSR · USE CASES · SPEED & ACCURACY",
   eyebrow("QSR · Use Cases")+display("Speed and accuracy, in detail.","display--mid")
-  +ucards([
-    ("Drive-thru time per lane","Measure wait and service time for every car in every lane, live — the number behind your busiest revenue line."),
-    ("Counter & kiosk queues","See queues build at the counter or kiosk and move staff before guests give up and leave."),
-    ("Time-to-first-bag","Track how long from order to hand-off, so you catch a slow shift while it’s still happening."),
+  +ucsplit([
+    ("Counter & kiosk queues","See queues build at the counter or kiosk and move staff before guests give up."),
+    ("Time-to-first-bag","Track how long from order to hand-off, so you catch a slow shift as it happens."),
     ("Kitchen bottlenecks","Spot the station backing up the line and rebalance before tickets pile up."),
-    ("Order accuracy","Check items and modifiers against the order and flag a mistake before the bag ever leaves the counter."),
-    ("Packaging & remakes","Catch packaging errors and rising remake rates that quietly eat margin and slow the line."),
-  ])))
+    ("Order accuracy","Check items and modifiers against the order and flag a mistake before it’s bagged."),
+    ("Packaging & remakes","Catch packaging errors and rising remake rates that quietly eat margin."),
+    ("Mobile & pickup dwell","See how long online and pickup orders wait at the shelf, and clear the backlog."),
+  ],"ev-qsrline.png","ASSEMBLY & PASS · ORDER READY")))
 
 # 16 QSR — use cases (safety, cleanliness & ops)
 S.append(slide("QSR · USE CASES · SAFETY & OPS",
   eyebrow("QSR · Use Cases")+display("Safety, cleanliness and ops.","display--mid")
-  +ucards([
-    ("PPE compliance","Confirm gloves, hairnets and aprons are worn where they should be — continuously, and audit-ready."),
-    ("Handwash cadence","Track handwash frequency against your SOP, so hygiene becomes a habit you can prove."),
-    ("Hold-time & temperature","Watch hot- and cold-hold zones for time and temperature breaches before they become a food-safety issue."),
-    ("Spills & cleaning cadence","Detect spills and missed cleaning rounds in the dining area and restrooms as they happen."),
-    ("Labour vs demand","Compare staffing to real demand by daypart, so you schedule to the rush, not the average."),
-    ("Greeter & upsell prompts","See whether greeting and upsell moments actually happen at the counter and drive-thru."),
-  ])))
+  +ucsplit([
+    ("PPE compliance","Confirm gloves, hairnets and aprons are worn where they should be — audit-ready."),
+    ("Handwash cadence","Track handwash frequency against your SOP, so hygiene is a habit you can prove."),
+    ("Hold-time & temperature","Watch hot- and cold-hold zones for time and temperature breaches, live."),
+    ("Spills & cleaning cadence","Detect spills and missed cleaning rounds in the dining area and restrooms."),
+    ("Labour vs demand","Compare staffing to real demand by daypart, so you schedule to the rush."),
+    ("Greeter & upsell prompts","See whether greeting and upsell moments actually happen at the counter."),
+  ],"ev-qsrsafe.png","KITCHEN · HYGIENE & PREP")))
 
-# 15 QSR drive-thru
-copy=(eyebrow("Drive-Thru")+display("Every lane. Every car.<br/>Every second.","display--mid")
-  +dashlist(["See wait time per lane, live","Spot a stuck or skipped car instantly",
-             "Balance the lanes when the rush hits","Hit your daypart targets — and know when you won’t"]))
-S.append(slide("QSR · DRIVE-THRU",split(copy,"ev-drivethru.png","DRIVE-THRU · LANE TIMING · LIVE")))
-
-# 16 THE ENGINE — GenAI + VLMs (why it can do all this)
+# THE ENGINE — GenAI + VLMs (why it can do all this)
 S.append(slide("THE ENGINE · GENAI + VLMS",
   eyebrow("The Engine")+display("Why it can do all this: GenAI.","display--mid")
   +lede("The breakthrough is the <b>Vision-Language Model</b> — an AI that looks at a camera frame the way a "
@@ -295,7 +296,7 @@ S.append(slide("THE BUSINESS CASE",
   eyebrow("The Business Case")+display("Where it shows up in your P&amp;L.","display--mid")
   +vtiles([("trend","More sales","Convert more of today’s footfall — a small lift on traffic you already have moves the number."),
            ("shield","Less shrink","Catch loss and process gaps as they happen — not at stock-take."),
-           ("clock","More throughput","Faster drive-thru and shorter queues mean more covers and baskets per hour."),
+           ("clock","More throughput","Shorter queues and faster service mean more covers and baskets per hour."),
            ("star","More loyalty","Fewer wrong orders and cleaner stores lift repeat visits and reviews.")])
   +pull("<b>The math is simple.</b> A one-point lift in conversion on 50,000 monthly visitors is thousands of extra "
         "baskets a month — from cameras you already own.")))
