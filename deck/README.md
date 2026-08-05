@@ -85,16 +85,20 @@ Uses eight fresh hero images generated with Gemini (`ev-*.png` in
 `../assets/images/`).
 
 **Deliverables:**
-- [`EdgeVision-Retail-QSR-IntelEvent.pdf`](./EdgeVision-Retail-QSR-IntelEvent.pdf) — 21 pages, 16:9
+- [`EdgeVision-Retail-QSR-IntelEvent.pdf`](./EdgeVision-Retail-QSR-IntelEvent.pdf) — 23 pages, 16:9
 - [`EdgeVision-Retail-QSR-IntelEvent.pptx`](./EdgeVision-Retail-QSR-IntelEvent.pptx) — native PowerPoint, **with a presenter talk-track in the speaker notes**
+- [`EdgeVision-Event-CueSheet.pdf`](./EdgeVision-Event-CueSheet.pdf) — one-page printable presenter cue sheet (running clock, key message + cue per slide)
+- [`EdgeVision-Retail-QSR-Handout.pdf`](./EdgeVision-Retail-QSR-Handout.pdf) — premium two-page A4 leave-behind for the room
 
-**Flow (21 slides):** Cover → *Hook: cameras record everything, tell you nothing* →
+**Flow (23 slides):** Cover → *Hook: cameras record everything, tell you nothing* →
 Three blind spots → *Idea: what if every camera could think?* → How it works (4 steps)
-→ Four outcomes → **Retail** (what it sees · everything it can watch · one screen your
-managers use · the VIP moment) → **QSR** (three numbers · everything it can watch ·
-drive-thru) → **The Engine: GenAI + VLMs** → Why it's different (old counts / GenAI
-understands) → **Where it shows up in your P&L** → Private by design + Intel → Proof
-→ Close: see it live in 3 weeks.
+→ Four outcomes → **Retail** (what it sees · use cases for customers · use cases for
+operations · one screen your managers use · the VIP moment) → **QSR** (three numbers ·
+use cases: speed & accuracy · use cases: safety & ops · drive-thru) → **The Engine:
+GenAI + VLMs** → Why it's different (old counts / GenAI understands) → **Where it shows
+up in your P&L** → Private by design + Intel → Proof → Close: see it live in 3 weeks.
+
+The retail and QSR **use-case** slides give each capability a one-sentence explanation.
 
 **Rebuild:**
 

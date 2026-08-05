@@ -14,12 +14,14 @@ ROWS=[
  ("Four outcomes",60,"More sales · better service · less loss · safer & cleaner.","Pick the one that matters most to this room; expand it."),
  ("Retail — divider",15,"First, your stores.","Quick transition."),
  ("What it sees",60,"Same cameras, two answers: customer + team.","Speaks to GMs and ops leaders."),
- ("Retail capabilities",75,"The breadth — everything it can watch.","Don’t read every line; let them point at their pain."),
+ ("Retail use cases — customers",50,"Footfall, conversion, VIP, queues.","One line each; pause on the 2–3 that fit the room."),
+ ("Retail use cases — operations",50,"Staffing, shrink, safety, compliance.","Ask which of these costs them most today."),
  ("One screen",75,"One screen your managers actually use.","Make it feel like their morning huddle."),
  ("The VIP moment",60,"A VIP walks in; your team knows in seconds.","Tell it as a story. Stress: no faces stored."),
  ("QSR — divider",15,"Now your restaurants.","Quick transition."),
  ("The three numbers",60,"Speed, accuracy, safety — live.","Tie to P&L and health / FSSAI audits."),
- ("QSR capabilities",75,"The breadth — tied to revenue and audits.","Let operators point at their pain."),
+ ("QSR use cases — speed & accuracy",50,"Drive-thru, queues, accuracy, remakes.","Tie straight to revenue and the drive-thru."),
+ ("QSR use cases — safety & ops",50,"PPE, handwash, hold-times, labour.","The audit & compliance story; great for multi-unit."),
  ("Drive-thru",60,"Every lane, every car, every second.","Biggest revenue line, hardest to measure — on existing cameras."),
  ("The engine — GenAI + VLMs",90,"A Vision-Language Model reads the scene like a person.","THE why. Keep it plain — one or two sentences, no deep tech."),
  ("Why it’s different",60,"Old cameras count. GenAI understands.","Read one before/after example aloud — it lands."),
@@ -37,7 +39,7 @@ for i,(t,dur,msg,cue) in enumerate(ROWS,1):
     clock+=dur
 present=mmss(clock)
 CSS="""
-@page{size:210mm 297mm;margin:12mm 12mm 10mm}
+@page{size:210mm 297mm;margin:9mm 12mm 8mm}
 *{box-sizing:border-box}
 body{margin:0;font-family:'Inter',system-ui,sans-serif;color:#15151a;font-weight:300;
   -webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -51,14 +53,14 @@ header{display:flex;justify-content:space-between;align-items:flex-end;border-bo
 table{width:100%;border-collapse:collapse;margin-top:4px}
 th{font-family:'JetBrains Mono',monospace;font-size:6.5pt;letter-spacing:.16em;text-transform:uppercase;
   color:#8a8a92;text-align:left;padding:0 6px 5px;border-bottom:1px solid #e2e2e6}
-td{padding:5px 6px;border-bottom:1px solid #eeeef1;vertical-align:top}
+td{padding:3px 6px;border-bottom:1px solid #eeeef1;vertical-align:top}
 td.n{font-family:'JetBrains Mono',monospace;font-size:8pt;color:#F52E67;width:22px}
 td.clk{font-family:'JetBrains Mono',monospace;font-size:9pt;color:#111;width:42px;font-weight:500}
 td.dur{font-family:'JetBrains Mono',monospace;font-size:7.5pt;color:#9a9aa2;width:40px}
 td.msg{width:44%}
-td.msg b{font-size:9.5pt;font-weight:600;color:#111;display:block;letter-spacing:-.01em}
-td.msg span{font-size:8pt;color:#44444c;display:block;margin-top:1px;line-height:1.3}
-td.cue{font-size:8pt;color:#55555d;line-height:1.32}
+td.msg b{font-size:9pt;font-weight:600;color:#111;display:block;letter-spacing:-.01em}
+td.msg span{font-size:7.6pt;color:#44444c;display:block;margin-top:1px;line-height:1.28}
+td.cue{font-size:7.6pt;color:#55555d;line-height:1.28}
 tr:nth-child(even) td{background:#faf9fb}
 footer{display:flex;justify-content:space-between;margin-top:8px;font-family:'JetBrains Mono',monospace;
   font-size:7pt;letter-spacing:.1em;color:#9a9aa2}

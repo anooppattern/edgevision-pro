@@ -102,6 +102,11 @@ def dotcards(items):  # (heading,[bullets]) -> 4 branded capability cards
             '<h3>{h}</h3><ul class="dotlist">{lis}</ul></article>').format(n=i,h=esc(h),lis=lis)
     return '<div class="num-grid num-grid--4">{}</div>'.format(cells)
 
+def ucards(items):  # (title, one-sentence) -> 2-col detailed use-case grid
+    cells="".join('<article class="uc"><span class="uc__n">{n:02d}</span>'
+        '<div><h3>{h}</h3><p>{p}</p></div></article>'.format(n=i,h=esc(h),p=esc(p)) for i,(h,p) in enumerate(items,1))
+    return '<div class="ucards">{}</div>'.format(cells)
+
 def console(stats, hi, alerts, cams):
     kv="".join('<div class="kv"><label>{l}</label><b>{v}</b></div>'.format(l=esc(l),v=esc(v)) for l,v in stats)
     heights=[18,32,48,62,74,86,70,96,78,58,42,28]
@@ -171,7 +176,7 @@ S.append(slide("WHAT YOU GET",
 # 7 RETAIL divider (reuse statement style)
 S.append(statement("RETAIL","For your stores",
   "In your stores.",
-  "From the front door to the fitting room — see every moment that decides a sale.","ev-retail.png"))
+  "See every moment that decides a sale — as it happens.","ev-retail.png"))
 
 # 8 RETAIL what it sees
 a=lenscard("CUSTOMERS","Who walks in, where they linger, who’s a VIP.",
@@ -184,18 +189,28 @@ S.append(slide("RETAIL · WHAT IT SEES",
   eyebrow("In-Store")+display("It watches two things at once.","display--mid")+twocol(a,b)
   +pull("<b>Same cameras. Two answers.</b> What is the customer experiencing — and how is the team performing?")))
 
-# 9 RETAIL — capabilities in detail
-S.append(slide("RETAIL · WHAT IT CAN DO",
-  eyebrow("Retail · Capabilities")+display("Everything it can watch in your store.","display--mid")
-  +dotcards([
-    ("Customers & Conversion",["Footfall, dwell & hot-spots by zone","Which windows & displays pull people in",
-       "Browse-to-buy & queue drop-off","VIP & loyalty at the door"]),
-    ("Staff & Service",["Is every zone covered at peak?","Greeting & attentiveness",
-       "Who actually converts","Fitting-room & counter service"]),
-    ("Loss & Safety",["Tag-removal & concealment cues","After-hours & restricted-area motion",
-       "Slips, spills & blocked exits","Cash-desk ↔ door correlation"]),
-    ("Store & Compliance",["Display & shelf hygiene","Planogram / VM adherence",
-       "Opening & closing checks","Camera health & blind spots"]),
+# 9 RETAIL — use cases (customers & conversion)
+S.append(slide("RETAIL · USE CASES · CUSTOMERS",
+  eyebrow("Retail · Use Cases")+display("What it sees for your customers.","display--mid")
+  +ucards([
+    ("Footfall & dwell heat-maps","See where shoppers actually go and linger, so layout and merchandising follow real behaviour."),
+    ("Window & display pull-rate","Measure how many passers-by each window or display draws inside — and prove what merchandising works."),
+    ("Browse-to-buy conversion","Track how many browsers become buyers, by zone and hour, and act on drop-off the same day."),
+    ("VIP & loyalty recognition","Spot a high-value guest the moment they enter and cue the right associate — with no faces ever stored."),
+    ("Queue & checkout wait","Get an alert the instant a queue builds, so you open a till before a customer walks out."),
+    ("Category cross-shopping","See how customers flow between departments, and place ranges where journeys naturally lead."),
+  ])))
+
+# 10 RETAIL — use cases (operation)
+S.append(slide("RETAIL · USE CASES · OPERATIONS",
+  eyebrow("Retail · Use Cases")+display("What it sees for your operation.","display--mid")
+  +ucards([
+    ("Zone coverage at peak","Know whether every section is staffed when it’s busy, and get alerted when a key area goes unattended."),
+    ("Service attentiveness","Understand how quickly customers are acknowledged and helped, turning service standards into something you can measure."),
+    ("Conversion by associate","Link who was helping to what sold, so coaching is based on real outcomes rather than opinion."),
+    ("Shrink & concealment cues","Flag tag-tampering, concealment and other loss signals as they happen — not at stock-take."),
+    ("Slips, spills & blocked exits","Catch safety hazards the moment they appear and send the fix before anyone is at risk."),
+    ("Display & compliance checks","Verify planogram, housekeeping and open/close standards automatically, store by store."),
   ])))
 
 # 10 RETAIL — one screen (ops console)
@@ -226,18 +241,28 @@ S.append(slide("QSR · THE THREE NUMBERS",
          ("check","Accuracy","Right items, right modifiers — caught before the bag ever leaves the counter."),
          ("shield","Safety","Gloves, handwash and hold-times — checked continuously, ready for the next audit.")])))
 
-# 14 QSR — capabilities in detail
-S.append(slide("QSR · WHAT IT CAN DO",
-  eyebrow("QSR · Capabilities")+display("Everything it can watch in your restaurant.","display--mid")
-  +dotcards([
-    ("Speed & Throughput",["Drive-thru wait per lane","Counter & kiosk queues",
-       "Time-to-first-bag","Kitchen bottlenecks, live"]),
-    ("Order Accuracy",["Item & modifier checks","Missing-item catch before bagging",
-       "Packaging accuracy","Remake & refire rate"]),
-    ("Food Safety & Hygiene",["Gloves, hairnets & aprons","Handwash cadence vs SOP",
-       "Hot / cold hold-time & temp","Spills & cleaning cadence"]),
-    ("Guest & Ops",["Dining-area & restroom checks","Greeter & upsell prompts",
-       "Labour vs demand by daypart","Closing-audit photo trail"]),
+# 15 QSR — use cases (speed & accuracy)
+S.append(slide("QSR · USE CASES · SPEED & ACCURACY",
+  eyebrow("QSR · Use Cases")+display("Speed and accuracy, in detail.","display--mid")
+  +ucards([
+    ("Drive-thru time per lane","Measure wait and service time for every car in every lane, live — the number behind your busiest revenue line."),
+    ("Counter & kiosk queues","See queues build at the counter or kiosk and move staff before guests give up and leave."),
+    ("Time-to-first-bag","Track how long from order to hand-off, so you catch a slow shift while it’s still happening."),
+    ("Kitchen bottlenecks","Spot the station backing up the line and rebalance before tickets pile up."),
+    ("Order accuracy","Check items and modifiers against the order and flag a mistake before the bag ever leaves the counter."),
+    ("Packaging & remakes","Catch packaging errors and rising remake rates that quietly eat margin and slow the line."),
+  ])))
+
+# 16 QSR — use cases (safety, cleanliness & ops)
+S.append(slide("QSR · USE CASES · SAFETY & OPS",
+  eyebrow("QSR · Use Cases")+display("Safety, cleanliness and ops.","display--mid")
+  +ucards([
+    ("PPE compliance","Confirm gloves, hairnets and aprons are worn where they should be — continuously, and audit-ready."),
+    ("Handwash cadence","Track handwash frequency against your SOP, so hygiene becomes a habit you can prove."),
+    ("Hold-time & temperature","Watch hot- and cold-hold zones for time and temperature breaches before they become a food-safety issue."),
+    ("Spills & cleaning cadence","Detect spills and missed cleaning rounds in the dining area and restrooms as they happen."),
+    ("Labour vs demand","Compare staffing to real demand by daypart, so you schedule to the rush, not the average."),
+    ("Greeter & upsell prompts","See whether greeting and upsell moments actually happen at the counter and drive-thru."),
   ])))
 
 # 15 QSR drive-thru
