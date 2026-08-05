@@ -473,3 +473,11 @@ ul{margin:0;padding:0;list-style:none}
 .split--uc .split__media{aspect-ratio:auto}
 .ucards--col{grid-template-columns:1fr}
 .ucards--col .uc{padding:13px 22px}
+
+/* generic bulletproof dot + detection bounding boxes */
+.cdot{flex:0 0 auto;display:inline-block}
+.det-box{position:absolute;border:1.6px solid;z-index:2;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+.det-box>span{position:absolute;top:-15px;left:-1.6px;font-family:var(--mono);font-size:.5rem;
+  letter-spacing:.08em;padding:1px 5px;color:#000;white-space:nowrap;font-weight:500}
+.det-box--staff{border-color:var(--amber)}.det-box--staff>span{background:var(--amber)}
+.det-box--cust{border-color:var(--cyan)}.det-box--cust>span{background:var(--cyan)}

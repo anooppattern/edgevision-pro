@@ -115,10 +115,12 @@ def ucsplit(items,img,cap):  # detailed use-cases beside a relevant photo
         cells=cells,i=IMG,m=img,cap=esc(cap))
 
 def console(stats, hi, alerts, cams):
+    DOTB='<svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg>'
+    DOTG='<svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#56565F"/></svg>'
     kv="".join('<div class="kv"><label>{l}</label><b>{v}</b></div>'.format(l=esc(l),v=esc(v)) for l,v in stats)
     heights=[18,32,48,62,74,86,70,96,78,58,42,28]
     bars="".join('<i style="--h:{h}%"{c}></i>'.format(h=h,c=' class="hi"' if idx==hi else '') for idx,h in enumerate(heights))
-    al="".join('<li><i class="dot{c}"></i> {t}</li>'.format(c=' dot--b' if b else '',t=esc(t)) for b,t in alerts)
+    al="".join('<li>{d} {t}</li>'.format(d=(DOTB if b else DOTG),t=esc(t)) for b,t in alerts)
     cs="".join('<span>{}</span>'.format(esc(c)) for c in cams)
     return ('<div class="console">'
       '<div><label>Snapshot</label><div class="console__stats">{kv}</div></div>'

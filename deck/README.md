@@ -54,15 +54,14 @@ of EdgeVision RetailTrack into one comprehensive story, in the same
 editorial-dark design system.
 
 **Deliverables:**
-- [`EdgeVision-Retail-QSR.pdf`](./EdgeVision-Retail-QSR.pdf) — 28 pages, 16:9 (13.333″ × 7.5″)
+- [`EdgeVision-Retail-QSR.pdf`](./EdgeVision-Retail-QSR.pdf) — 27 pages, 16:9 (13.333″ × 7.5″)
 - [`EdgeVision-Retail-QSR.pptx`](./EdgeVision-Retail-QSR.pptx) — native PowerPoint, same size
 
-**Flow (28 slides):** Cover → *Ch.01 Visibility Gap* → The Challenge → *Ch.02 The
+**Flow (27 slides):** Cover → *Ch.01 Visibility Gap* → The Challenge → *Ch.02 The
 Platform* → Solution → Live Operations Console → *Ch.03 Two Lenses* → Customer &
 Staff Analytics → Detection at Work → Customer Analytics elaborated → Heat Mapping
 → VIP Recognition → Staff Analytics elaborated → Hidden Loops → Brand-Level Heat
-Map → Retail Long Tail → **QSR Edition** → QSR Capabilities → Drive-Thru → QSR Long
-Tail → *Ch.05 Paradigm Shift* → Why GenAI → Hybrid Intelligence → Architecture →
+Map → Retail Long Tail → **QSR Edition** → QSR Capabilities → QSR Long Tail → *Ch.05 Paradigm Shift* → Why GenAI → Hybrid Intelligence → Architecture →
 Hardware & Privacy → Engagement → About → Contact.
 
 **Rebuild:**

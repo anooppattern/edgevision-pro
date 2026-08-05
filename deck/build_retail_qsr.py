@@ -150,10 +150,10 @@ console=('<div class="console">'
   '<i style="--h:96%" class="hi"></i><i style="--h:78%"></i><i style="--h:58%"></i><i style="--h:42%"></i><i style="--h:28%"></i></div>'
   '<div class="bars__axis"><span>10AM</span><span>2PM</span><span>6PM</span><span>10PM</span></div></div>'
   '<div><label>Alert stream</label><ul class="alerts">'
-  '<li><i class="dot dot--b"></i> VIP entered · gold tier</li>'
-  '<li><i class="dot"></i> Wall #3 unattended 2m</li>'
-  '<li><i class="dot"></i> Queue &gt; 4 at till 2</li>'
-  '<li><i class="dot dot--b"></i> Back store &gt; 4 staff</li></ul></div></div>'
+  '<li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> VIP entered · gold tier</li>'
+  '<li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#56565F"/></svg> Wall #3 unattended 2m</li>'
+  '<li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#56565F"/></svg> Queue &gt; 4 at till 2</li>'
+  '<li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> Back store &gt; 4 staff</li></ul></div></div>'
   '<div class="cam-strip"><span>CAM 01</span><span>CAM 02</span><span>CAM 03</span>'
   '<span>CAM 04</span><span>CAM 05</span><span>CAM 06</span></div>')
 body=(eyebrow("Live Operations Console")+display("One Pane of Glass<br/>for the Store Floor.","display--mid")+console)
@@ -178,11 +178,16 @@ body=(eyebrow("Two Lenses")+display("Customer &amp; Staff Analytics.","display--
 S.append(slide("TWO LENSES",body))
 
 # 9 · Detection at Work
-detfig=('<figure class="detfig"><img src="{i}/ev-cover.png" alt=""/>'
-  '<span class="det-chip det-chip--cam">CAM 03 · WOMEN’S FLOOR · LIVE</span>'
+def _box(kind,l,t,w,h,lab):
+    return ('<span class="det-box det-box--{k}" style="left:{l}%;top:{t}%;width:{w}%;height:{h}%">'
+        '<span>{lab}</span></span>').format(k=kind,l=l,t=t,w=w,h=h,lab=lab)
+_boxes=(_box("cust",57,32,9,63,"CUSTOMER")+_box("cust",6.8,12,6.2,46,"CUSTOMER")
+  +_box("cust",15.5,4,8,34,"CUSTOMER")+_box("staff",74,7,6,40,"STAFF")+_box("staff",28.5,11,5.5,28,"STAFF"))
+detfig=('<figure class="detfig"><img src="{i}/fw-uc-customers.png" alt=""/>{boxes}'
+  '<span class="det-chip det-chip--cam">CAM 03 · MAIN FLOOR · LIVE</span>'
   '<span class="det-chip det-chip--rec">● REC</span>'
   '<span class="det-chip det-chip--key"><i class="sq sq--s"></i> STAFF · 2 &nbsp; <i class="sq sq--c"></i> CUSTOMERS · 3</span>'
-  '<span class="det-chip det-chip--note">NO BIOMETRIC DATA RETAINED</span></figure>').format(i=IMG)
+  '<span class="det-chip det-chip--note">NO BIOMETRIC DATA RETAINED</span></figure>').format(i=IMG,boxes=_boxes)
 body=(eyebrow("In-Store Detection")+display("Tracking Customers &amp; Staff Simultaneously.","display--mid")
   +lede("Every person on the floor is detected, classified and tracked — without ever storing a face.")+detfig)
 S.append(slide("DETECTION AT WORK",body))
@@ -260,29 +265,20 @@ body=(eyebrow("More Out-of-the-Box · Retail")+display("The Long Tail of Use-Cas
 S.append(slide("RETAIL · LONG TAIL",body))
 
 # 17 · QSR Edition divider
-S.append(divider("QSR EDITION · FROM COUNTER TO DRIVE-THRU","QSR EDITION","From Counter to Drive-Thru",
+S.append(divider("QSR EDITION · FROM COUNTER TO KITCHEN","QSR EDITION","From Counter to Kitchen",
   "Quick-service restaurants run on three numbers: speed, accuracy and food safety. Every camera in the dining room, "
-  "kitchen and drive-thru already sees them. RetailTrack turns them into a live signal.","ev-qsr.png"))
+  "at the counter and across the kitchen already sees them. RetailTrack turns them into a live signal.","ev-qsr.png"))
 
 # 18 · QSR Capabilities
 body=(eyebrow("QSR Capabilities")+display("Speed, Accuracy,<br/>Safety — Live.","display--mid")
   +lede("Three operational levers every QSR brand tracks weekly via spreadsheets and mystery-shopper audits. "
         "EdgeVision tracks them per-shift, per-station, per-car — automatically.")
-  +circles([("Speed of Service","Drive-thru wait time per lane, counter queue length, mobile-pickup dwell, time-to-first-bag — every daypart benchmarked against itself, not a corporate average."),
+  +circles([("Speed of Service","Counter queue length, mobile-pickup dwell, kitchen-to-pass timing and time-to-first-bag — every daypart benchmarked against itself, not a corporate average."),
             ("Kitchen Choke-Points","Idle stations, expo bottleneck, fry-station coverage, grill hand-off delays — flagged the moment they exceed threshold, not after the rush has cost a guest."),
             ("Food Safety & Hygiene","Gloves, hairnets, handwash frequency, holding-time at the heat lamp, spillage detection — scene-aware checks, low false-positive, ready for the next FSSAI / health audit.")],cols=3))
 S.append(slide("QSR · CAPABILITIES",body))
 
-# 19 · Drive-Thru Operations
-copy=(eyebrow("Drive-Thru Operations")+display("Every Lane.<br/>Every Car. Every Second.","display--mid")
-  +lede("The drive-thru is the single biggest revenue line at most QSR sites — and the hardest to measure. "
-        "EdgeVision instruments it end-to-end on the cameras you already have.")
-  +dashlist(["Live per-lane queue length & wait time","Order-board → handoff-window timing per car",
-             "Pull-forward, blocked-lane & ‘driver not served’ alerts","Lane-utilisation balance during peak hours",
-             "Daypart vs forecast adherence"],"dashlist--split"))
-S.append(slide("QSR · DRIVE-THRU",split(copy,"ev-drivethru.png","DRIVE-THRU · LANE TIMING · LIVE")))
-
-# 20 · QSR Long Tail
+# QSR Long Tail
 body=(eyebrow("More Out-of-the-Box · QSR")+display("Every Camera, Every Service Window.","display--mid")
   +dotcards([("Counter & Kiosk",["Queue length vs labour deployed by daypart","Self-order kiosk abandonment & completion","Greeter / smile-at-window compliance","Mobile-order pickup-bay dwell & handoff"]),
              ("Kitchen & Holding",["Station coverage per shift (grill · fry · expo)","Hot-hold & cold-hold zone compliance","Order assembly time & bagging accuracy","Wipe-down cadence between rushes"]),
