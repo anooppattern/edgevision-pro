@@ -72,3 +72,29 @@ python3 deck/build_retail_qsr.py    # -> deck/EdgeVision-Retail-QSR.html
 node    deck/render_rq.js           # -> deck/EdgeVision-Retail-QSR.pdf  (+ overflow check)
 node    deck/build_pptx_rq.js       # -> deck/EdgeVision-Retail-QSR.pptx (needs 2x slide PNGs)
 ```
+
+---
+
+## EdgeVision — Retail & QSR · Intel Event Edition
+
+A **simplified, non-technical, outcome-led** cut of the Retail & QSR story, built for a
+30-minute closed-room pitch to retail + QSR prospects (Intel event). Same dark
+editorial theme, far less text, plain-language headlines, big ideas.
+
+**Deliverables:**
+- [`EdgeVision-Retail-QSR-IntelEvent.pdf`](./EdgeVision-Retail-QSR-IntelEvent.pdf) — 16 pages, 16:9
+- [`EdgeVision-Retail-QSR-IntelEvent.pptx`](./EdgeVision-Retail-QSR-IntelEvent.pptx) — native PowerPoint, **with a presenter talk-track in the speaker notes**
+
+**Flow (16 slides):** Cover → *Hook: cameras record everything, tell you nothing* →
+Three blind spots → *Idea: what if every camera could think?* → How it works (4 steps)
+→ Four outcomes → **Retail** (what it sees · the VIP moment) → **QSR** (three numbers ·
+drive-thru) → Why it's different (old counts / EdgeVision understands) → Private by
+design + Intel → Proof → Close: see it live in 3 weeks.
+
+**Rebuild:**
+
+```bash
+python3 deck/build_event.py     # -> deck/EdgeVision-Retail-QSR-IntelEvent.html
+node    deck/render_ev.js       # -> ...IntelEvent.pdf  (+ overflow check)
+node    deck/build_pptx_ev.js   # -> ...IntelEvent.pptx (needs 2x slide PNGs; notes embedded)
+```
