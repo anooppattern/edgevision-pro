@@ -94,6 +94,27 @@ def ba(old,new):
     return ('<div class="ba"><div class="ba__col"><p class="ba__h">Old camera analytics</p><ul>{lo}</ul></div>'
         '<div class="ba__col ba__col--new"><p class="ba__h">EdgeVision</p><ul>{ln}</ul></div></div>').format(lo=lo,ln=ln)
 
+def dotcards(items):  # (heading,[bullets]) -> 4 branded capability cards
+    cells=""
+    for i,(h,bl) in enumerate(items,1):
+        lis="".join('<li>{}</li>'.format(esc(x)) for x in bl)
+        cells+=('<article class="num-card num-card--brand"><span class="num-card__n">{n:02d}</span>'
+            '<h3>{h}</h3><ul class="dotlist">{lis}</ul></article>').format(n=i,h=esc(h),lis=lis)
+    return '<div class="num-grid num-grid--4">{}</div>'.format(cells)
+
+def console(stats, hi, alerts, cams):
+    kv="".join('<div class="kv"><label>{l}</label><b>{v}</b></div>'.format(l=esc(l),v=esc(v)) for l,v in stats)
+    heights=[18,32,48,62,74,86,70,96,78,58,42,28]
+    bars="".join('<i style="--h:{h}%"{c}></i>'.format(h=h,c=' class="hi"' if idx==hi else '') for idx,h in enumerate(heights))
+    al="".join('<li><i class="dot{c}"></i> {t}</li>'.format(c=' dot--b' if b else '',t=esc(t)) for b,t in alerts)
+    cs="".join('<span>{}</span>'.format(esc(c)) for c in cams)
+    return ('<div class="console">'
+      '<div><label>Snapshot</label><div class="console__stats">{kv}</div></div>'
+      '<div><label>Hourly footfall</label><div class="bars">{bars}</div>'
+      '<div class="bars__axis"><span>10AM</span><span>2PM</span><span>6PM</span><span>10PM</span></div></div>'
+      '<div><label>Alert stream</label><ul class="alerts">{al}</ul></div></div>'
+      '<div class="cam-strip">{cs}</div>').format(kv=kv,bars=bars,al=al,cs=cs)
+
 S=[]
 # 1 COVER
 S.append('<section class="slide slide--cover"><img class="slide__bg" src="{img}/ev-cover.png" alt=""/>'
@@ -163,7 +184,29 @@ S.append(slide("RETAIL · WHAT IT SEES",
   eyebrow("In-Store")+display("It watches two things at once.","display--mid")+twocol(a,b)
   +pull("<b>Same cameras. Two answers.</b> What is the customer experiencing — and how is the team performing?")))
 
-# 9 RETAIL VIP moment
+# 9 RETAIL — capabilities in detail
+S.append(slide("RETAIL · WHAT IT CAN DO",
+  eyebrow("Retail · Capabilities")+display("Everything it can watch in your store.","display--mid")
+  +dotcards([
+    ("Customers & Conversion",["Footfall, dwell & hot-spots by zone","Which windows & displays pull people in",
+       "Browse-to-buy & queue drop-off","VIP & loyalty at the door"]),
+    ("Staff & Service",["Is every zone covered at peak?","Greeting & attentiveness",
+       "Who actually converts","Fitting-room & counter service"]),
+    ("Loss & Safety",["Tag-removal & concealment cues","After-hours & restricted-area motion",
+       "Slips, spills & blocked exits","Cash-desk ↔ door correlation"]),
+    ("Store & Compliance",["Display & shelf hygiene","Planogram / VM adherence",
+       "Opening & closing checks","Camera health & blind spots"]),
+  ])))
+
+# 10 RETAIL — one screen (ops console)
+S.append(slide("RETAIL · ONE SCREEN",
+  eyebrow("One Pane of Glass")+display("One screen your managers actually use.","display--mid")
+  +console([("FOOTFALL","1,284"),("ACTIVE STAFF","12 / 14"),("ALERTS","3"),("AVG DWELL","4:21")],7,
+    [(True,"VIP entered · gold tier"),(False,"Wall #3 unattended 2m"),
+     (False,"Queue > 4 at till 2"),(True,"Back store > 4 staff")],
+    ["CAM 01","CAM 02","CAM 03","CAM 04","CAM 05","CAM 06"])))
+
+# 11 RETAIL VIP moment
 copy=(eyebrow("A Moment That Matters")+display("A VIP walks in. Your<br/>team knows in seconds.","display--mid")
   +dashlist(["The moment they enter, the manager’s phone lights up",
              "Name, tier, last visit and favourites — ready for a warm welcome",
@@ -183,19 +226,54 @@ S.append(slide("QSR · THE THREE NUMBERS",
          ("check","Accuracy","Right items, right modifiers — caught before the bag ever leaves the counter."),
          ("shield","Safety","Gloves, handwash and hold-times — checked continuously, ready for the next audit.")])))
 
-# 12 QSR drive-thru
+# 14 QSR — capabilities in detail
+S.append(slide("QSR · WHAT IT CAN DO",
+  eyebrow("QSR · Capabilities")+display("Everything it can watch in your restaurant.","display--mid")
+  +dotcards([
+    ("Speed & Throughput",["Drive-thru wait per lane","Counter & kiosk queues",
+       "Time-to-first-bag","Kitchen bottlenecks, live"]),
+    ("Order Accuracy",["Item & modifier checks","Missing-item catch before bagging",
+       "Packaging accuracy","Remake & refire rate"]),
+    ("Food Safety & Hygiene",["Gloves, hairnets & aprons","Handwash cadence vs SOP",
+       "Hot / cold hold-time & temp","Spills & cleaning cadence"]),
+    ("Guest & Ops",["Dining-area & restroom checks","Greeter & upsell prompts",
+       "Labour vs demand by daypart","Closing-audit photo trail"]),
+  ])))
+
+# 15 QSR drive-thru
 copy=(eyebrow("Drive-Thru")+display("Every lane. Every car.<br/>Every second.","display--mid")
   +dashlist(["See wait time per lane, live","Spot a stuck or skipped car instantly",
              "Balance the lanes when the rush hits","Hit your daypart targets — and know when you won’t"]))
 S.append(slide("QSR · DRIVE-THRU",split(copy,"ev-drivethru.png","DRIVE-THRU · LANE TIMING · LIVE")))
 
-# 13 WHY DIFFERENT
+# 16 THE ENGINE — GenAI + VLMs (why it can do all this)
+S.append(slide("THE ENGINE · GENAI + VLMS",
+  eyebrow("The Engine")+display("Why it can do all this: GenAI.","display--mid")
+  +lede("The breakthrough is the <b>Vision-Language Model</b> — an AI that looks at a camera frame the way a "
+        "person would. It reads the whole scene and its context, not just pixels or motion. That’s what lets it "
+        "judge quality, spot what’s missing and explain why — across hundreds of situations, with no reprogramming for each one.")
+  +wins([("eye","It understands context","Tells a real spill from a shadow, a browser from a buyer, a queue from a cluster."),
+         ("check","It judges quality","A missing sauce, a pale fry, an untidy display — not just ‘a person was here.’"),
+         ("chip","It adapts on its own","New store, new menu, new season — it keeps up without re-training.")])
+  +'<p class="steps-note">Everyday vision runs continuously · the heavier GenAI kicks in only when it matters — efficient enough for one small Intel box</p>'))
+
+# 17 WHY DIFFERENT
 S.append(slide("WHY IT'S DIFFERENT",
-  eyebrow("Why It’s Different")+display("Old cameras count.<br/>EdgeVision understands.","display--mid")
+  eyebrow("Why It’s Different")+display("Old cameras count.<br/>GenAI understands.","display--mid")
   +ba(["“Someone entered the store.”","“A person is at the counter.”","“Motion in aisle 4.”"],
       ["“They browsed 4 minutes, loved the front table, and left without buying — and who was nearby.”",
        "“This order is missing a sauce — fix it before it’s bagged.”",
        "“Spill in aisle 4 — clean-up sent.”"])))
+
+# 18 THE BUSINESS CASE — where it shows up in the P&L
+S.append(slide("THE BUSINESS CASE",
+  eyebrow("The Business Case")+display("Where it shows up in your P&amp;L.","display--mid")
+  +vtiles([("trend","More sales","Convert more of today’s footfall — a small lift on traffic you already have moves the number."),
+           ("shield","Less shrink","Catch loss and process gaps as they happen — not at stock-take."),
+           ("clock","More throughput","Faster drive-thru and shorter queues mean more covers and baskets per hour."),
+           ("star","More loyalty","Fewer wrong orders and cleaner stores lift repeat visits and reviews.")])
+  +pull("<b>The math is simple.</b> A one-point lift in conversion on 50,000 monthly visitors is thousands of extra "
+        "baskets a month — from cameras you already own.")))
 
 # 14 PRIVACY + INTEL
 S.append(slide("PRIVATE BY DESIGN",

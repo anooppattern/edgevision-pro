@@ -7,7 +7,7 @@ pres.defineLayout({name:'PPT16x9',width:13.333,height:7.5}); pres.layout='PPT16x
 pres.author='Pattern AI Labs'; pres.company='Pattern AI Labs'; pres.title='EdgeVision — Retail & QSR · Intel Event';
 // Presenter talk-track (speaker notes) — ~30 min, non-technical room
 const notes=[
-"Open warm — thank them for the closed-room time. One line: 'We turn the cameras you already have into something that helps you run the store, in real time.' Set the frame: ~20 min, then open discussion.",
+"Open warm — thank them for the closed-room time. One line: 'We turn the cameras you already have into something that helps you run the store, in real time.' Set the frame: ~25 min, then open discussion.",
 "Name the pain everyone feels: you've invested in cameras, but they only help AFTER something goes wrong. Quick show of hands: 'Who's reviewed footage only after a complaint?'",
 "Three blind spots that cost money every day. Keep it conversational and tie each to their world — staffing, layout, service. These are exactly what we remove.",
 "The shift in one sentence: cameras that think. Not more screens to watch — an AI teammate that tells your team what to do, right now.",
@@ -15,11 +15,16 @@ const notes=[
 "Move from features to outcomes. Pick the one that matters most to THIS room (sales, service, loss, or safety) and expand with a quick example.",
 "Transition: 'Let's make it concrete — first, your stores.'",
 "Same cameras, two answers: what the customer is experiencing, and how the team is performing. Speaks to GMs and ops leaders.",
+"THIS is the breadth slide — 'what all can it do.' Don't read every line; scan the four buckets and invite them to point at the ones that hurt most in their stores.",
+"Managers don't want AI — they want ONE screen. Walk the live snapshot, the footfall trend, and the alert stream they'd actually act on. Make it feel like their morning huddle.",
 "Tell it as a story: a gold-tier guest walks in, the manager's phone lights up, the right welcome happens in seconds. Stress privacy — no faces are stored.",
 "Transition: 'Now your restaurants.'",
 "Speed, accuracy, safety — the three things every QSR operator lives by. Tie to P&L and health/FSSAI audits.",
+"The QSR breadth slide — four buckets tied to revenue and audits. Let operators point at their pain (drive-thru times, accuracy, safety).",
 "Drive-thru is the biggest revenue line and the hardest to measure. We instrument it on the cameras you already have — per lane, per car, live.",
-"The key contrast. Old analytics COUNTS; EdgeVision UNDERSTANDS context and tells you what to do. Read one example out loud — it lands.",
+"This is the WHY. Keep it plain: a Vision-Language Model reads a frame like a person would. THAT is why it can judge quality and context, not just detect motion. Don't go deep on the tech — one or two sentences.",
+"The contrast lands the point — old cameras count, GenAI understands. Read one example out loud; it always gets a nod.",
+"Make it their money. Pick the lever that matters most to this room and do the quick mental math with them — small lifts on traffic they already have. Invite them to plug in their own numbers.",
 "Handle the two objections head-on: privacy and IT. Nothing leaves the store; it runs on Intel. Lean into the Intel partnership — we're at their event.",
 "Credibility: Intel Edge AI Partner, production computer vision at scale, purpose-built for retail + QSR. Names they'll recognise.",
 "Clear ask: pick ONE location, 3-week pilot, see live results with zero risk to the rest of the estate. Close with: 'Which location should we start with?'",
