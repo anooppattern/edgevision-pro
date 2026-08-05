@@ -90,7 +90,7 @@ def dashlist(items,cls=""):
 S=[]
 
 # 1 · COVER
-S.append('<section class="slide slide--cover"><img class="slide__bg" src="{img}/cover-retail.png" alt=""/>'
+S.append('<section class="slide slide--cover"><img class="slide__bg" src="{img}/ev-cover.png" alt=""/>'
   '<div class="cover__veil"></div><div class="cover__inner">'
   '<div class="cover__top">{mk}<span class="cover__brandtxt"><b>PATTERN</b><i>AI&nbsp;LABS</i></span>'
   '<span class="cover__edition">EDITION · 2026 · RETAIL &amp; QSR</span></div>'
@@ -109,7 +109,7 @@ S.append('<section class="slide slide--cover"><img class="slide__bg" src="{img}/
 # 2 · Ch01 divider
 S.append(divider("CHAPTER 01 · THE VISIBILITY GAP","CHAPTER 01","The Visibility Gap",
   "Modern retail and QSR sites capture thousands of hours of CCTV every week. Almost none of it becomes a decision.",
-  "challenge-cctv.png"))
+  "ev-hook.png"))
 
 # 3 · The Challenge (retail)
 copy=(eyebrow("The Challenge · Store Floor")
@@ -119,11 +119,11 @@ copy=(eyebrow("The Challenge · Store Floor")
              "Customer journey is invisible after entry — footfall ≠ engagement",
              "High-value customers walk in unannounced — loyalty runs blind to the first 60 seconds",
              "Floor-hygiene failures surface late — scattered footwear, disturbed displays, > 4 in back store"],"dashlist--split"))
-S.append(slide("THE CHALLENGE",split(copy,"challenge-cctv.png","IN-STORE CCTV · UNWATCHED")))
+S.append(slide("THE CHALLENGE",split(copy,"ev-hook.png","IN-STORE CCTV · UNWATCHED")))
 
 # 4 · Ch02 divider
 S.append(divider("CHAPTER 02 · THE PLATFORM","CHAPTER 02","The Platform",
-  "A single edge appliance per site. Hybrid Vision + GenAI on-prem. Insights in seconds.","edge-device.png"))
+  "A single edge appliance per site. Hybrid Vision + GenAI on-prem. Insights in seconds.","ev-platform.png"))
 
 # 5 · The Solution — EdgeVision Platform
 body=(eyebrow("The Solution")
@@ -162,7 +162,7 @@ S.append(slide("OPERATIONS CONSOLE",body))
 # 7 · Ch03 divider
 S.append(divider("CHAPTER 03 · TWO LENSES","CHAPTER 03","Two Lenses, One Network",
   "The same feeds answer two questions at once: what is the customer experiencing, and how is the team performing?",
-  "two-lenses.png"))
+  "ev-idea.png"))
 
 # 8 · Customer & Staff Analytics
 a=lenscard("CUSTOMER ANALYTICS","What customers do, where they linger, who they are.",
@@ -178,7 +178,7 @@ body=(eyebrow("Two Lenses")+display("Customer &amp; Staff Analytics.","display--
 S.append(slide("TWO LENSES",body))
 
 # 9 · Detection at Work
-detfig=('<figure class="detfig"><img src="{i}/cover-retail.png" alt=""/>'
+detfig=('<figure class="detfig"><img src="{i}/ev-cover.png" alt=""/>'
   '<span class="det-chip det-chip--cam">CAM 03 · WOMEN’S FLOOR · LIVE</span>'
   '<span class="det-chip det-chip--rec">● REC</span>'
   '<span class="det-chip det-chip--key"><i class="sq sq--s"></i> STAFF · 2 &nbsp; <i class="sq sq--c"></i> CUSTOMERS · 3</span>'
@@ -196,7 +196,7 @@ body=(eyebrow("Capability 01")+display("Customer Analytics, Elaborated.","displa
 S.append(slide("CAPABILITY 01",body))
 
 # 11 · Heat Mapping
-heat=('<div class="heat"><figure class="heat__img"><img src="{i}/heat-floor.png" alt=""/>'
+heat=('<div class="heat"><figure class="heat__img"><img src="{i}/ev-heat.png" alt=""/>'
   '<span class="heat__cap">CONCEPT FLOOR · DWELL HEAT</span></figure>'
   '<div class="heat__bars"><label style="font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;color:var(--text-mute);margin-bottom:14px;display:block">TOP DWELL ZONES</label>'
   +"".join('<div class="hbar"><span class="hbar__l">{l}</span><span class="hbar__v">{v}%</span>'
@@ -215,7 +215,7 @@ for i,(t,h,p) in enumerate([("0.4s","Recognition","Privacy-preserving embedding 
          '<span class="tl-card__t">{t}</span></header><h3>{h}</h3><p>{p}</p></article>').format(n=i,t=t,h=esc(h),p=esc(p))
 copy=(eyebrow("VIP Recognition Flow")+display("From CCTV Frame<br/>to Manager’s Phone.","display--mid")
   +lede("A loyalty member walks in. Within 3 seconds the manager has identity, history and a recommended action — without a single cloud round-trip."))
-body=split(copy,"vip-entrance.png","LOYALTY · TIER-GOLD ARRIVAL")+'<div class="timeline timeline--3" style="grid-template-columns:1fr auto 1fr auto 1fr;margin-top:16px">'+ \
+body=split(copy,"ev-vip.png","LOYALTY · TIER-GOLD ARRIVAL")+'<div class="timeline timeline--3" style="grid-template-columns:1fr auto 1fr auto 1fr;margin-top:16px">'+ \
   tl.replace('</article><article','</article><span class="tl-arr" style="align-self:center;color:var(--brand);font-size:1.2rem">→</span><article')+'</div>'
 S.append(slide("VIP RECOGNITION",body))
 
@@ -262,7 +262,7 @@ S.append(slide("RETAIL · LONG TAIL",body))
 # 17 · QSR Edition divider
 S.append(divider("QSR EDITION · FROM COUNTER TO DRIVE-THRU","QSR EDITION","From Counter to Drive-Thru",
   "Quick-service restaurants run on three numbers: speed, accuracy and food safety. Every camera in the dining room, "
-  "kitchen and drive-thru already sees them. RetailTrack turns them into a live signal.","qsr-counter.png"))
+  "kitchen and drive-thru already sees them. RetailTrack turns them into a live signal.","ev-qsr.png"))
 
 # 18 · QSR Capabilities
 body=(eyebrow("QSR Capabilities")+display("Speed, Accuracy,<br/>Safety — Live.","display--mid")
@@ -280,7 +280,7 @@ copy=(eyebrow("Drive-Thru Operations")+display("Every Lane.<br/>Every Car. Every
   +dashlist(["Live per-lane queue length & wait time","Order-board → handoff-window timing per car",
              "Pull-forward, blocked-lane & ‘driver not served’ alerts","Lane-utilisation balance during peak hours",
              "Daypart vs forecast adherence"],"dashlist--split"))
-S.append(slide("QSR · DRIVE-THRU",split(copy,"qsr-drivethru.png","DRIVE-THRU · LANE TIMING · LIVE")))
+S.append(slide("QSR · DRIVE-THRU",split(copy,"ev-drivethru.png","DRIVE-THRU · LANE TIMING · LIVE")))
 
 # 20 · QSR Long Tail
 body=(eyebrow("More Out-of-the-Box · QSR")+display("Every Camera, Every Service Window.","display--mid")
@@ -292,7 +292,7 @@ S.append(slide("QSR · LONG TAIL",body))
 
 # 21 · Ch05 divider
 S.append(divider("CHAPTER 05 · THE PARADIGM SHIFT","CHAPTER 05","The Paradigm Shift",
-  "Why GenAI-powered analytics finally makes the in-store camera a primary business sensor.","paradigm.png"))
+  "Why GenAI-powered analytics finally makes the in-store camera a primary business sensor.","ev-paradigm.png"))
 
 # 22 · Why GenAI changes everything (table)
 rows=[("Detection","Bounding boxes & pixel thresholds","Contextual scene understanding"),
@@ -365,7 +365,7 @@ body=(eyebrow("About")+display("The Team Behind EdgeVision.","display--mid")
 S.append(slide("ABOUT",body))
 
 # 28 · Contact / closing
-S.append('<section class="slide slide--closing"><img class="slide__bg" src="{img}/cta-bg.png" alt=""/>'
+S.append('<section class="slide slide--closing"><img class="slide__bg" src="{img}/ev-closing.png" alt=""/>'
   '<div class="closing__veil"></div><div class="closing__inner">'
   '<div class="closing__brand">{mk}<span class="cover__brandtxt"><b>PATTERN</b><i>AI&nbsp;LABS</i></span></div>'
   '<h2 class="closing__head">Let’s bring <span class="grad">intelligence</span><br/>to every store &amp; line.</h2>'
