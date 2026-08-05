@@ -99,12 +99,12 @@ S.append('<section class="slide slide--cover"><img class="slide__bg" src="{img}/
   '<span class="w-sub">Retail &amp; QSR</span></h1>'
   '<p class="cover__tag">Every camera, a real-time operations engine.</p>'
   '<p class="cover__sub">Intelligent AI surveillance at the edge — turning every store and restaurant camera '
-  'into a real-time operations &amp; customer-intelligence engine. One on-prem edge platform across apparel '
+  'into a real-time operations &amp; customer-intelligence engine. One on-prem edge platform across '
   'retail floors and quick-service restaurants.</p>'
   '<ul class="cover__tags"><li><i></i> EDGE-FIRST</li><li><i></i> PRIVACY BY DESIGN</li>'
   '<li><i></i> INTEL POWERED</li></ul>'
   '<div class="cover__foot"><span>EDGEVISION.PRO · PATTERN AI LABS</span>'
-  '<span class="cover__sigil">APPAREL RETAIL<br/>&amp; QUICK-SERVICE</span></div></div></section>'.format(img=IMG,mk=mark("mark--lg")))
+  '<span class="cover__sigil">RETAIL<br/>&amp; QUICK-SERVICE</span></div></div></section>'.format(img=IMG,mk=mark("mark--lg")))
 
 # 2 · Ch01 divider
 S.append(divider("CHAPTER 01 · THE VISIBILITY GAP","CHAPTER 01","The Visibility Gap",
@@ -166,7 +166,7 @@ S.append(divider("CHAPTER 03 · TWO LENSES","CHAPTER 03","Two Lenses, One Networ
 
 # 8 · Customer & Staff Analytics
 a=lenscard("CUSTOMER ANALYTICS","What customers do, where they linger, who they are.",
-  ["Heat-mapping by entry, fixture and category","Walk-in flow between apparel and footwear",
+  ["Heat-mapping by entry, fixture and category","Walk-in flow between departments and categories",
    "Self-service vs assisted journey detection","VIP / loyalty member recognition at entry",
    "POS ↔ camera time-stitch for billing intelligence"])
 b=lenscard("STAFF ANALYTICS","Who is attending, who is missing, who is grouping.",
