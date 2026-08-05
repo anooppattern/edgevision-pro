@@ -81,15 +81,20 @@ A **simplified, non-technical, outcome-led** cut of the Retail & QSR story, buil
 30-minute closed-room pitch to retail + QSR prospects (Intel event). Same dark
 editorial theme, far less text, plain-language headlines, big ideas.
 
+Uses eight fresh hero images generated with Gemini (`ev-*.png` in
+`../assets/images/`).
+
 **Deliverables:**
-- [`EdgeVision-Retail-QSR-IntelEvent.pdf`](./EdgeVision-Retail-QSR-IntelEvent.pdf) — 16 pages, 16:9
+- [`EdgeVision-Retail-QSR-IntelEvent.pdf`](./EdgeVision-Retail-QSR-IntelEvent.pdf) — 21 pages, 16:9
 - [`EdgeVision-Retail-QSR-IntelEvent.pptx`](./EdgeVision-Retail-QSR-IntelEvent.pptx) — native PowerPoint, **with a presenter talk-track in the speaker notes**
 
-**Flow (16 slides):** Cover → *Hook: cameras record everything, tell you nothing* →
+**Flow (21 slides):** Cover → *Hook: cameras record everything, tell you nothing* →
 Three blind spots → *Idea: what if every camera could think?* → How it works (4 steps)
-→ Four outcomes → **Retail** (what it sees · the VIP moment) → **QSR** (three numbers ·
-drive-thru) → Why it's different (old counts / EdgeVision understands) → Private by
-design + Intel → Proof → Close: see it live in 3 weeks.
+→ Four outcomes → **Retail** (what it sees · everything it can watch · one screen your
+managers use · the VIP moment) → **QSR** (three numbers · everything it can watch ·
+drive-thru) → **The Engine: GenAI + VLMs** → Why it's different (old counts / GenAI
+understands) → **Where it shows up in your P&L** → Private by design + Intel → Proof
+→ Close: see it live in 3 weeks.
 
 **Rebuild:**
 
