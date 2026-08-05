@@ -96,7 +96,7 @@ def ba(old,new):
 
 S=[]
 # 1 COVER
-S.append('<section class="slide slide--cover"><img class="slide__bg" src="{img}/cover-retail.png" alt=""/>'
+S.append('<section class="slide slide--cover"><img class="slide__bg" src="{img}/ev-cover.png" alt=""/>'
   '<div class="cover__veil"></div><div class="cover__inner">'
   '<div class="cover__top">{mk}<span class="cover__brandtxt"><b>PATTERN</b><i>AI&nbsp;LABS</i></span>'
   '<span class="cover__edition">RETAIL &amp; QSR · 2026</span></div>'
@@ -115,7 +115,7 @@ S.append('<section class="slide slide--cover"><img class="slide__bg" src="{img}/
 S.append(statement("THE PROBLEM","The Problem",
   "Your cameras record everything.<br/>And tell you nothing.",
   "Hundreds of feeds. Thousands of hours. Almost none of it turns into a decision — "
-  "until it’s already too late.","challenge-cctv.png"))
+  "until it’s already too late.","ev-hook.png"))
 
 # 3 PROBLEM cards
 S.append(slide("THE PROBLEM",
@@ -128,7 +128,7 @@ S.append(slide("THE PROBLEM",
 S.append(statement("THE IDEA","The Idea",
   "What if every camera<br/>could think?",
   "EdgeVision is an AI teammate that watches every camera in real time — and tells your team "
-  "what’s happening and what to do, <b>right now</b>.","two-lenses.png"))
+  "what’s happening and what to do, <b>right now</b>.","ev-idea.png"))
 
 # 5 HOW IT WORKS
 S.append(slide("HOW IT WORKS",
@@ -150,7 +150,7 @@ S.append(slide("WHAT YOU GET",
 # 7 RETAIL divider (reuse statement style)
 S.append(statement("RETAIL","For your stores",
   "In your stores.",
-  "From the front door to the fitting room — see every moment that decides a sale.","feature-retail.png"))
+  "From the front door to the fitting room — see every moment that decides a sale.","ev-retail.png"))
 
 # 8 RETAIL what it sees
 a=lenscard("CUSTOMERS","Who walks in, where they linger, who’s a VIP.",
@@ -169,12 +169,12 @@ copy=(eyebrow("A Moment That Matters")+display("A VIP walks in. Your<br/>team kn
              "Name, tier, last visit and favourites — ready for a warm welcome",
              "The right associate and the right offer, before they reach the rail"])
   +'<p class="steps-note">No faces are stored · it all happens inside your store</p>')
-S.append(slide("RETAIL · THE VIP MOMENT",split(copy,"vip-entrance.png","LOYALTY · TIER-GOLD ARRIVAL")))
+S.append(slide("RETAIL · THE VIP MOMENT",split(copy,"ev-vip.png","LOYALTY · TIER-GOLD ARRIVAL")))
 
 # 10 QSR divider
 S.append(statement("QSR","For your restaurants",
   "In your restaurants.",
-  "Speed, accuracy and safety — on every shift, on every lane.","qsr-counter.png"))
+  "Speed, accuracy and safety — on every shift, on every lane.","ev-qsr.png"))
 
 # 11 QSR three numbers
 S.append(slide("QSR · THE THREE NUMBERS",
@@ -187,7 +187,7 @@ S.append(slide("QSR · THE THREE NUMBERS",
 copy=(eyebrow("Drive-Thru")+display("Every lane. Every car.<br/>Every second.","display--mid")
   +dashlist(["See wait time per lane, live","Spot a stuck or skipped car instantly",
              "Balance the lanes when the rush hits","Hit your daypart targets — and know when you won’t"]))
-S.append(slide("QSR · DRIVE-THRU",split(copy,"qsr-drivethru.png","DRIVE-THRU · LANE TIMING · LIVE")))
+S.append(slide("QSR · DRIVE-THRU",split(copy,"ev-drivethru.png","DRIVE-THRU · LANE TIMING · LIVE")))
 
 # 13 WHY DIFFERENT
 S.append(slide("WHY IT'S DIFFERENT",
@@ -215,11 +215,11 @@ S.append(slide("PROOF",
   +wins([("chip","Intel Edge AI Partner","Optimised on Intel and featured in Intel’s partner ecosystem."),
          ("trend","Production CV at scale","800+ product types already live in real grocery-vision deployments."),
          ("star","Retail + QSR focus","Purpose-built for stores and multi-unit quick-service brands.")])
-  +'<div class="trusted"><span class="trusted__l">TRUSTED BY</span><span>Intel</span><span>Google</span>'
-   '<span>IKEA</span><span>TATA</span><span>Schneider Electric</span><span>BigBasket</span></div>'))
+  +'<div class="trusted"><span class="trusted__l">TRUSTED BY</span><span>Intel</span>'
+   '<span>TATA</span><span>Schneider Electric</span><span>BigBasket</span></div>'))
 
 # 16 CLOSING / CTA
-S.append('<section class="slide slide--closing"><img class="slide__bg" src="{img}/cta-bg.png" alt=""/>'
+S.append('<section class="slide slide--closing"><img class="slide__bg" src="{img}/ev-closing.png" alt=""/>'
   '<div class="closing__veil"></div><div class="closing__inner">'
   '<div class="closing__brand">{mk}<span class="cover__brandtxt"><b>PATTERN</b><i>AI&nbsp;LABS</i></span></div>'
   '<h2 class="closing__head">See it live in your store<br/>in <span class="grad">three weeks</span>.</h2>'
