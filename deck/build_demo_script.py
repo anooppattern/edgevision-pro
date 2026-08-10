@@ -1,78 +1,69 @@
 # -*- coding: utf-8 -*-
-"""EdgeVision demo script (RetailTrack + Fabric Lens) — printable runbook.
-Plain language for a mixed technical / non-technical room; three cues per step
-(SHOW / SAY / POINT) written so a presenter can learn and deliver it naturally."""
+"""EdgeVision demo script (Fabric Lens live software walkthrough) — printable runbook.
+Content matches the recorded Fabric Lens QSR demo (Store #1234): Live Wall,
+Stations 1-3, Ops Board, Inventory, Insights & Alerts. Plain language, three cues
+per step (SHOW / SAY / POINT) so a presenter can learn and deliver it naturally."""
 import html, os
 OUT="/home/user/edgevision-pro/deck/EdgeVision-Demo-Script.html"
 def esc(s): return html.escape(s, quote=False)
 
 CHECKLIST=[
- "Laptop connected to the projector; screen mirrored and tested. Sound ON — a couple of steps have an alert chime.",
- "Each part of the demo is open and lined up in order, full-screen. Know which step comes next before you start.",
+ "Laptop connected to the projector; screen mirrored and tested. Sound ON — the alerts have a chime.",
+ "Fabric Lens open and full-screen. Know the tabs: Live Wall · Ops Board · Inventory · Insights · Alerts.",
+ "Each part of the walkthrough is queued in order. Know which screen comes next before you start.",
  "Close every other tab and notification. Nothing should pop up while you present.",
  "Keep this sheet where you can see it. You tell the story; the screen shows the proof.",
- "Open with one line: “What you’re about to see is our software running on everyday store and restaurant cameras.”",
+ "Open with one line: “This is our software running live on an ordinary quick-service kitchen.”",
 ]
 
 # (num, title, time, [(label,text)...])   labels: SHOW / SAY / POINT
-RETAIL=[
- (1,"People, seen clearly","0:45",[
-   ("SHOW","Store floor — coloured boxes follow each person; staff in amber, customers in cyan."),
-   ("SAY","“This is a normal store camera. Our software marks every person — amber for your staff, cyan for a customer. It does this on its own, and it never saves anyone’s face.”"),
-   ("POINT","Point to one amber box and one cyan box as they move.")]),
- (2,"One screen for the manager","0:45",[
-   ("SHOW","The manager’s screen — people in today, staff on the floor, alerts, and a busy-hours chart."),
-   ("SAY","“This is the only screen a manager needs. How many people came in, how many staff are on the floor, what needs attention now, and the busy hours — all on one page.”"),
-   ("POINT","Trace the busy-hours line with your finger and stop on the tallest point.")]),
- (3,"Where people spend time","0:45",[
-   ("SHOW","The heat-map — busy spots glow red; a list shows the top areas."),
-   ("SAY","“The red areas are where customers actually stop and spend time. Here, the brand wall pulls the most, the entrance the least. Now you can put your best products where people really go — not where you guessed.”"),
-   ("POINT","Point to the hottest area, then the coldest.")]),
- (4,"Spotting your best customer","1:00",[
-   ("SHOW","A loyalty customer walks in; a message pops up on the phone with their name, level, and last visit."),
-   ("SAY","“Watch the phone. A loyalty customer just walked in, and the manager’s phone shows who they are, their level, and what to offer. Now they get a warm welcome instead of walking past unnoticed.”"),
-   ("POINT","When the message appears, point to the name and level. All of this is worked out inside the store.")]),
- (5,"Small problems, caught early","0:45",[
-   ("SHOW","Alerts appear — “section left unattended”, “queue building at till 2”, “too many staff in the back”."),
-   ("SAY","“The same cameras watch the floor for you. An empty section, a growing queue, too many staff in the back — the manager gets a quiet nudge while there’s still time to fix it.”"),
-   ("POINT","Read out one or two alerts as they appear.")]),
- (6,"Quick recap","0:20",[
-   ("SAY","“Same cameras, two jobs — help the customer, and help your team. It all runs on one small box inside the store, and nothing leaves the building.”")]),
-]
-
-FABRIC=[
- (1,"Reading the kitchen line","0:50",[
-   ("SHOW","The counter where food is made — a box on each item, with a simple label: there, correct, or not right."),
-   ("SAY","“Same idea, now in a restaurant. Our software watches the counter where food is made. It doesn’t just see a burger — it checks the build: is every item there, and is it right?”"),
-   ("POINT","Point to one item and its label.")]),
- (2,"It catches the mistake — and fixes it","1:10",[
-   ("SHOW","An order is missing an item; an alert pops up on the kitchen screen with a chime; the item is added and the order clears."),
-   ("SAY","“This is the important part. This order is missing a sauce. The screen flags it straight away, before the bag goes out. The team add it, the software checks again, and the order is cleared. A wrong order caught in seconds — not after the customer complains.”"),
-   ("POINT","Follow it on screen: the alert, then the green ‘all correct’ once it’s fixed.")]),
- (3,"Two signals are better than one","0:50",[
-   ("SHOW","The camera view next to the fryer reading and the order screen."),
-   ("SAY","“Here’s something a camera alone can’t do. The fryer says the food is cooked. The camera says it still looks pale. Put the two together and you learn the fryer is running cool — a problem you’d never catch by eye until customers did.”"),
-   ("POINT","Point to the two readings that disagree.")]),
- (4,"The numbers a manager cares about","0:45",[
-   ("SHOW","The dashboard — service speed, order accuracy, and food-safety checks, by shift and station."),
-   ("SAY","“It all adds up to the numbers an owner runs on — how fast service is, how accurate orders are, and food-safety checks — for every shift and every station, ready for the next audit.”"),
-   ("POINT","Point to the speed, accuracy, and safety tiles.")]),
- (5,"Recap + hand back","0:20",[
-   ("SAY","“Counting things is easy. The real difference is that it understands what’s happening — and speaks up in time to fix it. That’s Fabric Lens.”")]),
+STEPS=[
+ (1,"The whole restaurant on one screen","0:30",[
+   ("SHOW","The Live Wall — every camera at once: the make-line stations, the fryer, the storeroom shelves, and the back door."),
+   ("SAY","“This is the whole restaurant on one screen — the front line, the fryer, the storeroom, even the delivery door. One system watches all of it, live. Everything I show next is happening on these same cameras.”"),
+   ("POINT","Point out a make-line station, the fryer, and the storeroom shelves.")]),
+ (2,"Station 1 — is the order right?","1:00",[
+   ("SHOW","Station 1, looking down at the box. It reads the ticket (a Box Combo) and checks every item. A red line appears: “Drop a slice of Texas toast in the box.”"),
+   ("SAY","“Station one checks the order before it’s bagged. The camera reads the ticket and counts what’s actually in the box — and it’s caught a missing Texas toast. The screen tells the team exactly what to add.”"),
+   ("POINT","Point to the alert line, then to the ticket checklist on the right."),
+   ("SHOW","The toast goes in; the team taps Re-check; the panel turns green — “Order complete · Ready, bag it.”"),
+   ("SAY","“They add it, re-check, and it clears to green. A wrong order fixed before it ever left the counter.”")]),
+ (3,"Station 2 — is it cooked right?","0:45",[
+   ("SHOW","Station 2, two cooked tenders side by side, graded against the ideal. Batch score 95%. One is flagged: “Pull the over-fried tender, drop a fresh one.”"),
+   ("SAY","“Station two grades how the food is cooked. It compares each piece to the ideal — colour, size, how well it’s fried. Here it’s spotted one that’s over-fried and says: pull it, drop a fresh one. That’s quality no busy line can watch by eye.”"),
+   ("POINT","Point to the two tenders and the batch score.")]),
+ (4,"Station 3 — was it built in the right order?","0:45",[
+   ("SHOW","Station 3, the build shown as a strip of steps. A step is missing: “Add sauce to the order before bag.” The item is tagged “without sauce.”"),
+   ("SAY","“Station three watches how the food is built, step by step. This order was about to be bagged without its sauce — the system catches it and asks for it before the bag closes. When it’s right, it shows ‘SOP compliant.’”"),
+   ("POINT","Point to the step strip, then the ‘add sauce’ flag.")]),
+ (5,"Ops Board — every order, scored live","0:50",[
+   ("SHOW","Operations, Store #1234. A live list — every ticket, its channel (drive-thru, dine-in, mobile) and a score for order accuracy, quality and prep. Along the top: throughput 41/hr, average order time 2m 47s, fryer oil 342°F, 14 open alerts."),
+   ("SAY","“Everything rolls up here — every order, from every channel, scored as it happens. Green is clean, red needs a look. The manager sees the whole shift on one screen — even the fryer temperature and how long orders are taking.”"),
+   ("POINT","Run your finger down the ticket list; stop on a red ‘re-check’ row.")]),
+ (6,"The back of house, too","0:40",[
+   ("SHOW","Inventory — the storeroom shelves tracking stock (crinkle fries, tenders), the fryer, and the receiving door as deliveries arrive."),
+   ("SAY","“It’s not just the front line. The same system watches the storeroom and the back door — what’s on the shelf, what’s running low, and what’s just been delivered. One platform, front to back.”"),
+   ("POINT","Point to a tracked box on the shelf, then the receiving-door camera.")]),
+ (7,"The numbers that add up","0:35",[
+   ("SHOW","Insights and Alerts — the shift’s key numbers (accuracy, speed, food safety, waste) and a live list of what needs attention."),
+   ("SAY","“And it adds up to the numbers a manager and an owner actually use — accuracy, speed, food safety, waste — with a live list of what needs a look. Ready for the next audit, with nobody filling in a clipboard.”"),
+   ("POINT","Point to one number, then the alert list.")]),
+ (8,"Recap","0:20",[
+   ("SAY","“Same cameras, the whole restaurant. It doesn’t just watch — it catches the missing toast, the over-fried tender, the forgotten sauce, and fixes them before the customer ever sees. That’s Fabric Lens.”")]),
 ]
 
 CLOSE=[
- "Bring it home: “Two products, one platform. It runs on your existing cameras, on a small box on-site. Nothing goes to the cloud.”",
- "The ask: “Give us three weeks in one of your stores and we’ll show you these same results on your own floor.”",
+ "Bring it home: “It runs on your existing kitchen cameras, on a small box on-site. Nothing goes to the cloud.”",
+ "The ask: “Give us three weeks in one of your restaurants and we’ll show you these same results on your own line.”",
  "Then pause and take questions — the quick answers are below.",
 ]
 QA=[
- ("Is this recording faces?","No faces are saved and no video leaves the site. Everything is worked out on the box inside your store."),
- ("Won’t it cry wolf?","Every alert comes with a short clip so a person can glance and confirm. You set how sensitive it is, per site."),
- ("Does it need new cameras?","No — it uses the cameras you already have. Just one small box added on-site."),
+ ("Is this scoring our staff?","It scores the food and the order, not the person. No faces are stored, and nothing leaves the store — it all runs on the box on-site."),
+ ("Won’t it cry wolf?","Every alert comes with the picture, so a person can glance and confirm. You set how strict each station is."),
+ ("Does it need new cameras?","No — it uses the kitchen cameras you already have. Just one small box added on-site."),
  ("Does it need the internet?","No. It keeps working even if the internet goes down, because everything runs locally."),
- ("How does it fit our systems?","It plugs into your billing / kitchen screens and can send alerts to a phone or WhatsApp."),
- ("How soon do we see results?","A three-week trial in one location — real results on your own floor by week three."),
+ ("How does it fit our systems?","It connects to your order screens (POS / kitchen display) and can send alerts to a screen or a phone."),
+ ("How soon do we see results?","A three-week trial in one restaurant — real results on your own line by week three."),
 ]
 
 def step(n,title,time,rows):
@@ -138,28 +129,27 @@ def sec(label,total): return '<div class="sec">{l}<span class="t">≈ {t}</span>
 
 body=('<p class="intro">Three cues per step — <b>SHOW</b> what’s on the screen, <b>SAY</b> it in your own words, '
   '<b>POINT</b> to what matters. Learn the ideas, not the exact wording. Speak slowly, and give each screen a '
-  'moment to land before you move on. The whole walkthrough is about 8–9 minutes.</p>'
+  'moment to land before you move on. The whole walkthrough is about {t} minutes.</p>'
  '<div class="box"><h5>Before you start</h5><ul>'
   +"".join('<li>{}</li>'.format(esc(x)) for x in CHECKLIST)+'</ul></div>'
- +sec("Part A · RetailTrack — the store floor",steps_total(RETAIL))
-  +"".join(step(*s) for s in RETAIL)
- +sec("Part B · Fabric Lens — the restaurant line",steps_total(FABRIC))
-  +"".join(step(*s) for s in FABRIC)
+ +sec("The walkthrough",steps_total(STEPS))
+  +"".join(step(*s) for s in STEPS)
  +'<div class="sec">How to close</div>'
   '<div class="box"><ul>'
   +"".join('<li>{}</li>'.format(esc(x)) for x in CLOSE)+'</ul></div>'
  +'<div class="sec">If someone asks — simple answers</div>'
   '<div class="two qa">'
-  +"".join('<div><b>{q}</b><span>{a}</span></div>'.format(q=esc(q),a=esc(a)) for q,a in QA)+'</div>')
+  +"".join('<div><b>{q}</b><span>{a}</span></div>'.format(q=esc(q),a=esc(a)) for q,a in QA)+'</div>'
+ ).format(t=steps_total(STEPS).split(":")[0])
 
 doc=('<!doctype html><html><head><meta charset="utf-8"/><title>EdgeVision · Demo Script</title>'
  '<link rel="stylesheet" href="fonts.css"/><style>{css}</style></head><body>'
  '<header><div class="h-l"><b>EdgeVision — Demo Script</b>'
- '<span>RetailTrack + Fabric Lens · Intel Event</span></div>'
- '<div class="h-r"><b>~8–9 min walkthrough</b><br/>Show it · tell the story<br/>Pattern AI Labs</div></header>'
+ '<span>Fabric Lens · Live Software Walkthrough · Intel Event</span></div>'
+ '<div class="h-r"><b>~{t} min walkthrough</b><br/>Show it · tell the story<br/>Pattern AI Labs</div></header>'
  +body+
  '<footer><span>EDGEVISION.PRO · PATTERN AI LABS · INTEL EDGE AI PARTNER</span>'
- '<span>SHOW · SAY · POINT</span></footer></body></html>').format(css=CSS)
+ '<span>SHOW · SAY · POINT</span></footer></body></html>').format(css=CSS,t=steps_total(STEPS).split(":")[0])
 os.makedirs(os.path.dirname(OUT),exist_ok=True)
 open(OUT,"w",encoding="utf-8").write(doc)
-print("Wrote",OUT,"| RetailTrack",steps_total(RETAIL),"| Fabric Lens",steps_total(FABRIC))
+print("Wrote",OUT,"| walkthrough",steps_total(STEPS))
