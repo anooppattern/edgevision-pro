@@ -1,7 +1,7 @@
 // EdgeVision demo script -> Word (.docx). Plain black-and-white, no brand colours.
 // Single doc, BOTH demos: Part A RetailTrack (existing store-floor content) and
 // Part B Fabric Lens (matches the recorded QSR software: Live Wall, Stations 1-3,
-// Ops Board, Inventory, Insights & Alerts — Store #1234).
+// Ops Board, Insights & Alerts — Store #1234).
 const fs = require('fs');
 const {
   Document, Packer, Paragraph, TextRun, AlignmentType,
@@ -72,15 +72,11 @@ const FABRIC = [
    ["Show","Operations, Store #1234. A live list — every ticket, its channel (drive-thru, dine-in, mobile) and a score for order accuracy, quality, and prep. Along the top: throughput 41/hr, average order time 2m 47s, fryer oil 342°F, 14 open alerts."],
    ["Say","“Everything rolls up here — every order, from every channel, scored as it happens. Green is clean, red needs a look. The manager sees the whole shift on one screen — even the fryer temperature and how long orders are taking.”"],
    ["Point","Run your finger down the ticket list; stop on a red ‘re-check’ row."]]],
- [6,"The back of house, too","0:40",[
-   ["Show","Inventory — the storeroom shelves tracking stock (crinkle fries, tenders), the fryer, and the receiving door as deliveries arrive."],
-   ["Say","“It’s not just the front line. The same system watches the storeroom and the back door — what’s on the shelf, what’s running low, and what’s just been delivered. One platform, front to back.”"],
-   ["Point","Point to a tracked box on the shelf, then the receiving-door camera."]]],
- [7,"The numbers that add up","0:35",[
+ [6,"The numbers that add up","0:35",[
    ["Show","Insights and Alerts — the shift’s key numbers (accuracy, speed, food safety, waste) and a live list of what needs attention."],
    ["Say","“And it adds up to the numbers a manager and an owner actually use — accuracy, speed, food safety, waste — with a live list of what needs a look. Ready for the next audit, with nobody filling in a clipboard.”"],
    ["Point","Point to one number, then the alert list."]]],
- [8,"Recap","0:20",[
+ [7,"Recap","0:20",[
    ["Say","“Same cameras, the whole restaurant. It doesn’t just watch — it catches the missing toast, the over-fried tender, the forgotten sauce, and fixes them before the customer ever sees. That’s Fabric Lens.”"]]],
 ];
 
