@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-"""EdgeVision demo script (Fabric Lens live software walkthrough) — printable runbook.
-Content matches the recorded Fabric Lens QSR demo (Store #1234): Live Wall,
+"""EdgeVision demo script (RetailTrack + Fabric Lens) — printable runbook.
+Single doc, both demos. Part A RetailTrack = existing store-floor content;
+Part B Fabric Lens matches the recorded QSR software (Store #1234): Live Wall,
 Stations 1-3, Ops Board, Inventory, Insights & Alerts. Plain language, three cues
 per step (SHOW / SAY / POINT) so a presenter can learn and deliver it naturally."""
 import html, os
@@ -8,16 +9,43 @@ OUT="/home/user/edgevision-pro/deck/EdgeVision-Demo-Script.html"
 def esc(s): return html.escape(s, quote=False)
 
 CHECKLIST=[
- "Laptop connected to the projector; screen mirrored and tested. Sound ON — the alerts have a chime.",
- "Fabric Lens open and full-screen. Know the tabs: Live Wall · Ops Board · Inventory · Insights · Alerts.",
+ "Laptop connected to the projector; screen mirrored and tested. Sound ON — some steps have an alert chime.",
+ "Both apps open and full-screen: RetailTrack (the store floor) and Fabric Lens (the kitchen). Know which you’re showing.",
  "Each part of the walkthrough is queued in order. Know which screen comes next before you start.",
  "Close every other tab and notification. Nothing should pop up while you present.",
  "Keep this sheet where you can see it. You tell the story; the screen shows the proof.",
- "Open with one line: “This is our software running live on an ordinary quick-service kitchen.”",
+ "Open with one line: “This is our software running live — the same idea in a store and in a kitchen.”",
 ]
 
 # (num, title, time, [(label,text)...])   labels: SHOW / SAY / POINT
-STEPS=[
+# Part A — RetailTrack (existing store-floor content)
+RETAIL=[
+ (1,"People, seen clearly","0:45",[
+   ("SHOW","Store floor — coloured boxes follow each person; staff in amber, customers in cyan."),
+   ("SAY","“This is a normal store camera. Our software marks every person — amber for your staff, cyan for a customer. It does this on its own, and it never saves anyone’s face.”"),
+   ("POINT","Point to one amber box and one cyan box as they move.")]),
+ (2,"One screen for the manager","0:45",[
+   ("SHOW","The manager’s screen — people in today, staff on the floor, alerts, and a busy-hours chart."),
+   ("SAY","“This is the only screen a manager needs. How many people came in, how many staff are on the floor, what needs attention now, and the busy hours — all on one page.”"),
+   ("POINT","Trace the busy-hours line with your finger and stop on the tallest point.")]),
+ (3,"Where people spend time","0:45",[
+   ("SHOW","The heat-map — busy spots glow red; a list shows the top areas."),
+   ("SAY","“The red areas are where customers actually stop and spend time. Here, the brand wall pulls the most, the entrance the least. Now you can put your best products where people really go — not where you guessed.”"),
+   ("POINT","Point to the hottest area, then the coldest.")]),
+ (4,"Spotting your best customer","1:00",[
+   ("SHOW","A loyalty customer walks in; a message pops up on the phone with their name, level, and last visit."),
+   ("SAY","“Watch the phone. A loyalty customer just walked in, and the manager’s phone shows who they are, their level, and what to offer. Now they get a warm welcome instead of walking past unnoticed.”"),
+   ("POINT","When the message appears, point to the name and level. All of this is worked out inside the store.")]),
+ (5,"Small problems, caught early","0:45",[
+   ("SHOW","Alerts appear — “section left unattended”, “queue building at till 2”, “too many staff in the back”."),
+   ("SAY","“The same cameras watch the floor for you. An empty section, a growing queue, too many staff in the back — the manager gets a quiet nudge while there’s still time to fix it.”"),
+   ("POINT","Read out one or two alerts as they appear.")]),
+ (6,"Quick recap","0:20",[
+   ("SAY","“Same cameras, two jobs — help the customer, and help your team. It all runs on one small box inside the store, and nothing leaves the building.”")]),
+]
+
+# Part B — Fabric Lens (matches the recorded QSR software)
+FABRIC=[
  (1,"The whole restaurant on one screen","0:30",[
    ("SHOW","The Live Wall — every camera at once: the make-line stations, the fryer, the storeroom shelves, and the back door."),
    ("SAY","“This is the whole restaurant on one screen — the front line, the fryer, the storeroom, even the delivery door. One system watches all of it, live. Everything I show next is happening on these same cameras.”"),
@@ -53,17 +81,17 @@ STEPS=[
 ]
 
 CLOSE=[
- "Bring it home: “It runs on your existing kitchen cameras, on a small box on-site. Nothing goes to the cloud.”",
- "The ask: “Give us three weeks in one of your restaurants and we’ll show you these same results on your own line.”",
+ "Bring it home: “Two products, one platform. It runs on your existing cameras, on a small box on-site. Nothing goes to the cloud.”",
+ "The ask: “Give us three weeks in one store or one restaurant and we’ll show you these same results on your own floor.”",
  "Then pause and take questions — the quick answers are below.",
 ]
 QA=[
- ("Is this scoring our staff?","It scores the food and the order, not the person. No faces are stored, and nothing leaves the store — it all runs on the box on-site."),
- ("Won’t it cry wolf?","Every alert comes with the picture, so a person can glance and confirm. You set how strict each station is."),
- ("Does it need new cameras?","No — it uses the kitchen cameras you already have. Just one small box added on-site."),
+ ("Is this recording faces?","No faces are stored and no video leaves the site. In the store it only matches loyalty opt-ins; in the kitchen it scores the food, not the person. Everything runs on the box on-site."),
+ ("Won’t it cry wolf?","Every alert comes with the picture, so a person can glance and confirm. You set how strict it is, per site and per station."),
+ ("Does it need new cameras?","No — it uses the cameras you already have. Just one small box added on-site."),
  ("Does it need the internet?","No. It keeps working even if the internet goes down, because everything runs locally."),
- ("How does it fit our systems?","It connects to your order screens (POS / kitchen display) and can send alerts to a screen or a phone."),
- ("How soon do we see results?","A three-week trial in one restaurant — real results on your own line by week three."),
+ ("How does it fit our systems?","It connects to your POS / kitchen screens and can send alerts to a screen or a phone."),
+ ("How soon do we see results?","A three-week trial in one location — real results on your own floor by week three."),
 ]
 
 def step(n,title,time,rows):
@@ -127,29 +155,38 @@ footer{margin-top:12px;padding-top:8px;border-top:1px solid #e6e6ea;display:flex
 
 def sec(label,total): return '<div class="sec">{l}<span class="t">≈ {t}</span></div>'.format(l=esc(label),t=total)
 
+def grand_total():
+    tot=0
+    for grp in (RETAIL,FABRIC):
+        for _,_,t,_ in grp:
+            m,s=t.split(":"); tot+=int(m)*60+int(s)
+    return "{}:{:02d}".format(tot//60,tot%60)
+
 body=('<p class="intro">Three cues per step — <b>SHOW</b> what’s on the screen, <b>SAY</b> it in your own words, '
   '<b>POINT</b> to what matters. Learn the ideas, not the exact wording. Speak slowly, and give each screen a '
-  'moment to land before you move on. The whole walkthrough is about {t} minutes.</p>'
+  'moment to land before you move on. Both walkthroughs together are about {t} minutes.</p>'
  '<div class="box"><h5>Before you start</h5><ul>'
   +"".join('<li>{}</li>'.format(esc(x)) for x in CHECKLIST)+'</ul></div>'
- +sec("The walkthrough",steps_total(STEPS))
-  +"".join(step(*s) for s in STEPS)
+ +sec("Part A · RetailTrack — the store floor",steps_total(RETAIL))
+  +"".join(step(*s) for s in RETAIL)
+ +sec("Part B · Fabric Lens — the restaurant line",steps_total(FABRIC))
+  +"".join(step(*s) for s in FABRIC)
  +'<div class="sec">How to close</div>'
   '<div class="box"><ul>'
   +"".join('<li>{}</li>'.format(esc(x)) for x in CLOSE)+'</ul></div>'
  +'<div class="sec">If someone asks — simple answers</div>'
   '<div class="two qa">'
   +"".join('<div><b>{q}</b><span>{a}</span></div>'.format(q=esc(q),a=esc(a)) for q,a in QA)+'</div>'
- ).format(t=steps_total(STEPS).split(":")[0])
+ ).format(t=grand_total().split(":")[0])
 
 doc=('<!doctype html><html><head><meta charset="utf-8"/><title>EdgeVision · Demo Script</title>'
  '<link rel="stylesheet" href="fonts.css"/><style>{css}</style></head><body>'
  '<header><div class="h-l"><b>EdgeVision — Demo Script</b>'
- '<span>Fabric Lens · Live Software Walkthrough · Intel Event</span></div>'
- '<div class="h-r"><b>~{t} min walkthrough</b><br/>Show it · tell the story<br/>Pattern AI Labs</div></header>'
+ '<span>RetailTrack + Fabric Lens · Live Software Walkthrough · Intel Event</span></div>'
+ '<div class="h-r"><b>~{t} min · both demos</b><br/>Show it · tell the story<br/>Pattern AI Labs</div></header>'
  +body+
  '<footer><span>EDGEVISION.PRO · PATTERN AI LABS · INTEL EDGE AI PARTNER</span>'
- '<span>SHOW · SAY · POINT</span></footer></body></html>').format(css=CSS,t=steps_total(STEPS).split(":")[0])
+ '<span>SHOW · SAY · POINT</span></footer></body></html>').format(css=CSS,t=grand_total().split(":")[0])
 os.makedirs(os.path.dirname(OUT),exist_ok=True)
 open(OUT,"w",encoding="utf-8").write(doc)
-print("Wrote",OUT,"| walkthrough",steps_total(STEPS))
+print("Wrote",OUT,"| RetailTrack",steps_total(RETAIL),"| Fabric Lens",steps_total(FABRIC),"| both",grand_total())
