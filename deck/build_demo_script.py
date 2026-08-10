@@ -1,64 +1,64 @@
 # -*- coding: utf-8 -*-
-"""EdgeVision demo narration script (RetailTrack + Fabric Lens) — printable runbook.
-All demo videos are pre-recorded and preloaded; the presenter plays each clip and
-narrates. Language kept plain for a mixed technical / non-technical room."""
+"""EdgeVision demo script (RetailTrack + Fabric Lens) — printable runbook.
+Plain language for a mixed technical / non-technical room; three cues per step
+(SHOW / SAY / POINT) written so a presenter can learn and deliver it naturally."""
 import html, os
 OUT="/home/user/edgevision-pro/deck/EdgeVision-Demo-Script.html"
 def esc(s): return html.escape(s, quote=False)
 
 CHECKLIST=[
- "Laptop connected to the projector; screen mirrored and tested. Sound ON — a couple of clips have an alert chime.",
- "All demo videos open and lined up in order, full-screen. Know which clip is next before you start.",
- "Close every other tab and notification. Nothing should pop up mid-demo.",
- "Have the running order on this sheet where you can see it. You are telling a story, the video is the proof.",
- "One line to open with: “Everything you’re about to see is our software running on real store and restaurant cameras.”",
+ "Laptop connected to the projector; screen mirrored and tested. Sound ON — a couple of steps have an alert chime.",
+ "Each part of the demo is open and lined up in order, full-screen. Know which step comes next before you start.",
+ "Close every other tab and notification. Nothing should pop up while you present.",
+ "Keep this sheet where you can see it. You tell the story; the screen shows the proof.",
+ "Open with one line: “What you’re about to see is our software running on everyday store and restaurant cameras.”",
 ]
 
-# (num, title, time, [(label,text)...])   labels: PLAY / SAY / POINT
+# (num, title, time, [(label,text)...])   labels: SHOW / SAY / POINT
 RETAIL=[
  (1,"People, seen clearly","0:45",[
-   ("PLAY","Store-floor clip — coloured boxes follow each person; STAFF in amber, CUSTOMER in cyan."),
-   ("SAY","“This is a normal store camera. Our software is watching it and marking every person — amber is your staff, cyan is a customer. It does this by itself, and it never saves anyone’s face.”"),
-   ("POINT","Point at one amber box and one cyan box as they move.")]),
+   ("SHOW","Store floor — coloured boxes follow each person; staff in amber, customers in cyan."),
+   ("SAY","“This is a normal store camera. Our software marks every person — amber for your staff, cyan for a customer. It does this on its own, and it never saves anyone’s face.”"),
+   ("POINT","Point to one amber box and one cyan box as they move.")]),
  (2,"One screen for the manager","0:45",[
-   ("PLAY","The manager dashboard — footfall today, staff on the floor, live alerts, a busy-hours chart."),
-   ("SAY","“This is the only screen a store manager needs. How many people came in today, how many staff are on the floor, what needs attention right now, and the busy hours. Everything on one page.”"),
-   ("POINT","Trace the busy-hours curve with your finger and stop on the peak.")]),
+   ("SHOW","The manager’s screen — people in today, staff on the floor, alerts, and a busy-hours chart."),
+   ("SAY","“This is the only screen a manager needs. How many people came in, how many staff are on the floor, what needs attention now, and the busy hours — all on one page.”"),
+   ("POINT","Trace the busy-hours line with your finger and stop on the tallest point.")]),
  (3,"Where people spend time","0:45",[
-   ("PLAY","The heat-map clip — hot zones glow; a list shows the top areas (brand wall, centre table, entry)."),
-   ("SAY","“The red areas are where customers actually stop and spend time. Here, the brand wall pulls the most; the entrance the least. Now you can place your best products where people really go — not where you guessed.”"),
+   ("SHOW","The heat-map — busy spots glow red; a list shows the top areas."),
+   ("SAY","“The red areas are where customers actually stop and spend time. Here, the brand wall pulls the most, the entrance the least. Now you can put your best products where people really go — not where you guessed.”"),
    ("POINT","Point to the hottest area, then the coldest.")]),
  (4,"Spotting your best customer","1:00",[
-   ("PLAY","The recognition clip — a loyalty customer walks in; a phone alert pops up with name, tier, last visit."),
-   ("SAY","“Watch the phone. A loyalty customer just walked in — and the manager’s phone tells them who it is, their level, when they last came, and what to offer. Now the customer gets a warm welcome instead of walking past unnoticed.”"),
-   ("POINT","When the alert appears, point to it: “name, level, last visit.” All worked out inside the store — nothing sent outside.")]),
+   ("SHOW","A loyalty customer walks in; a message pops up on the phone with their name, level, and last visit."),
+   ("SAY","“Watch the phone. A loyalty customer just walked in, and the manager’s phone shows who they are, their level, and what to offer. Now they get a warm welcome instead of walking past unnoticed.”"),
+   ("POINT","When the message appears, point to the name and level. All of this is worked out inside the store.")]),
  (5,"Small problems, caught early","0:45",[
-   ("PLAY","The alerts clip — messages appear: “section left unattended”, “queue building at till 2”, “too many staff in the back”."),
-   ("SAY","“The same cameras also watch the shop floor for you. A section with no staff, a queue building up, too many people standing in the back room — the manager gets a quiet nudge while there’s still time to fix it.”"),
+   ("SHOW","Alerts appear — “section left unattended”, “queue building at till 2”, “too many staff in the back”."),
+   ("SAY","“The same cameras watch the floor for you. An empty section, a growing queue, too many staff in the back — the manager gets a quiet nudge while there’s still time to fix it.”"),
    ("POINT","Read out one or two alerts as they appear.")]),
  (6,"Quick recap","0:20",[
-   ("SAY","“Same cameras, two jobs — help the customer, and help your team. All of it runs on one small box inside the store. Nothing leaves the building.”")]),
+   ("SAY","“Same cameras, two jobs — help the customer, and help your team. It all runs on one small box inside the store, and nothing leaves the building.”")]),
 ]
 
 FABRIC=[
  (1,"Reading the kitchen line","0:50",[
-   ("PLAY","Make-line clip — boxes on each item, with a simple label (there / correct / not right)."),
+   ("SHOW","The counter where food is made — a box on each item, with a simple label: there, correct, or not right."),
    ("SAY","“Same idea, now in a restaurant. Our software watches the counter where food is made. It doesn’t just see a burger — it checks the build: is every item there, and is it right?”"),
    ("POINT","Point to one item and its label.")]),
  (2,"It catches the mistake — and fixes it","1:10",[
-   ("PLAY","Clip: an order is missing an item; an alert pops up on the kitchen screen with a chime; the item is added and the order clears."),
-   ("SAY","“This is the important part. This order is missing a sauce. The screen flags it right away — before the bag goes out. The staff add it, the software double-checks, and the order is cleared. A wrong order caught in seconds, not after the customer complains.”"),
+   ("SHOW","An order is missing an item; an alert pops up on the kitchen screen with a chime; the item is added and the order clears."),
+   ("SAY","“This is the important part. This order is missing a sauce. The screen flags it straight away, before the bag goes out. The team add it, the software checks again, and the order is cleared. A wrong order caught in seconds — not after the customer complains.”"),
    ("POINT","Follow it on screen: the alert, then the green ‘all correct’ once it’s fixed.")]),
  (3,"Two signals are better than one","0:50",[
-   ("PLAY","Fusion clip — the camera view next to the fryer reading and the order screen."),
-   ("SAY","“Here’s something a camera alone can’t do. The fryer says the food is cooked. The camera says it still looks pale. Put those two together and you learn the fryer is running cool — a problem you’d never catch by eye until customers noticed.”"),
+   ("SHOW","The camera view next to the fryer reading and the order screen."),
+   ("SAY","“Here’s something a camera alone can’t do. The fryer says the food is cooked. The camera says it still looks pale. Put the two together and you learn the fryer is running cool — a problem you’d never catch by eye until customers did.”"),
    ("POINT","Point to the two readings that disagree.")]),
  (4,"The numbers a manager cares about","0:45",[
-   ("PLAY","The dashboard — service speed, order accuracy, food-safety checks, by shift and station."),
-   ("SAY","“And it all adds up to the numbers an owner actually runs on — how fast service is, how accurate orders are, and food-safety checks — for every shift and every station, ready for the next audit.”"),
-   ("POINT","Point to the speed, accuracy and safety tiles.")]),
+   ("SHOW","The dashboard — service speed, order accuracy, and food-safety checks, by shift and station."),
+   ("SAY","“It all adds up to the numbers an owner runs on — how fast service is, how accurate orders are, and food-safety checks — for every shift and every station, ready for the next audit.”"),
+   ("POINT","Point to the speed, accuracy, and safety tiles.")]),
  (5,"Recap + hand back","0:20",[
-   ("SAY","“Counting things is easy. The difference here is it understands what’s happening — and speaks up in time to fix it. That’s Fabric Lens.”")]),
+   ("SAY","“Counting things is easy. The real difference is that it understands what’s happening — and speaks up in time to fix it. That’s Fabric Lens.”")]),
 ]
 
 CLOSE=[
@@ -136,10 +136,9 @@ footer{margin-top:12px;padding-top:8px;border-top:1px solid #e6e6ea;display:flex
 
 def sec(label,total): return '<div class="sec">{l}<span class="t">≈ {t}</span></div>'.format(l=esc(label),t=total)
 
-body=('<p class="intro">Everything in this demo is a <b>pre-recorded video</b> — you play each clip and tell the '
-  'story over it. Three simple cues per step: <b>PLAY</b> = the clip to play · <b>SAY</b> = your words, in plain '
-  'language (paraphrase, don’t read it out) · <b>POINT</b> = what to point at on screen. '
-  'Whole demo is about 8–9 minutes. Speak slowly, let the video breathe.</p>'
+body=('<p class="intro">Three cues per step — <b>SHOW</b> what’s on the screen, <b>SAY</b> it in your own words, '
+  '<b>POINT</b> to what matters. Learn the ideas, not the exact wording. Speak slowly, and give each screen a '
+  'moment to land before you move on. The whole walkthrough is about 8–9 minutes.</p>'
  '<div class="box"><h5>Before you start</h5><ul>'
   +"".join('<li>{}</li>'.format(esc(x)) for x in CHECKLIST)+'</ul></div>'
  +sec("Part A · RetailTrack — the store floor",steps_total(RETAIL))
@@ -157,10 +156,10 @@ doc=('<!doctype html><html><head><meta charset="utf-8"/><title>EdgeVision · Dem
  '<link rel="stylesheet" href="fonts.css"/><style>{css}</style></head><body>'
  '<header><div class="h-l"><b>EdgeVision — Demo Script</b>'
  '<span>RetailTrack + Fabric Lens · Intel Event</span></div>'
- '<div class="h-r"><b>~8–9 min · recorded videos</b><br/>Play the clip · tell the story<br/>Pattern AI Labs</div></header>'
+ '<div class="h-r"><b>~8–9 min walkthrough</b><br/>Show it · tell the story<br/>Pattern AI Labs</div></header>'
  +body+
  '<footer><span>EDGEVISION.PRO · PATTERN AI LABS · INTEL EDGE AI PARTNER</span>'
- '<span>PLAY · SAY · POINT</span></footer></body></html>').format(css=CSS)
+ '<span>SHOW · SAY · POINT</span></footer></body></html>').format(css=CSS)
 os.makedirs(os.path.dirname(OUT),exist_ok=True)
 open(OUT,"w",encoding="utf-8").write(doc)
 print("Wrote",OUT,"| RetailTrack",steps_total(RETAIL),"| Fabric Lens",steps_total(FABRIC))
