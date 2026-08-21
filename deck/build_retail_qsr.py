@@ -115,7 +115,7 @@ S.append(divider("CHAPTER 01 · THE VISIBILITY GAP","CHAPTER 01","The Visibility
 copy=(eyebrow("The Challenge · Store Floor")
   +display("The In-Store<br/>Visibility Gap.","display--mid")
   +lede("Stores capture hours of CCTV every shift. But almost none of it becomes a decision.")
-  +dashlist(["Staff effort & productivity is opaque — who is attending, grouping, on the phone",
+  +dashlist(["Staff effort & productivity is opaque — floor staff can’t identify the best performer, who’s grouped up chit-chatting, and who’s on mobile",
              "Customer journey is invisible after entry — footfall ≠ engagement",
              "High-value customers walk in unannounced — loyalty runs blind to the first 60 seconds",
              "Floor-hygiene failures surface late — scattered footwear, disturbed displays, > 4 in back store"],"dashlist--split"))
@@ -250,7 +250,7 @@ S.append(slide("HIDDEN LOOPS",body))
 
 # 15 · Brand-Level Staff Heat Map
 a=lenscard("FLOOR MOVEMENT MAP","",["Per-staff movement trail across the floor","Brand-zone occupancy heat by 30-min slot",
-   "Hand-off detection between brand zones","Comparison: peak vs non-peak coverage"],kind="check")
+   "Hand-off detection between brand zones","Comparison: peak vs non-peak coverage","Individual staff performance can be reviewed"],kind="check")
 b=lenscard("BACK-STORE ACTIVITY","",["Round-trips per brand per day (size hunts)","Time spent by each staff in back store",
    "Alert if > 4 staff in back store at once","End-of-day back-store occupancy report"],kind="check")
 body=(eyebrow("Brand-Level Staff Heat Map")+display("Where Your Staff Actually Spend Time.","display--mid")+twocol(a,b))
@@ -348,7 +348,32 @@ body=(eyebrow("Engagement Model")+display("From CCTV to Insights<br/>in Three We
         "a configured alert pipeline, and an operations team that has run a full daily cycle on the new console."))
 S.append(slide("ENGAGEMENT",body))
 
-# 27 · About
+# 27 · Commercials / Pricing
+poc=('<article class="price-card price-card--poc"><div class="price-card__tag">STAGE 01</div>'
+  '<h3>Proof of Concept</h3><p class="price-card__lead">We invest in the hardware and waive the fees — you try it risk-free.</p>'
+  '<ul class="pricelist">'
+  '<li><span class="pl__k">Per-camera usage fee</span><span class="pl__v pl__v--free">Waived</span></li>'
+  '<li><span class="pl__k">Hardware cost</span><span class="pl__v pl__v--free">We invest</span></li>'
+  '<li><span class="pl__k">Refundable security deposit</span><span class="pl__v">₹20,000</span></li></ul>'
+  '<p class="price-card__note">The deposit is fully refunded once the POC is approved and you decide to proceed.</p></article>')
+post=('<article class="price-card price-card--post"><div class="price-card__tag">STAGE 02</div>'
+  '<h3>Post-POC · Rollout</h3><p class="price-card__lead">Go live across stores on a simple, predictable model.</p>'
+  '<ul class="pricelist">'
+  '<li><span class="pl__k">One-time hardware<br/><i>by compute for the use cases deployed</i></span>'
+  '<span class="pl__v">₹1&ndash;1.5&nbsp;<em>lakh</em></span></li>'
+  '<li><span class="pl__k">Ongoing software</span><span class="pl__v">₹500 <em>/ camera / month</em></span></li></ul>'
+  '<p class="price-card__note">Flexible — further negotiable on the number of stores and overall volume.</p></article>')
+price_privacy=('<div class="price-privacy"><div class="price-privacy__ic"><svg viewBox="0 0 24 24">'
+  '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>'
+  '<div><p class="price-privacy__h">Edge-compute architecture · private by design</p>'
+  '<p class="price-privacy__p">All CCTV data stays on-premise on the edge server inside your store — '
+  '<b>nothing is sent to the cloud</b> unless a specific use case requires it. Full compliance with the latest '
+  'privacy regulations and data-handling standards.</p></div></div>')
+pbody=(eyebrow("Commercials")+display("Simple pricing. Risk-free to start.","display--mid")
+  +'<div class="price-grid">'+poc+post+'</div>'+price_privacy)
+S.append(slide("COMMERCIALS",pbody))
+
+# 28 · About
 body=(eyebrow("About")+display("The Team Behind EdgeVision.","display--mid")
   +lede("Pattern AI Labs builds intelligent edge AI for enterprise operations — democratising real-time video "
         "intelligence with privacy and actionable insights in seconds.")
@@ -373,7 +398,31 @@ S.append('<section class="slide slide--closing"><img class="slide__bg" src="{img
   '<div class="closing__foot"><span>SAN FRANCISCO, USA &nbsp;·&nbsp; KOCHI, INDIA &nbsp;·&nbsp; REMOTE, GLOBAL</span>'
   '<span>© 2026 PATTERN AI LABS</span></div></div></section>'.format(img=IMG,mk=mark("mark--lg")))
 
-CSS=open("/home/user/edgevision-pro/deck/deck.css").read()
+PRICE_CSS="""
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:12px}
+.price-card{background:var(--bg);padding:22px 26px 22px;display:flex;flex-direction:column;position:relative}
+.price-card--post{background:linear-gradient(180deg,rgba(245,46,103,.06),var(--bg))}
+.price-card__tag{font-family:var(--mono);font-size:.58rem;letter-spacing:.24em;color:var(--text-mute);margin-bottom:12px}
+.price-card--post .price-card__tag{color:var(--brand)}
+.price-card h3{font-family:var(--tx);font-weight:400;font-size:1.4rem;color:#fff;margin:0 0 6px}
+.price-card__lead{font-size:.82rem;line-height:1.4;color:var(--text-dim);margin:0 0 14px}
+.pricelist{margin:0;padding:0;list-style:none;border-top:1px solid var(--border)}
+.pricelist li{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--border)}
+.pl__k{font-size:.84rem;color:var(--text-dim);line-height:1.3}
+.pl__k i{display:block;font-style:normal;font-size:.68rem;color:var(--text-mute);margin-top:2px}
+.pl__v{font-family:var(--tx);font-weight:300;font-size:1.35rem;color:#fff;white-space:nowrap;text-align:right}
+.pl__v em{font-style:normal;font-size:.6em;color:var(--text-dim);font-weight:300}
+.pl__v--free{color:var(--brand);font-size:1.05rem;font-weight:500;letter-spacing:.02em}
+.price-card__note{margin:14px 0 0;font-size:.74rem;line-height:1.4;color:var(--text-mute)}
+.price-card--post .price-card__note{color:var(--text-dim)}
+.price-privacy{display:flex;gap:18px;align-items:flex-start;margin-top:16px;padding:18px 22px;border:1px solid var(--border-2);background:var(--bg-2)}
+.price-privacy__ic{width:34px;height:34px;color:var(--brand);flex:0 0 auto}
+.price-privacy__ic svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.4}
+.price-privacy__h{font-family:var(--tx);font-weight:600;font-size:.9rem;color:#fff;margin:0 0 4px}
+.price-privacy__p{font-size:.8rem;line-height:1.45;color:var(--text-dim);margin:0;max-width:none}
+.price-privacy__p b{color:#fff}
+"""
+CSS=open("/home/user/edgevision-pro/deck/deck.css").read()+PRICE_CSS
 doc=('<!doctype html><html lang="en"><head><meta charset="utf-8"/>'
      '<title>EdgeVision — Retail & QSR · Pattern AI Labs</title>'
      '<link rel="stylesheet" href="fonts.css"/><style>{css}</style></head><body>{sym}{slides}</body></html>').format(
