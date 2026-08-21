@@ -22,7 +22,7 @@ def slide(ctx, body, cls=""):
         '<span class="chrome__div">/</span><span class="chrome__prod">{prod}</span></span>'
         '<span class="chrome__ctx">{ctx}</span></div>').format(m=mark("mark--sm"),prod=PROD,ctx=esc(ctx))
     foot=('<div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span>'
-        '<span class="foot__mid">{fm}</span><span class="foot__n">{n:02d}</span></div>').format(fm=FOOT_MID,n=_n[0])
+        '<span class="foot__mid">{fm}</span><span class="foot__n">__PN__</span></div>').format(fm=FOOT_MID)
     return ('<section class="slide {cls}">{chrome}<div class="slide__body">{body}</div>{foot}</section>').format(
         cls=cls,chrome=chrome,body=body,foot=foot)
 
@@ -32,7 +32,7 @@ def divider(ctx, num, title, sub, bg):
         '<span class="chrome__div">/</span><span class="chrome__prod">{prod}</span></span>'
         '<span class="chrome__ctx">{ctx}</span></div>').format(m=mark("mark--sm"),prod=PROD,ctx=esc(ctx))
     foot=('<div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span>'
-        '<span class="foot__mid">{fm}</span><span class="foot__n">{n:02d}</span></div>').format(fm=FOOT_MID,n=_n[0])
+        '<span class="foot__mid">{fm}</span><span class="foot__n">__PN__</span></div>').format(fm=FOOT_MID)
     body=('<p class="divider__num">{num}</p><h2 class="divider__title">{title}</h2>'
         '<p class="divider__sub">{sub}</p><div class="divider__rule"></div>').format(num=esc(num),title=title,sub=esc(sub))
     return ('<section class="slide slide--divider"><img class="slide__bg" src="{img}/{bg}" alt=""/>'
@@ -423,10 +423,91 @@ PRICE_CSS="""
 .price-privacy__p b{color:#fff}
 """
 CSS=open("/home/user/edgevision-pro/deck/deck.css").read()+PRICE_CSS
-doc=('<!doctype html><html lang="en"><head><meta charset="utf-8"/>'
-     '<title>EdgeVision — Retail & QSR · Pattern AI Labs</title>'
-     '<link rel="stylesheet" href="fonts.css"/><style>{css}</style></head><body>{sym}{slides}</body></html>').format(
-     css=CSS,sym=MARK_SYMBOL,slides="".join(S))
-os.makedirs(os.path.dirname(OUT),exist_ok=True)
-open(OUT,"w",encoding="utf-8").write(doc)
-print("Wrote",OUT,"with",_n[0],"slides")
+
+# ── per-slide audience tags (order matches the 28 S.append calls above) ──
+TAGS=[
+ 'both',   # 01 Cover
+ 'both',   # 02 Ch01 · Visibility Gap
+ 'retail', # 03 The Challenge (store floor)
+ 'both',   # 04 Ch02 · The Platform
+ 'both',   # 05 The Solution
+ 'retail', # 06 Operations Console (footfall/VIP/dwell)
+ 'retail', # 07 Ch03 · Two Lenses
+ 'retail', # 08 Two Lenses
+ 'retail', # 09 Detection at Work
+ 'retail', # 10 Customer Analytics
+ 'retail', # 11 Heat Mapping
+ 'retail', # 12 VIP Recognition
+ 'retail', # 13 Staff Analytics
+ 'retail', # 14 Hidden Loops
+ 'retail', # 15 Brand-Level Staff Heat
+ 'retail', # 16 Retail Long Tail
+ 'qsr',    # 17 QSR Edition divider
+ 'qsr',    # 18 QSR Capabilities
+ 'qsr',    # 19 QSR Long Tail
+ 'both',   # 20 Ch05 · Paradigm Shift
+ 'both',   # 21 Paradigm Shift
+ 'both',   # 22 Hybrid Intelligence
+ 'both',   # 23 Architecture
+ 'both',   # 24 Hardware & Privacy
+ 'both',   # 25 Engagement
+ 'both',   # 26 Commercials / Pricing
+ 'both',   # 27 About
+ 'both',   # 28 Contact / closing
+]
+assert len(TAGS)==len(S), (len(TAGS),len(S))
+
+def renumber(body):
+    parts=body.split('__PN__')
+    out=parts[0]
+    for i,seg in enumerate(parts[1:],1):
+        out+="{:02d}".format(i)+seg
+    return out
+
+def emit(mode,title,out,subs):
+    sl=[s for s,t in zip(S,TAGS) if mode=='both' or t=='both' or t==mode]
+    body="".join(sl)
+    for a,b in subs: body=body.replace(a,b)
+    body=renumber(body)
+    doc=('<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>{t}</title>'
+         '<link rel="stylesheet" href="fonts.css"/><style>{css}</style></head><body>{sym}{body}</body></html>').format(
+         t=title,css=CSS,sym=MARK_SYMBOL,body=body)
+    os.makedirs(os.path.dirname(out),exist_ok=True)
+    open(out,"w",encoding="utf-8").write(doc)
+    print("Wrote",out,"with",len(sl),"slides")
+
+RETAIL_SUBS=[
+ ('RETAIL&nbsp;&&nbsp;QSR','RETAIL'),
+ ('EDGEVISION · RETAIL &amp; QSR','EDGEVISION · RETAIL'),
+ ('EDITION · 2026 · RETAIL &amp; QSR','EDITION · 2026 · RETAIL'),
+ ('EdgeVision · Store Floors &amp; Quick-Service','EdgeVision · for Store Floors'),
+ ('<span class="w-sub">Retail &amp; QSR</span>','<span class="w-sub">Retail</span>'),
+ ('RETAIL<br/>&amp; QUICK-SERVICE','RETAIL<br/>INTELLIGENCE'),
+ ('turning every store and restaurant camera','turning every store camera'),
+ ('One on-prem edge platform across '
+  'retail floors and quick-service restaurants.','One on-prem edge platform across your store floors.'),
+ ('Modern retail and QSR sites capture','Modern retail stores capture'),
+ ('to every store &amp; line.','to every store floor.'),
+ ('staff productivity and QSR speed-of-service.','staff productivity and store conversion.'),
+]
+QSR_SUBS=[
+ ('RETAIL&nbsp;&&nbsp;QSR','QSR'),
+ ('EDGEVISION · RETAIL &amp; QSR','EDGEVISION · QSR'),
+ ('EDITION · 2026 · RETAIL &amp; QSR','EDITION · 2026 · QUICK-SERVICE'),
+ ('EdgeVision · Store Floors &amp; Quick-Service','EdgeVision · for Quick-Service'),
+ ('<span class="w-sub">Retail &amp; QSR</span>','<span class="w-sub">Quick-Service</span>'),
+ ('RETAIL<br/>&amp; QUICK-SERVICE','QUICK-SERVICE<br/>INTELLIGENCE'),
+ ('turning every store and restaurant camera','turning every restaurant camera'),
+ ('One on-prem edge platform across '
+  'retail floors and quick-service restaurants.','One on-prem edge platform across your quick-service restaurants.'),
+ ('Modern retail and QSR sites capture','Modern quick-service restaurants capture'),
+ ('to every store &amp; line.','to every restaurant.'),
+ ('Measurable lift in customer '
+  'experience, staff productivity and QSR speed-of-service.','Measurable lift in order accuracy, speed-of-service and food safety.'),
+ ('src="../assets/images/ev-cover.png"','src="../assets/images/ev-qsr.png"'),  # QSR cover hero
+]
+
+D="/home/user/edgevision-pro/deck/"
+emit('both','EdgeVision — Retail & QSR · Pattern AI Labs',D+"EdgeVision-Retail-QSR.html",[])
+emit('retail','EdgeVision — Retail · Pattern AI Labs',D+"EdgeVision-Retail.html",RETAIL_SUBS)
+emit('qsr','EdgeVision — QSR · Pattern AI Labs',D+"EdgeVision-QSR.html",QSR_SUBS)
