@@ -507,7 +507,21 @@ QSR_SUBS=[
  ('src="../assets/images/ev-cover.png"','src="../assets/images/ev-qsr.png"'),  # QSR cover hero
 ]
 
+def emit_indices(idx1,title,out,subs):  # idx1: 1-based positions in S
+    sl=[S[i-1] for i in idx1]
+    body="".join(sl)
+    for a,b in subs: body=body.replace(a,b)
+    body=renumber(body)
+    doc=('<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>{t}</title>'
+         '<link rel="stylesheet" href="fonts.css"/><style>{css}</style></head><body>{sym}{body}</body></html>').format(
+         t=title,css=CSS,sym=MARK_SYMBOL,body=body)
+    os.makedirs(os.path.dirname(out),exist_ok=True)
+    open(out,"w",encoding="utf-8").write(doc)
+    print("Wrote",out,"with",len(sl),"slides")
+
 D="/home/user/edgevision-pro/deck/"
 emit('both','EdgeVision — Retail & QSR · Pattern AI Labs',D+"EdgeVision-Retail-QSR.html",[])
 emit('retail','EdgeVision — Retail · Pattern AI Labs',D+"EdgeVision-Retail.html",RETAIL_SUBS)
 emit('qsr','EdgeVision — QSR · Pattern AI Labs',D+"EdgeVision-QSR.html",QSR_SUBS)
+# Short 5-slide retail cut: Cover · The Challenge · The Solution · Operations Console · Pricing
+emit_indices([1,3,5,6,26],'EdgeVision — Retail (Short) · Pattern AI Labs',D+"EdgeVision-Retail-Short.html",RETAIL_SUBS)
