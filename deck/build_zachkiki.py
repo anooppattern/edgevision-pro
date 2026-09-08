@@ -108,16 +108,16 @@ def console(stats, hi, alerts, cams):
 
 S=[]
 # 1 · COVER
-S.append('<section class="slide slide--cover"><img class="slide__bg" src="{img}/ev-cover.png" alt=""/>'
+S.append('<section class="slide slide--cover"><img class="slide__bg" src="{img}/zk-cover.png" alt=""/>'
   '<div class="cover__veil"></div><div class="cover__inner">'
   '<div class="cover__top">{mk}<span class="cover__brandtxt"><b>PATTERN</b><i>AI&nbsp;LABS</i></span>'
   '<span class="cover__edition">STATEMENT OF WORK · {date}</span></div>'
   '<p class="cover__eyebrow">Retail Intelligence · Prepared for {cl}</p>'
   '<h1 class="cover__wordmark"><span class="w-edge">Edge</span><span class="w-vision">Vision</span>'
   '<span class="w-sub">for {cl}</span></h1>'
-  '<p class="cover__tag">Every camera in your stores — a real-time teammate for a safe, delightful family experience.</p>'
-  '<p class="cover__sub">A proposal to turn the cameras {cl} already has into live retail intelligence — '
-  'child safety, family experience and store operations — running on-site, private by design.</p>'
+  '<p class="cover__tag">Every camera in your store &amp; fulfilment — a real-time teammate for a safe, delightful family experience.</p>'
+  '<p class="cover__sub">A proposal to turn the cameras {cl} already has into live retail intelligence — across your '
+  'store floor and packing space — family experience, child safety and order accuracy, running on-site, private by design.</p>'
   '<ul class="cover__tags"><li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> CHILD-SAFE</li><li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> PRIVACY BY DESIGN</li>'
   '<li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> INTEL EDGE</li></ul>'
   '<div class="cover__foot"><span>PATTERN AI LABS · PREPARED FOR {clu}</span>'
@@ -127,19 +127,19 @@ S.append('<section class="slide slide--cover"><img class="slide__bg" src="{img}/
 # 2 · Context — children's retail
 S.append(slide("CONTEXT",
   eyebrow("Prepared for "+CLIENT.replace("&amp;","&"))
-  +display("Children’s retail is a<br/>different kind of floor.","display--mid")
-  +lede("A store for kids isn’t just about selling — it’s about families feeling safe, seen and delighted. "
-        "The moments that build (or break) loyalty happen on the floor, in real time.")
-  +wins([("users","Families, not shoppers","Parents and children browse longer and move differently than a solo adult — in groups, with prams, at two eye-levels."),
-         ("shield","Safety comes first","A child out of sight for even a moment is every parent’s fear — and your biggest duty of care."),
-         ("star","Experience drives loyalty","Safe, well-staffed, delightful stores turn first-time parents into repeat families.")])))
+  +display("A kids’ fashion brand,<br/>online and in-store.","display--mid")
+  +lede("Zach &amp; Kiki is loved online and in the store — with festive and occasion peaks (Onam, heirloom, best-sellers). "
+        "Whether a parent is on your shop floor or an order is on the packing table, the moments that build loyalty happen in real time.")
+  +wins([("users","Online-first, store-loved","Families discover you online and come in to touch the fabric — both journeys deserve to be understood, not guessed."),
+         ("star","Festive & occasion peaks","Onam, occasion and heirloom drops bring surges — of footfall in-store and orders to pack — that are hard to staff by gut feel."),
+         ("shield","Little customers, big duty of care","Small children on the shop floor mean safety and attentiveness matter as much as the sale.")])))
 
 # 3 · The Opportunity (blind spots)
 S.append(slide("THE OPPORTUNITY",
   eyebrow("The Opportunity")+display("What your cameras see<br/>but can’t tell you.","display--mid")
-  +wins([("eye","You can’t watch every corner","Play zones, fitting areas, aisles and exits — all at once is impossible for one team."),
-         ("clock","You learn too late","A wandering child, a spill, an unstaffed till — noticed after it matters, not the moment it happens."),
-         ("trend","You decide on gut feel","Which displays pull kids, when families surge, how to staff the weekend — guessed, not measured.")])))
+  +wins([("eye","You can’t watch every corner","Fitting areas, aisles, the storeroom, the packing bench and the entrance — all at once is impossible for one team."),
+         ("clock","You learn too late","A wandering child, a spill, a best-seller stocked out, a wrong-size dispatch — noticed after it matters, not now."),
+         ("trend","You decide on gut feel","Which displays convert, when the festive rush hits, how to staff store and packing — guessed, not measured.")])))
 
 # 4 · EdgeVision key features
 S.append(slide("THE PLATFORM",
@@ -163,49 +163,50 @@ S.append(slide("HOW IT WORKS",
 
 # 6 · Divider — use cases
 S.append(statement("USE CASES","For "+CLIENT.replace("&amp;","&"),
-  "Use cases for your stores.",
-  "Grouped for a children’s brand — family experience, child safety, and store operations.","fw-retail.png"))
+  "Use cases for store &amp; fulfilment.",
+  "Grouped for a kids’ fashion brand — family experience, child safety, and D2C fulfilment &amp; operations.","zk-store.png"))
 
 # 7 · Family experience use cases
 S.append(slide("USE CASES · FAMILY EXPERIENCE",
   eyebrow("Use Cases · Family Experience")+display("Delight the family, win the basket.","display--mid")
   +ucsplit([
-    ("Family footfall & dwell","See how many families come in, where they linger, and when the store surges."),
-    ("Kid-height display pull","Measure which displays and characters actually draw children in — at their eye level, not just adults’."),
-    ("Play-zone engagement","How long kids stay and play, and how that turns into baskets for parents."),
-    ("Fitting & trial demand","Trial-room demand for kidswear, so you staff and stock to real behaviour."),
-    ("Queue & billing wait","An alert the moment the till queue builds — so families aren’t kept waiting with restless kids."),
+    ("Footfall & dwell by section","See how many families come in and where they linger — infants, boys, girls, occasion wear."),
+    ("Festive & occasion display pull","Measure which displays — Onam, occasion, best-sellers — actually draw families in and convert."),
+    ("Fit, size & trial demand","See trial-area demand and which sizes families ask for, so you stock and staff to real behaviour."),
+    ("Browse-to-buy by category","Track how browsers become buyers across sections and price points, and act the same day."),
+    ("Queue & billing wait","An alert the moment the till queue builds — so families aren’t kept waiting, especially at COD and festive rush."),
     ("Repeat-family welcome","Recognise loyal parents at the door for a warm welcome — no faces stored."),
-  ],"fw-uc-customers.png","STORE FLOOR · THE FAMILY JOURNEY")))
+  ],"zk-family.png","STORE FLOOR · THE FAMILY JOURNEY")))
 
 # 8 · Child safety use cases (the hero)
 S.append(slide("USE CASES · CHILD SAFETY",
   eyebrow("Use Cases · Child Safety & Care")+display("Peace of mind, watched continuously.","display--mid")
   +ucsplit([
-    ("Unattended-child alert","Flag a child who has been on their own too long, so a team member can step in early."),
-    ("Exit & door watch","A little one heading for the entrance unaccompanied triggers an instant nudge to staff."),
-    ("Play-zone capacity","Know when a play area is over-full, so supervision stays safe."),
-    ("Floor-hazard detection","Spills, dropped small parts (a choking risk) and scattered stock — caught the moment they appear."),
-    ("Restricted-area entry","A child entering the stockroom or back-of-house is flagged immediately."),
+    ("Unattended-child alert","Flag a child who’s been on their own too long, so a team member can gently step in."),
+    ("Exit & door watch","A little one drifting toward the open entrance triggers an instant nudge to staff."),
+    ("Floor-hazard detection","Spills, dropped pins or small parts (a choking risk) and scattered stock — caught the moment they appear."),
+    ("Restricted-area entry","A child slipping into the stockroom or back-of-house is flagged immediately."),
     ("Slips & blocked aisles","Obstructions and hazards surfaced before anyone trips."),
-  ],"fw-uc-ops.png","SAFETY · DUTY OF CARE")))
+    ("After-hours security","Motion in the closed store or restricted zones flagged out of hours."),
+  ],"zk-safety.png","SAFETY · DUTY OF CARE")))
 
-# 9 · Operations use cases
-S.append(slide("USE CASES · OPERATIONS",
-  eyebrow("Use Cases · Store Operations")+display("Run a tighter, calmer floor.","display--mid")
-  +ucards([
-    ("Zone coverage at peak","Know whether every section is staffed when families arrive — and get alerted when it isn’t."),
-    ("Service attentiveness","Measure how quickly a browsing family is acknowledged and helped."),
-    ("Shrink & concealment cues","Flag tag-tampering and concealment as they happen — not at stock-take."),
-    ("Planogram & housekeeping","Verify displays, tidiness and open/close standards automatically."),
-    ("Opening & closing audit","Confirm daily procedures were completed, camera-verified."),
-    ("Camera health & obstruction","Know at once if a camera is down, moved or blocked.")])))
+# 9 · Fulfilment & Operations (D2C) use cases
+S.append(slide("USE CASES · FULFILMENT & OPS",
+  eyebrow("Use Cases · Fulfilment & Operations")+display("Right size, right box, out the door.","display--mid")
+  +ucsplit([
+    ("Pack accuracy — style & size","Check the packed order against the ticket before the box is sealed — right print, right size — so wrong-size returns drop."),
+    ("Dispatch & hand-off visibility","See packing, staging and courier hand-off as they happen, and clear a backlog before it slows the day."),
+    ("Festive stock & fast-movers","Watch shelves for best-sellers and festive drops (Onam, occasion) running low — restock before you sell out."),
+    ("Staff vs order volume","Compare packing staff to real order flow by hour, so festive surges are covered."),
+    ("Shrink & process gaps","Flag mishandling and process gaps as they happen — not at month-end stock-take."),
+    ("Camera & area health","Know at once if a camera is down, moved or blocked."),
+  ],"zk-fulfil.png","PACKING & DISPATCH · D2C")))
 
 # 10 · One screen
 S.append(slide("ONE SCREEN",
   eyebrow("One Pane of Glass")+display("One screen your store team<br/>actually uses.","display--mid")
   +console([("FOOTFALL","842"),("FAMILIES","310"),("ACTIVE STAFF","6 / 7"),("OPEN ALERTS","2")],7,
-    [(True,"Child unattended · play zone"),(True,"Exit approach · front door"),
+    [(True,"Child unattended · kids aisle"),(True,"Exit approach · front door"),
      (False,"Queue > 3 at billing"),(False,"Spill · aisle 4")],
     ["CAM 01","CAM 02","CAM 03","CAM 04","CAM 05","CAM 06"])))
 
@@ -218,12 +219,12 @@ S.append(slide("PRIVATE BY DESIGN",
 
 # 12 · Scope of Work
 inscope=lenscard("IN SCOPE · WE DELIVER","",
-  ["Edge appliance install & camera on-boarding (RTSP)","Configure selected use cases — safety, experience & ops",
-   "Live operations dashboard + mobile / WhatsApp alerts","Manager training & alert rehearsal",
-   "Weekly insights report per store","Support through the pilot"],kind="check")
+  ["Edge appliance install & camera on-boarding (RTSP)","Configure selected use cases — family experience, child safety & fulfilment",
+   "Live operations dashboard + mobile / WhatsApp alerts","Manager & packing-team training + alert rehearsal",
+   "Weekly insights report (store &/or fulfilment)","Support through the pilot"],kind="check")
 youprovide=lenscard("YOU PROVIDE","",
-  ["Access to existing IP cameras & adequate coverage","Store LAN / network access for the edge box",
-   "A single point of contact per store","Site access for a half-day install",
+  ["Access to existing IP cameras (store &/or packing area)","Store / site LAN access for the edge box",
+   "A single point of contact","Site access for a half-day install",
    "Sign-off on which use cases go live first"],kind="dash")
 S.append(slide("SCOPE OF WORK",
   eyebrow("Statement of Work")+display("What a pilot includes.","display--mid")+twocol(inscope,youprovide)
@@ -264,7 +265,7 @@ S.append(slide("COMMERCIALS",
   +'<div class="price-grid">'+poc+post+'</div>'+price_privacy))
 
 # 15 · Close / contact
-S.append('<section class="slide slide--closing"><img class="slide__bg" src="{img}/ev-closing.png" alt=""/>'
+S.append('<section class="slide slide--closing"><img class="slide__bg" src="{img}/zk-closing.png" alt=""/>'
   '<div class="closing__veil"></div><div class="closing__inner">'
   '<div class="closing__brand">{mk}<span class="cover__brandtxt"><b>PATTERN</b><i>AI&nbsp;LABS</i></span></div>'
   '<h2 class="closing__head">Let’s make every {cl}<br/>store <span class="grad">safe &amp; delightful</span>.</h2>'
