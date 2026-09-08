@@ -1,0 +1,507 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>EdgeVision — Retail & QSR · Intel Event Edition</title><link rel="stylesheet" href="fonts.css"/><style>/* ───────────────────────────────────────────────────────────
+   EdgeVision Fabric Lens · Pattern AI Labs
+   Deck design system — editorial dark · Inter Light · magenta
+   16:9 print slides (1280×720)
+   ─────────────────────────────────────────────────────────── */
+:root{
+  --bg:#000;--bg-2:#050507;--bg-3:#0A0A0E;
+  --border:rgba(255,255,255,.10);--border-2:rgba(255,255,255,.18);
+  --text:#fff;--text-dim:#8B8B96;--text-mute:#56565F;--text-faint:#3A3A42;
+  --brand:#F52E67;--brand-2:#FF4F84;--brand-glow:rgba(245,46,103,.16);
+  --maroon:#5A1729;--cyan:#5BC5E8;--amber:#F0B85A;
+  --tx:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono','SF Mono',Menlo,monospace;
+}
+@page{size:13.333in 7.5in;margin:0}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#000}
+body{font-family:var(--tx);font-weight:300;color:var(--text);-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;line-height:1.06;color:#fff}
+p{margin:0;color:var(--text-dim)}
+b{font-weight:600;color:#fff}i{font-style:normal}
+ul{margin:0;padding:0;list-style:none}
+
+.mark{width:26px;height:26px;color:var(--brand);flex:0 0 auto}
+.mark--sm{width:20px;height:20px;color:#fff}
+.mark--lg{width:40px;height:40px;color:var(--brand)}
+.grad{background:linear-gradient(115deg,var(--brand),var(--brand-2));-webkit-background-clip:text;
+  background-clip:text;color:transparent;font-weight:200}
+
+/* ─────────── SLIDE FRAME ─────────── */
+.slide{position:relative;width:1280px;height:720px;overflow:hidden;background:var(--bg);
+  padding:40px 72px 56px;display:flex;flex-direction:column;
+  background-image:linear-gradient(0deg,rgba(90,23,41,.30),transparent 90px);
+  page-break-after:always;break-after:page;}
+.slide:last-child{page-break-after:auto;break-after:auto}
+.slide__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.slide__body{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;
+  justify-content:center;min-height:0;padding:8px 0}
+
+/* chrome + foot */
+.chrome{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;
+  height:24px}
+.chrome__brand{display:inline-flex;align-items:center;gap:9px;font-family:var(--tx);
+  letter-spacing:.16em;text-transform:uppercase;font-size:.62rem}
+.chrome__brand b{font-weight:600;color:#fff}
+.chrome__brand i{font-weight:300;color:var(--text-dim);font-size:.9em}
+.chrome__div{color:var(--text-faint);padding:0 2px}
+.chrome__prod{font-weight:500;letter-spacing:.22em;color:var(--brand)}
+.chrome__ctx{font-family:var(--mono);font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--text-mute)}
+.foot{position:absolute;left:72px;right:72px;bottom:22px;z-index:3;display:flex;align-items:center;
+  justify-content:space-between;font-family:var(--mono);font-size:.56rem;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--text-mute)}
+.foot__mid{color:var(--text-faint);letter-spacing:.18em;text-transform:none;font-style:italic}
+.foot__n{color:var(--brand)}
+
+/* ─────────── TYPE ─────────── */
+.eyebrow{display:inline-flex;align-items:center;gap:12px;margin:0 0 18px;color:var(--brand);
+  font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--brand);flex:0 0 auto}
+.display{font-family:var(--tx);font-weight:200;letter-spacing:-.028em;line-height:1.02;
+  font-size:2.7rem;color:#fff;margin:0 0 16px}
+.display--mid{font-size:2.35rem}
+.lede{font-size:.9rem;line-height:1.5;color:var(--text-dim);font-weight:300;max-width:78ch;margin:0 0 22px}
+.lede b{color:#fff;font-weight:500}
+
+/* ─────────── NUM-CARD GRID ─────────── */
+.num-grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:6px}
+.num-grid--2{grid-template-columns:repeat(2,1fr)}
+.num-grid--3{grid-template-columns:repeat(3,1fr)}
+.num-grid--4{grid-template-columns:repeat(4,1fr)}
+.num-grid--5{grid-template-columns:repeat(5,1fr)}
+.num-card{background:var(--bg);padding:20px 20px 22px}
+.num-card__n{font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;color:var(--brand);
+  display:block;margin-bottom:12px}
+.num-card h3{font-family:var(--tx);font-weight:400;font-size:1.02rem;letter-spacing:-.01em;
+  margin:0 0 8px;color:#fff;line-height:1.15}
+.num-card p{margin:0;font-size:.76rem;line-height:1.42;color:var(--text-dim)}
+.num-card--brand h3{color:var(--brand)}
+.num-grid--rows2 .num-card{padding:18px 20px 20px}
+.num-grid--5 .num-card{padding:18px 15px 20px}
+.num-grid--5 .num-card h3{font-size:.92rem}
+.num-grid--5 .num-card p{font-size:.72rem}
+
+/* cost chips */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chip{font-family:var(--mono);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--brand-2);border:1px solid rgba(245,46,103,.35);border-radius:2px;padding:3px 7px}
+.chips--stat .chip--stat{color:var(--text-dim);border-color:var(--border-2)}
+.num-card--cost h3{color:#fff}
+
+/* ─────────── CIRCLE CARDS ─────────── */
+.circle-grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:8px}
+.circle-grid--3{grid-template-columns:repeat(3,1fr)}
+.circle-grid--5{grid-template-columns:repeat(5,1fr)}
+.circ{background:var(--bg);padding:26px 24px 28px}
+.circle-grid--5 .circ{padding:24px 16px}
+.circ__n{display:grid;place-items:center;width:48px;height:48px;border:1.5px solid var(--brand);
+  border-radius:50%;color:var(--brand);font-family:var(--tx);font-weight:300;font-size:1.25rem;margin:0 0 18px}
+.circ h3{font-family:var(--tx);font-weight:400;font-size:1.08rem;margin:0 0 9px;color:#fff}
+.circle-grid--5 .circ h3{font-size:.92rem}
+.circ p{margin:0;font-size:.8rem;line-height:1.45;color:var(--text-dim)}
+.circle-grid--5 .circ p{font-size:.72rem}
+
+/* ─────────── PIPELINE ─────────── */
+.pipeline{display:grid;align-items:stretch;gap:8px;margin-top:14px}
+.pipeline--4{grid-template-columns:1fr auto 1fr auto 1fr auto 1fr}
+.pipeline--6{grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr auto 1fr}
+.pipe-card{padding:20px 20px 24px;border:1px solid var(--border);background:var(--bg);
+  display:flex;flex-direction:column}
+.pipe-card__n{font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;color:var(--text-mute);
+  display:block;margin-bottom:12px}
+.pipe-card h3{font-family:var(--tx);font-weight:500;font-size:1rem;margin:0 0 7px;color:#fff}
+.pipe-card p{margin:0;font-size:.74rem;line-height:1.4;color:var(--text-dim)}
+.pipe-arrow{align-self:center;color:var(--brand);font-size:1.15rem;padding:0 2px}
+.pipeline--6 .pipe-card{padding:16px 14px 18px}
+.pipeline--6 .pipe-card h3{font-size:.9rem}
+.pipeline--6 .pipe-card p{font-size:.68rem}
+
+/* ─────────── STATS ─────────── */
+.stats{display:grid;gap:20px;margin-top:26px;padding-top:24px;border-top:1px solid var(--border)}
+.stats--3{grid-template-columns:repeat(3,1fr)}
+.stats--4{grid-template-columns:repeat(4,1fr)}
+.stats b{display:block;font-family:var(--tx);font-weight:200;font-size:2.6rem;letter-spacing:-.03em;
+  line-height:1;color:var(--brand);margin-bottom:10px}
+.stats b i{font-size:.5em;font-weight:200;margin-left:2px}
+.stats span{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--text-mute)}
+
+/* ─────────── TWO-COL LENS ─────────── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);
+  border:1px solid var(--border);margin-top:10px}
+.lens{background:var(--bg);padding:26px 28px 28px}
+.lens__head{display:inline-flex;align-items:center;gap:10px;color:var(--brand);font-family:var(--tx);
+  font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;margin:0 0 16px}
+.lens h3{font-family:var(--tx);font-weight:300;font-size:1.1rem;margin:0 0 16px;color:#fff;line-height:1.25}
+.dashlist li,.checklist li{position:relative;color:var(--text-dim);font-size:.8rem;line-height:1.35}
+.dashlist li{padding:7px 0 7px 20px}
+.dashlist li::before{content:"—";position:absolute;left:0;top:7px;color:var(--brand)}
+.dashlist--tight li{padding:6px 0 6px 20px;font-size:.86rem}
+.checklist li{padding:7px 0 7px 26px}
+.checklist li::before{content:"";position:absolute;left:0;top:11px;width:12px;height:12px;
+  border-radius:50%;border:1.2px solid var(--brand)}
+.checklist li::after{content:"";position:absolute;left:3.5px;top:14px;width:4px;height:6px;
+  border-right:1.4px solid var(--brand);border-bottom:1.4px solid var(--brand);transform:rotate(45deg)}
+
+/* speclist */
+.speclist{margin:0;padding:0}
+.speclist div{display:grid;grid-template-columns:130px 1fr;gap:14px;padding:9px 0;
+  border-bottom:1px solid var(--border)}
+.speclist div:last-child{border-bottom:0}
+.speclist dt{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--text-mute);
+  text-transform:uppercase}
+.speclist dd{margin:0;color:#fff;font-size:.82rem}
+
+/* ─────────── PULLQUOTE ─────────── */
+.pullquote{display:flex;gap:16px;margin:18px 0 0;font-size:.86rem;line-height:1.5;color:var(--text)}
+.pullquote__bar{flex:0 0 auto;width:2px;background:var(--brand);align-self:stretch}
+.pullquote b{color:#fff}.pullquote i{font-style:italic;color:var(--text-dim)}
+.pullquote span:last-child{max-width:100ch}
+
+/* ─────────── TIMELINE ─────────── */
+.timeline{display:grid;align-items:stretch;gap:6px;margin-top:12px}
+.timeline--5{grid-template-columns:repeat(5,1fr)}
+.tl-card{padding:20px 18px 22px;border:1px solid var(--border);background:var(--bg);
+  display:flex;flex-direction:column}
+.tl-card header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.16em}
+.tl-card__n{color:var(--text-mute)}.tl-card__t{color:var(--brand)}
+.tl-card h3{font-family:var(--tx);font-weight:300;font-size:1.15rem;margin:0 0 8px}
+.tl-card p{margin:0;font-size:.74rem;color:var(--text-dim)}
+
+/* ─────────── FUSION ─────────── */
+.fusion{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);margin-top:10px;position:relative}
+.fusion__card{background:var(--bg);padding:22px 22px 26px}
+.fusion__h{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;color:var(--brand);margin:0 0 10px}
+.fusion__p{margin:0;font-size:.8rem;line-height:1.45;color:var(--text-dim)}
+.fusion__core{grid-column:1/-1;background:linear-gradient(180deg,rgba(245,46,103,.08),var(--bg));
+  padding:18px 22px;display:flex;align-items:baseline;gap:14px;border-top:1px solid var(--border)}
+.fusion__core span{font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;color:var(--brand);font-weight:500}
+.fusion__core i{font-size:.8rem;color:var(--text-dim)}
+
+/* ─────────── ZONES ─────────── */
+.zones{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);margin-top:8px}
+.zone{background:var(--bg);padding:22px 22px 24px}
+.zone__n{font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;color:var(--brand);display:block;margin-bottom:12px}
+.zone__h{font-family:var(--tx);font-weight:400;font-size:1.05rem;color:#fff;margin:0 0 3px}
+.zone__s{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--text-mute);margin:0 0 14px}
+.zone ul li{position:relative;padding:5px 0 5px 16px;font-size:.76rem;color:var(--text-dim);line-height:1.35}
+.zone ul li::before{content:"•";position:absolute;left:2px;top:5px;color:var(--brand)}
+
+/* ─────────── CMP TABLE ─────────── */
+.cmp{width:100%;border-collapse:collapse;margin-top:12px}
+.cmp th,.cmp td{padding:12px 20px;text-align:left;border-bottom:1px solid var(--border);
+  border-right:1px solid var(--border);font-size:.82rem;color:var(--text-dim)}
+.cmp th:last-child,.cmp td:last-child{border-right:0}
+.cmp thead th{background:var(--bg-3);font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;
+  color:var(--text-mute);text-transform:uppercase;font-weight:500;border-top:1px solid var(--border)}
+.cmp thead th.cmp__hi{color:var(--brand)}
+.cmp td:first-child{color:#fff;font-weight:400}
+.cmp td.cmp__hi{color:#fff;background:rgba(245,46,103,.04)}
+
+/* ─────────── LAN BAR ─────────── */
+.lan-bar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;margin-top:22px;
+  padding:14px 20px;border:1px dashed var(--border-2);font-family:var(--mono);font-size:.64rem;letter-spacing:.2em}
+.lan-bar__l{color:var(--text-dim)}.lan-bar__line{height:1px;background:var(--brand)}.lan-bar__r{color:var(--brand)}
+
+/* ─────────── WEEKS ─────────── */
+.weeks{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:8px}
+.weeks--4{grid-template-columns:repeat(4,1fr)}
+.week{background:var(--bg);padding:22px 22px 26px;border-top:2px solid transparent}
+.week--first{border-top-color:var(--brand)}
+.week__n{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.22em;color:var(--brand);margin-bottom:6px}
+.week__wk{display:block;font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:var(--text-mute);margin-bottom:16px}
+.week h3{font-family:var(--tx);font-weight:400;font-size:1.15rem;color:#fff;margin:0 0 10px}
+.week p{margin:0;font-size:.76rem;line-height:1.42;color:var(--text-dim)}
+
+/* ─────────── SPLIT ─────────── */
+.split{display:grid;grid-template-columns:1fr 1.02fr;gap:44px;align-items:center;margin-top:4px}
+.split__copy{min-width:0}
+.split__media{position:relative;overflow:hidden;border:1px solid var(--border);aspect-ratio:16/10}
+.split__media img{width:100%;height:100%;object-fit:cover;filter:brightness(.62) saturate(.92)}
+.mediacap{position:absolute;left:14px;top:14px;font-family:var(--mono);font-size:.56rem;
+  letter-spacing:.2em;color:#fff;background:rgba(0,0,0,.55);padding:5px 9px}
+.split--after{margin-top:16px}
+
+/* ─────────── COVER ─────────── */
+.slide--cover{padding:0;overflow:hidden}
+.cover__veil{position:absolute;inset:0;z-index:1;background:
+  radial-gradient(75% 65% at 22% 55%,transparent,rgba(0,0,0,.86)),
+  linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.45) 45%,rgba(0,0,0,.9))}
+.cover__inner{position:relative;z-index:2;height:100%;padding:52px 72px 56px;display:flex;flex-direction:column}
+.cover__top{display:flex;align-items:center;gap:12px}
+.cover__brandtxt{font-family:var(--tx);letter-spacing:.16em;text-transform:uppercase;font-size:.72rem;display:inline-flex;gap:7px;align-items:baseline}
+.cover__brandtxt b{font-weight:600;color:#fff}.cover__brandtxt i{font-weight:300;color:var(--text-dim);font-size:.88em}
+.cover__edition{margin-left:auto;font-family:var(--mono);font-size:.62rem;letter-spacing:.26em;color:var(--text-mute)}
+.cover__eyebrow{margin:auto 0 20px;color:var(--brand);font-size:.72rem;letter-spacing:.26em;
+  text-transform:uppercase;font-weight:500;display:inline-flex;align-items:center;gap:12px}
+.cover__eyebrow::before{content:"";width:36px;height:1px;background:var(--brand)}
+.cover__wordmark{font-family:var(--tx);font-weight:200;line-height:1.0;letter-spacing:-.04em;margin:0 0 22px}
+.cover__wordmark .w-edge{font-size:6.6rem;color:#fff}
+.cover__wordmark .w-vision{font-size:6.6rem;color:var(--brand)}
+.cover__wordmark .w-sub{display:block;font-size:2.5rem;font-weight:200;letter-spacing:-.02em;
+  line-height:1.1;color:#fff;margin-top:18px}
+.cover__tag{font-family:var(--tx);font-weight:300;font-size:1.45rem;color:#fff;margin:0 0 16px}
+.cover__sub{font-size:.92rem;line-height:1.55;color:var(--text-dim);max-width:70ch;margin:0 0 26px}
+.cover__tags{display:flex;gap:30px;margin:0 0 auto;font-size:.68rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--text-dim)}
+.cover__tags li{display:inline-flex;align-items:center;gap:9px;font-weight:500}
+.cover__tags i{display:inline-block;flex:0 0 auto;width:7px;height:7px;border-radius:50%;background:var(--brand);box-shadow:0 0 8px var(--brand)}
+.cover__foot{display:flex;justify-content:space-between;align-items:flex-end;font-family:var(--mono);
+  font-size:.62rem;letter-spacing:.22em;color:var(--text-mute);text-transform:uppercase;
+  border-top:1px solid var(--border);padding-top:20px}
+.cover__sigil{text-align:right;line-height:1.7;color:var(--text-dim)}
+
+/* ─────────── CLOSING ─────────── */
+.slide--closing{padding:0;overflow:hidden}
+.closing__veil{position:absolute;inset:0;z-index:1;background:
+  radial-gradient(70% 60% at 50% 38%,rgba(245,46,103,.14),transparent 60%),
+  linear-gradient(180deg,rgba(0,0,0,.72),rgba(0,0,0,.82) 50%,rgba(0,0,0,.95))}
+.closing__inner{position:relative;z-index:2;height:100%;padding:56px 72px;display:flex;flex-direction:column}
+.closing__brand{display:flex;align-items:center;gap:13px;margin-bottom:auto}
+.closing__head{font-family:var(--tx);font-weight:200;font-size:3.7rem;line-height:1.04;
+  letter-spacing:-.03em;color:#fff;margin:0 0 20px}
+.closing__sub{font-size:.95rem;line-height:1.55;color:var(--text-dim);max-width:74ch;margin:0 0 30px}
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);margin:0 0 26px;max-width:820px}
+.contact__card{background:var(--bg);padding:20px 24px;display:flex;flex-direction:column;gap:10px}
+.contact__h{font-family:var(--tx);font-size:.64rem;letter-spacing:.22em;color:var(--brand);
+  text-transform:uppercase;font-weight:600}
+.contact__v{font-family:var(--tx);font-weight:300;font-size:1.05rem;color:#fff}
+.closing__foot{display:flex;justify-content:space-between;margin-top:auto;padding-top:20px;
+  border-top:1px solid var(--border);font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--text-mute)}
+
+/* ─────────── split helpers (image-rich content slides) ─────────── */
+.minihead{font-family:var(--tx);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--brand);font-weight:600;margin:14px 0 2px}
+.minihead:first-child{margin-top:2px}
+.dashlist--split li{padding:5px 0 5px 20px;font-size:.82rem;line-height:1.35}
+.dashlist--split li b{color:#fff;font-weight:500}
+.split--tall .split__media{aspect-ratio:4/5}
+
+/* ═══════════ Retail & QSR comprehensive deck — extra components ═══════════ */
+/* Chapter divider slides */
+.slide--divider .slide__body{justify-content:center}
+.divider__num{font-family:var(--mono);font-size:.72rem;letter-spacing:.28em;color:var(--brand);
+  text-transform:uppercase;margin:0 0 22px}
+.divider__title{font-family:var(--tx);font-weight:200;letter-spacing:-.03em;line-height:1;
+  font-size:5rem;color:#fff;margin:0 0 22px}
+.divider__sub{font-size:1rem;line-height:1.5;color:var(--text-dim);max-width:60ch;margin:0 0 26px}
+.divider__rule{width:200px;height:1px;background:var(--brand)}
+.slide--divider .slide__bg{filter:brightness(.42) saturate(.9)}
+.slide--divider .divveil{position:absolute;inset:0;z-index:1;background:
+  radial-gradient(80% 70% at 25% 55%,transparent,rgba(0,0,0,.8)),
+  linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.35))}
+
+/* 5-stage pipeline */
+.pipeline--5{grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr}
+.pipeline--5 .pipe-card{padding:18px 16px 20px}
+.pipeline--5 .pipe-card h3{font-size:.98rem}
+.pipeline--5 .pipe-card p{font-size:.72rem}
+.lan-bar--wide{margin-top:20px}
+
+/* Operations console */
+.console{display:grid;grid-template-columns:.85fr 1.5fr 1.15fr;gap:1px;background:var(--border);
+  border:1px solid var(--border);margin-top:14px}
+.console>div{background:var(--bg);padding:22px 22px;display:flex;flex-direction:column}
+.console label{font-family:var(--mono);font-size:.58rem;letter-spacing:.22em;color:var(--text-mute);
+  text-transform:uppercase;margin-bottom:10px;display:block}
+.console__stats{gap:14px}
+.console__stats .kv+.kv{border-top:1px solid var(--border);padding-top:12px}
+.console__stats b{font-family:var(--tx);font-weight:300;font-size:1.5rem;color:#fff;line-height:1;display:block}
+.bars{display:grid;grid-template-columns:repeat(12,1fr);align-items:end;gap:5px;height:150px;margin-bottom:8px}
+.bars i{height:var(--h);background:var(--text-faint)}
+.bars i.hi{background:var(--brand)}
+.bars__axis{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.56rem;
+  letter-spacing:.14em;color:var(--text-mute)}
+.alerts{list-style:none;padding:0;margin:0;display:grid;gap:11px}
+.alerts li{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--text);
+  padding-bottom:11px;border-bottom:1px solid var(--border)}
+.alerts li:last-child{border:0;padding-bottom:0}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--text-mute);flex:0 0 auto}
+.dot--b{background:var(--brand);box-shadow:0 0 8px var(--brand)}
+.cam-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-top:0}
+.cam-strip span{background:var(--bg);padding:14px 12px;font-family:var(--mono);font-size:.6rem;
+  letter-spacing:.2em;color:var(--text-mute)}
+
+/* Detection figure with overlay chips */
+.detfig{position:relative;margin-top:12px;border:1px solid var(--border);overflow:hidden;aspect-ratio:24/9}
+.detfig img{width:100%;height:100%;object-fit:cover;filter:brightness(.5)}
+.det-chip{position:absolute;font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;
+  background:rgba(0,0,0,.6);padding:6px 10px;color:#fff;display:inline-flex;align-items:center;gap:7px}
+.det-chip--cam{top:14px;left:14px}
+.det-chip--rec{top:14px;right:14px;color:var(--brand)}
+.det-chip--key{bottom:14px;left:14px}
+.det-chip--note{bottom:14px;right:14px;color:var(--text-dim)}
+.sq{width:11px;height:11px;display:inline-block}.sq--s{background:var(--amber)}.sq--c{background:var(--cyan)}
+
+/* Heat mapping: image + bars */
+.heat{display:grid;grid-template-columns:1.35fr 1fr;gap:1px;background:var(--border);
+  border:1px solid var(--border);margin-top:12px}
+.heat__img{position:relative;background:var(--bg)}
+.heat__img img{width:100%;height:100%;object-fit:cover}
+.heat__cap{position:absolute;top:14px;left:14px;font-family:var(--mono);font-size:.58rem;
+  letter-spacing:.2em;color:#fff;background:rgba(0,0,0,.5);padding:5px 9px}
+.heat__bars{background:var(--bg);padding:24px 24px;display:flex;flex-direction:column}
+.hbar{display:grid;grid-template-columns:1fr 44px;align-items:center;gap:3px 10px;padding:9px 0;
+  border-bottom:1px solid var(--border)}
+.hbar__l{font-size:.82rem;color:#fff}
+.hbar__v{text-align:right;font-family:var(--mono);font-size:.74rem;color:var(--text-dim)}
+.hbar__t{grid-column:1/-1;height:4px;background:var(--bg-3);position:relative}
+.hbar__t i{position:absolute;left:0;top:0;height:100%;background:var(--brand)}
+.heat__fine{margin-top:16px;font-size:.74rem;color:var(--text-mute)}
+
+/* Shift chart (per-staff activity tracks) */
+.shift{margin-top:12px;padding:22px 24px;border:1px solid var(--border);background:var(--bg-2)}
+.shift label{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;
+  color:var(--text-mute);margin-bottom:16px}
+.track{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:center;padding:4px 0}
+.track>span{font-family:var(--mono);font-size:.68rem;color:var(--text-dim)}
+.trackbar{position:relative;height:13px;background:var(--bg-3)}
+.seg{position:absolute;top:0;bottom:0}
+.seg--b{background:var(--brand)}.seg--w{background:#fff}.seg--g{background:#6c6c75}
+.seg--a{background:var(--amber)}.seg--m{background:var(--maroon)}
+
+/* two-col checklist head with round check */
+.lens__head--ck{gap:9px}
+
+/* 4-column circle grid (Customer Analytics Elaborated) */
+.circle-grid--4{grid-template-columns:repeat(4,1fr)}
+.circle-grid--4 .circ{padding:24px 20px 26px}
+.circle-grid--4 .circ__n{width:44px;height:44px;font-size:1.15rem;margin-bottom:14px}
+.circle-grid--4 .circ h3{font-size:1rem}
+.circle-grid--4 .circ p{font-size:.76rem}
+
+/* ═══════════ Intel Event Edition — simple / non-technical layouts ═══════════ */
+/* Big statement slides (hook / idea) */
+.slide--statement .slide__body{justify-content:center}
+.statement__eye{font-family:var(--mono);font-size:.7rem;letter-spacing:.28em;color:var(--brand);
+  text-transform:uppercase;margin:0 0 24px}
+.statement__lead{font-family:var(--tx);font-weight:200;letter-spacing:-.03em;line-height:1.02;
+  font-size:4.1rem;color:#fff;margin:0 0 22px;max-width:20ch}
+.statement__sub{font-size:1.15rem;line-height:1.5;color:var(--text-dim);max-width:60ch;font-weight:300}
+.statement__sub b{color:#fff;font-weight:500}
+.slide--statement .slide__bg{filter:brightness(.4) saturate(.9)}
+.slide--statement .divveil{position:absolute;inset:0;z-index:1;background:
+  radial-gradient(85% 75% at 22% 55%,transparent,rgba(0,0,0,.82)),
+  linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.3))}
+
+/* Value tiles (icon + big word + line) */
+.vtiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);margin-top:20px}
+.vtile{background:var(--bg);padding:30px 26px 34px;display:flex;flex-direction:column;gap:14px}
+.vtile__ic{width:46px;height:46px;color:var(--brand)}
+.vtile__ic svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.4}
+.vtile h3{font-family:var(--tx);font-weight:400;font-size:1.35rem;color:#fff;margin:0}
+.vtile p{font-size:.86rem;line-height:1.45;color:var(--text-dim);margin:0}
+
+/* Icon steps row (how it works) */
+.steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:stretch;
+  gap:8px;margin-top:22px}
+.step{background:var(--bg);border:1px solid var(--border);padding:26px 22px 30px;display:flex;flex-direction:column;gap:14px}
+.step__ic{width:42px;height:42px;color:var(--brand)}
+.step__ic svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.4}
+.step__n{font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;color:var(--text-mute)}
+.step h3{font-family:var(--tx);font-weight:500;font-size:1.12rem;color:#fff;margin:0}
+.step p{font-size:.82rem;line-height:1.45;color:var(--text-dim);margin:0}
+.step-arrow{align-self:center;color:var(--brand);font-size:1.3rem}
+.steps-note{margin-top:20px;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;
+  color:var(--text-dim);display:flex;align-items:center;gap:12px}
+.steps-note::before{content:"";width:30px;height:1px;background:var(--brand)}
+
+/* Simple 3-column "wins" cards with icon */
+.wins{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);margin-top:18px}
+.win{background:var(--bg);padding:28px 26px 30px}
+.win__ic{width:40px;height:40px;color:var(--brand);margin-bottom:16px}
+.win__ic svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.4}
+.win h3{font-family:var(--tx);font-weight:400;font-size:1.2rem;color:#fff;margin:0 0 9px}
+.win p{font-size:.86rem;line-height:1.5;color:var(--text-dim);margin:0}
+
+/* Simple before/after (Old vs EdgeVision) */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);
+  border:1px solid var(--border);margin-top:18px}
+.ba__col{background:var(--bg);padding:28px 30px 30px}
+.ba__col--new{background:rgba(245,46,103,.05)}
+.ba__h{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+  margin:0 0 18px;color:var(--text-mute)}
+.ba__col--new .ba__h{color:var(--brand)}
+.ba__col ul li{position:relative;padding:9px 0 9px 22px;font-size:.92rem;line-height:1.4;color:var(--text-dim)}
+.ba__col--new ul li{color:#fff}
+.ba__col ul li::before{content:"—";position:absolute;left:0;color:var(--text-faint)}
+.ba__col--new ul li::before{content:"→";color:var(--brand)}
+
+/* Intel partner badge (from edgevision.pro) */
+.intel-badge{width:190px;height:92px;background:linear-gradient(135deg,#003B7B,#0068B5);border-radius:4px;
+  display:grid;place-items:center;box-shadow:0 0 0 1px rgba(255,255,255,.1),4px 4px 0 rgba(0,104,181,.45)}
+.intel-badge__inner{font-family:var(--tx);font-weight:700;font-size:1.5rem;color:#fff;letter-spacing:-.02em;
+  display:inline-flex;align-items:baseline;gap:8px}
+.intel-badge__inner i{font-weight:300;font-size:1.2rem}
+.reassure{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);margin-top:8px}
+.reassure .win{padding:26px 24px 28px}
+
+/* trusted-by row */
+.trusted{display:flex;flex-wrap:wrap;gap:30px;align-items:center;padding-top:26px;margin-top:26px;
+  border-top:1px solid var(--border);font-family:var(--mono);font-size:.78rem;letter-spacing:.14em}
+.trusted__l{color:var(--text-mute);letter-spacing:.2em}
+.trusted span:not(.trusted__l){color:var(--text-dim);font-weight:500}
+
+/* cover Intel line */
+.cover__intel{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.66rem;
+  letter-spacing:.2em;color:var(--text-dim);text-transform:uppercase;margin-top:4px}
+.cover__intel i{width:7px;height:7px;background:#0068B5;border-radius:1px;box-shadow:0 0 8px rgba(0,104,181,.8)}
+
+/* ═══════════ Detailed use-case list (event deck) ═══════════ */
+.ucards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);
+  border:1px solid var(--border);margin-top:14px}
+.uc{background:var(--bg);padding:15px 22px 17px;display:grid;grid-template-columns:24px 1fr;gap:13px;align-items:start}
+.uc__n{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--brand);padding-top:3px}
+.uc h3{font-family:var(--tx);font-weight:500;font-size:1rem;letter-spacing:-.01em;color:#fff;margin:0 0 4px}
+.uc p{font-size:.8rem;line-height:1.4;color:var(--text-dim);margin:0}
+
+/* Bulletproof cover tag dot (inline SVG — round in every renderer) */
+.cover__tags .cdot{flex:0 0 auto;display:inline-block}
+/* Use-case slide with an image (split) */
+.split--uc{grid-template-columns:1.4fr 1fr;gap:34px;margin-top:6px;align-items:stretch}
+.split--uc .split__media{aspect-ratio:auto}
+.ucards--col{grid-template-columns:1fr}
+.ucards--col .uc{padding:13px 22px}
+
+/* generic bulletproof dot + detection bounding boxes */
+.cdot{flex:0 0 auto;display:inline-block}
+.det-box{position:absolute;border:1.6px solid;z-index:2;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+.det-box>span{position:absolute;top:-15px;left:-1.6px;font-family:var(--mono);font-size:.5rem;
+  letter-spacing:.08em;padding:1px 5px;color:#000;white-space:nowrap;font-weight:500}
+.det-box--staff{border-color:var(--amber)}.det-box--staff>span{background:var(--amber)}
+.det-box--cust{border-color:var(--cyan)}.det-box--cust>span{background:var(--cyan)}
+</style></head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="pat-mark" viewBox="0 0 48 48"><g fill="currentColor"><rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(15 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(30 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(45 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(60 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(75 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(90 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(105 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(120 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(135 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(150 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(165 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(180 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(195 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(210 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(225 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(240 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(255 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(270 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(285 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(300 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(315 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(330 24 24)"/>
+<rect x="22.7" y="2.4" width="2.6" height="13.6" rx="1.3" transform="rotate(345 24 24)"/></g></symbol></svg><section class="slide slide--cover"><img class="slide__bg" src="../assets/images/ev-cover.png" alt=""/><div class="cover__veil"></div><div class="cover__inner"><div class="cover__top"><svg class="mark mark--lg" aria-hidden="true"><use href="#pat-mark"/></svg><span class="cover__brandtxt"><b>PATTERN</b><i>AI&nbsp;LABS</i></span><span class="cover__edition">RETAIL &amp; QSR · 2026</span></div><p class="cover__eyebrow">EdgeVision · for Stores &amp; Restaurants</p><h1 class="cover__wordmark"><span class="w-edge">Edge</span><span class="w-vision">Vision</span><span class="w-sub">Retail &amp; QSR</span></h1><p class="cover__tag">Turn the cameras you already have into a decision engine.</p><p class="cover__sub">Real-time AI that watches every store and restaurant camera — and tells your team exactly what to do, the moment it matters. On-site. Private. Intel-powered.</p><ul class="cover__tags"><li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> EDGE-FIRST</li><li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> PRIVACY BY DESIGN</li><li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> INTEL POWERED</li></ul><div class="cover__foot"><span>PATTERN AI LABS · INTEL EDGE AI PARTNER</span><span class="cover__sigil">EDGEVISION.PRO</span></div></div></section><section class="slide slide--statement"><img class="slide__bg" src="../assets/images/ev-hook.png" alt=""/><div class="divveil"></div><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">THE PROBLEM</span></div><div class="slide__body"><p class="statement__eye">The Problem</p><h2 class="statement__lead">Your cameras record everything.<br/>And tell you nothing.</h2><p class="statement__sub">Hundreds of feeds. Thousands of hours. Almost none of it turns into a decision — until it’s already too late.</p></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">01</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">THE PROBLEM</span></div><div class="slide__body"><p class="eyebrow">The Problem</p><h2 class="display display--mid">Three blind spots that<br/>cost you every day.</h2><div class="wins"><article class="win"><div class="win__ic"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>You can’t watch every camera</h3><p>One person can watch a handful of screens. The rest of the store runs unseen.</p></article><article class="win"><div class="win__ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>You find out too late</h3><p>The problem shows up at the till, in a complaint, or in next month’s audit — not now.</p></article><article class="win"><div class="win__ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h3>You decide on gut feel</h3><p>Staffing, layout, service, speed — big calls made without the numbers to back them.</p></article></div></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">02</span></div></section><section class="slide slide--statement"><img class="slide__bg" src="../assets/images/ev-idea.png" alt=""/><div class="divveil"></div><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">THE IDEA</span></div><div class="slide__body"><p class="statement__eye">The Idea</p><h2 class="statement__lead">What if every camera<br/>could think?</h2><p class="statement__sub">EdgeVision is an AI teammate that watches every camera in real time — and tells your team what’s happening and what to do, <b>right now</b>.</p></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">03</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">HOW IT WORKS</span></div><div class="slide__body"><p class="eyebrow">How It Works</p><h2 class="display display--mid">Simple to switch on.</h2><div class="steps"><div class="step"><div class="step__ic"><svg viewBox="0 0 24 24"><path d="M3 7h4l2-3h6l2 3h4v12H3z"/><circle cx="12" cy="13" r="3.5"/></svg></div><span class="step__n">STEP 01</span><h3>Connect</h3><p>Use the cameras you already have — nothing new to install.</p></div><span class="step-arrow">→</span><div class="step"><div class="step__ic"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><span class="step__n">STEP 02</span><h3>Watch</h3><p>The AI watches every feed, all day, every day.</p></div><span class="step-arrow">→</span><div class="step"><div class="step__ic"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></div><span class="step__n">STEP 03</span><h3>Understand</h3><p>It reads the whole scene — not just motion.</p></div><span class="step-arrow">→</span><div class="step"><div class="step__ic"><svg viewBox="0 0 24 24"><path d="M18 16V11a6 6 0 1 0-12 0v5l-2 2h16zM10 20a2 2 0 0 0 4 0"/></svg></div><span class="step__n">STEP 04</span><h3>Act</h3><p>Your team gets a clear, simple alert in seconds.</p></div></div><p class="steps-note">No new cameras · No cloud · Runs on a small Intel appliance inside your store</p></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">04</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">WHAT YOU GET</span></div><div class="slide__body"><p class="eyebrow">What You Get</p><h2 class="display display--mid">Four outcomes you can feel.</h2><div class="vtiles"><article class="vtile"><div class="vtile__ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h3>More sales</h3><p>Convert more of the footfall you already pay for.</p></article><article class="vtile"><div class="vtile__ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"/><circle cx="17" cy="6" r="2.5"/><path d="M22 18c0-2.5-2-4.5-5-4.5"/></svg></div><h3>Better service</h3><p>The right staff, in the right place, at the right moment.</p></article><article class="vtile"><div class="vtile__ic"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6z"/></svg></div><h3>Less loss</h3><p>Catch shrink and mistakes as they happen, not weeks later.</p></article><article class="vtile"><div class="vtile__ic"><svg viewBox="0 0 24 24"><path d="M4 20c8 2 16-4 16-16-8 0-14 6-14 12 2-4 5-6 9-7"/></svg></div><h3>Safer &amp; cleaner</h3><p>Hygiene and safety, checked continuously — audit-ready.</p></article></div></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">05</span></div></section><section class="slide slide--statement"><img class="slide__bg" src="../assets/images/fw-retail.png" alt=""/><div class="divveil"></div><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">RETAIL</span></div><div class="slide__body"><p class="statement__eye">For your stores</p><h2 class="statement__lead">In your stores.</h2><p class="statement__sub">See every moment that decides a sale — as it happens.</p></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">06</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">RETAIL · WHAT IT SEES</span></div><div class="slide__body"><p class="eyebrow">In-Store</p><h2 class="display display--mid">It watches two things at once.</h2><div class="two-col"><article class="lens"><p class="lens__head">CUSTOMERS</p><h3>Who walks in, where they linger, who’s a VIP.</h3><ul class="dashlist"><li>Spot loyalty &amp; high-value guests at the door</li><li>See which displays actually pull people in</li><li>Know the busy moments before queues build</li></ul></article><article class="lens"><p class="lens__head">STAFF</p><h3>Who’s on the floor — and who’s actually helping.</h3><ul class="checklist"><li>Is every zone covered at peak?</li><li>Which staff turn browsers into buyers</li><li>Fewer huddles, more helping</li></ul></article></div><p class="pullquote"><span class="pullquote__bar"></span><span><b>Same cameras. Two answers.</b> What is the customer experiencing — and how is the team performing?</span></p></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">07</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">RETAIL · USE CASES · CUSTOMERS</span></div><div class="slide__body"><p class="eyebrow">Retail · Use Cases</p><h2 class="display display--mid">What it sees for your customers.</h2><div class="split split--uc"><div class="split__copy"><div class="ucards ucards--col"><article class="uc"><span class="uc__n">01</span><div><h3>Footfall &amp; dwell heat-maps</h3><p>See where shoppers go and linger, so layout follows real behaviour.</p></div></article><article class="uc"><span class="uc__n">02</span><div><h3>Window &amp; display pull-rate</h3><p>Measure how many passers-by each display draws inside — and prove what works.</p></div></article><article class="uc"><span class="uc__n">03</span><div><h3>Browse-to-buy conversion</h3><p>Track how many browsers become buyers, by zone and hour, and act the same day.</p></div></article><article class="uc"><span class="uc__n">04</span><div><h3>VIP &amp; loyalty recognition</h3><p>Spot a high-value guest at the door and cue the right associate — no faces stored.</p></div></article><article class="uc"><span class="uc__n">05</span><div><h3>Queue &amp; checkout wait</h3><p>Get an alert the instant a queue builds, so you open a till before a walk-out.</p></div></article><article class="uc"><span class="uc__n">06</span><div><h3>Category cross-shopping</h3><p>See how customers flow between sections, and place ranges where journeys lead.</p></div></article></div></div><div class="split__media"><img src="../assets/images/fw-uc-customers.png" alt=""/><span class="mediacap">STORE FLOOR · SHOPPER JOURNEY</span></div></div></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">08</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">RETAIL · USE CASES · OPERATIONS</span></div><div class="slide__body"><p class="eyebrow">Retail · Use Cases</p><h2 class="display display--mid">What it sees for your operation.</h2><div class="split split--uc"><div class="split__copy"><div class="ucards ucards--col"><article class="uc"><span class="uc__n">01</span><div><h3>Zone coverage at peak</h3><p>Know whether every section is staffed when it’s busy, and get alerted when it isn’t.</p></div></article><article class="uc"><span class="uc__n">02</span><div><h3>Service attentiveness</h3><p>Measure how quickly customers are acknowledged and helped — a real service metric.</p></div></article><article class="uc"><span class="uc__n">03</span><div><h3>Conversion by associate</h3><p>Link who was helping to what sold, so coaching is based on outcomes, not opinion.</p></div></article><article class="uc"><span class="uc__n">04</span><div><h3>Shrink &amp; concealment cues</h3><p>Flag tag-tampering and concealment as they happen — not at stock-take.</p></div></article><article class="uc"><span class="uc__n">05</span><div><h3>Slips, spills &amp; blocked exits</h3><p>Catch safety hazards the moment they appear and send the fix at once.</p></div></article><article class="uc"><span class="uc__n">06</span><div><h3>Display &amp; compliance checks</h3><p>Verify planogram, housekeeping and open/close standards automatically.</p></div></article></div></div><div class="split__media"><img src="../assets/images/fw-uc-ops.png" alt=""/><span class="mediacap">COUNTER &amp; FLOOR · STAFF IN ACTION</span></div></div></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">09</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">RETAIL · ONE SCREEN</span></div><div class="slide__body"><p class="eyebrow">One Pane of Glass</p><h2 class="display display--mid">One screen your managers actually use.</h2><div class="console"><div><label>Snapshot</label><div class="console__stats"><div class="kv"><label>FOOTFALL</label><b>1,284</b></div><div class="kv"><label>ACTIVE STAFF</label><b>12 / 14</b></div><div class="kv"><label>ALERTS</label><b>3</b></div><div class="kv"><label>AVG DWELL</label><b>4:21</b></div></div></div><div><label>Hourly footfall</label><div class="bars"><i style="--h:18%"></i><i style="--h:32%"></i><i style="--h:48%"></i><i style="--h:62%"></i><i style="--h:74%"></i><i style="--h:86%"></i><i style="--h:70%"></i><i style="--h:96%" class="hi"></i><i style="--h:78%"></i><i style="--h:58%"></i><i style="--h:42%"></i><i style="--h:28%"></i></div><div class="bars__axis"><span>10AM</span><span>2PM</span><span>6PM</span><span>10PM</span></div></div><div><label>Alert stream</label><ul class="alerts"><li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> VIP entered · gold tier</li><li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#56565F"/></svg> Wall #3 unattended 2m</li><li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#56565F"/></svg> Queue &gt; 4 at till 2</li><li><svg class="cdot" viewBox="0 0 10 10" width="7" height="7"><circle cx="5" cy="5" r="4.5" fill="#F52E67"/></svg> Back store &gt; 4 staff</li></ul></div></div><div class="cam-strip"><span>CAM 01</span><span>CAM 02</span><span>CAM 03</span><span>CAM 04</span><span>CAM 05</span><span>CAM 06</span></div></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">10</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">RETAIL · THE VIP MOMENT</span></div><div class="slide__body"><div class="split"><div class="split__copy"><p class="eyebrow">A Moment That Matters</p><h2 class="display display--mid">A VIP walks in. Your<br/>team knows in seconds.</h2><ul class="dashlist dashlist--split"><li>The moment they enter, the manager’s phone lights up</li><li>Name, tier, last visit and favourites — ready for a warm welcome</li><li>The right associate and the right offer, before they reach the rail</li></ul><p class="steps-note">No faces are stored · it all happens inside your store</p></div><div class="split__media"><img src="../assets/images/fw-vip.png" alt=""/><span class="mediacap">LOYALTY · HIGH-VALUE GUEST</span></div></div></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">11</span></div></section><section class="slide slide--statement"><img class="slide__bg" src="../assets/images/ev-qsr.png" alt=""/><div class="divveil"></div><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">QSR</span></div><div class="slide__body"><p class="statement__eye">For your restaurants</p><h2 class="statement__lead">In your restaurants.</h2><p class="statement__sub">Speed, accuracy and safety — on every shift, on every lane.</p></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">12</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">QSR · THE THREE NUMBERS</span></div><div class="slide__body"><p class="eyebrow">Quick-Service</p><h2 class="display display--mid">The three numbers<br/>every shift lives by.</h2><div class="wins"><article class="win"><div class="win__ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Speed</h3><p>Counter and kiosk queues, mobile-pickup dwell and time-to-first-bag — measured live, every daypart.</p></article><article class="win"><div class="win__ic"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div><h3>Accuracy</h3><p>Right items, right modifiers — caught before the bag ever leaves the counter.</p></article><article class="win"><div class="win__ic"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6z"/></svg></div><h3>Safety</h3><p>Gloves, handwash and hold-times — checked continuously, ready for the next audit.</p></article></div></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">13</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">QSR · USE CASES · SPEED &amp; ACCURACY</span></div><div class="slide__body"><p class="eyebrow">QSR · Use Cases</p><h2 class="display display--mid">Speed and accuracy, in detail.</h2><div class="split split--uc"><div class="split__copy"><div class="ucards ucards--col"><article class="uc"><span class="uc__n">01</span><div><h3>Counter &amp; kiosk queues</h3><p>See queues build at the counter or kiosk and move staff before guests give up.</p></div></article><article class="uc"><span class="uc__n">02</span><div><h3>Time-to-first-bag</h3><p>Track how long from order to hand-off, so you catch a slow shift as it happens.</p></div></article><article class="uc"><span class="uc__n">03</span><div><h3>Kitchen bottlenecks</h3><p>Spot the station backing up the line and rebalance before tickets pile up.</p></div></article><article class="uc"><span class="uc__n">04</span><div><h3>Order accuracy</h3><p>Check items and modifiers against the order and flag a mistake before it’s bagged.</p></div></article><article class="uc"><span class="uc__n">05</span><div><h3>Packaging &amp; remakes</h3><p>Catch packaging errors and rising remake rates that quietly eat margin.</p></div></article><article class="uc"><span class="uc__n">06</span><div><h3>Mobile &amp; pickup dwell</h3><p>See how long online and pickup orders wait at the shelf, and clear the backlog.</p></div></article></div></div><div class="split__media"><img src="../assets/images/ev-qsrline.png" alt=""/><span class="mediacap">ASSEMBLY &amp; PASS · ORDER READY</span></div></div></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">14</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">QSR · USE CASES · SAFETY &amp; OPS</span></div><div class="slide__body"><p class="eyebrow">QSR · Use Cases</p><h2 class="display display--mid">Safety, cleanliness and ops.</h2><div class="split split--uc"><div class="split__copy"><div class="ucards ucards--col"><article class="uc"><span class="uc__n">01</span><div><h3>PPE compliance</h3><p>Confirm gloves, hairnets and aprons are worn where they should be — audit-ready.</p></div></article><article class="uc"><span class="uc__n">02</span><div><h3>Handwash cadence</h3><p>Track handwash frequency against your SOP, so hygiene is a habit you can prove.</p></div></article><article class="uc"><span class="uc__n">03</span><div><h3>Hold-time &amp; temperature</h3><p>Watch hot- and cold-hold zones for time and temperature breaches, live.</p></div></article><article class="uc"><span class="uc__n">04</span><div><h3>Spills &amp; cleaning cadence</h3><p>Detect spills and missed cleaning rounds in the dining area and restrooms.</p></div></article><article class="uc"><span class="uc__n">05</span><div><h3>Labour vs demand</h3><p>Compare staffing to real demand by daypart, so you schedule to the rush.</p></div></article><article class="uc"><span class="uc__n">06</span><div><h3>Greeter &amp; upsell prompts</h3><p>See whether greeting and upsell moments actually happen at the counter.</p></div></article></div></div><div class="split__media"><img src="../assets/images/ev-qsrsafe.png" alt=""/><span class="mediacap">KITCHEN · HYGIENE &amp; PREP</span></div></div></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">15</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">THE ENGINE · GENAI + VLMS</span></div><div class="slide__body"><p class="eyebrow">The Engine</p><h2 class="display display--mid">Why it can do all this: GenAI.</h2><p class="lede">The breakthrough is the <b>Vision-Language Model</b> — an AI that looks at a camera frame the way a person would. It reads the whole scene and its context, not just pixels or motion. That’s what lets it judge quality, spot what’s missing and explain why — across hundreds of situations, with no reprogramming for each one.</p><div class="wins"><article class="win"><div class="win__ic"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>It understands context</h3><p>Tells a real spill from a shadow, a browser from a buyer, a queue from a cluster.</p></article><article class="win"><div class="win__ic"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div><h3>It judges quality</h3><p>A missing sauce, a pale fry, an untidy display — not just ‘a person was here.’</p></article><article class="win"><div class="win__ic"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></div><h3>It adapts on its own</h3><p>New store, new menu, new season — it keeps up without re-training.</p></article></div><p class="steps-note">Everyday vision runs continuously · the heavier GenAI kicks in only when it matters — efficient enough for one small Intel box</p></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">16</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">WHY IT'S DIFFERENT</span></div><div class="slide__body"><p class="eyebrow">Why It’s Different</p><h2 class="display display--mid">Old cameras count.<br/>GenAI understands.</h2><div class="ba"><div class="ba__col"><p class="ba__h">Old camera analytics</p><ul><li>“Someone entered the store.”</li><li>“A person is at the counter.”</li><li>“Motion in aisle 4.”</li></ul></div><div class="ba__col ba__col--new"><p class="ba__h">EdgeVision</p><ul><li>“They browsed 4 minutes, loved the front table, and left without buying — and who was nearby.”</li><li>“This order is missing a sauce — fix it before it’s bagged.”</li><li>“Spill in aisle 4 — clean-up sent.”</li></ul></div></div></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">17</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">THE BUSINESS CASE</span></div><div class="slide__body"><p class="eyebrow">The Business Case</p><h2 class="display display--mid">Where it shows up in your P&amp;L.</h2><div class="vtiles"><article class="vtile"><div class="vtile__ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h3>More sales</h3><p>Convert more of today’s footfall — a small lift on traffic you already have moves the number.</p></article><article class="vtile"><div class="vtile__ic"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6z"/></svg></div><h3>Less shrink</h3><p>Catch loss and process gaps as they happen — not at stock-take.</p></article><article class="vtile"><div class="vtile__ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>More throughput</h3><p>Shorter queues and faster service mean more covers and baskets per hour.</p></article><article class="vtile"><div class="vtile__ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 6 6.5.5-5 4 1.6 6.3L12 16l-5.6 3.8L8 13.5 3 9.5 9.5 9z"/></svg></div><h3>More loyalty</h3><p>Fewer wrong orders and cleaner stores lift repeat visits and reviews.</p></article></div><p class="pullquote"><span class="pullquote__bar"></span><span><b>The math is simple.</b> A one-point lift in conversion on 50,000 monthly visitors is thousands of extra baskets a month — from cameras you already own.</span></p></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">18</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">PRIVATE BY DESIGN</span></div><div class="slide__body"><p class="eyebrow">Private by Design</p><h2 class="display display--mid">Everything stays in your store.</h2><div class="reassure"><article class="win"><div class="win__ic"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h3>No faces leave</h3><p>No biometrics and no video are sent anywhere. Ever.</p></article><article class="win"><div class="win__ic"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6z"/></svg></div><h3>No cloud needed</h3><p>Runs fully on-site — it keeps working even if the internet drops.</p></article><article class="win"><div class="win__ic"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></div><h3>Intel-powered</h3><p>A small, efficient Intel appliance per site — nothing else to buy.</p></article></div><div style="display:flex;align-items:center;gap:20px;margin-top:22px"><div class="intel-badge"><span class="intel-badge__inner">intel<i>partner</i></span></div><p style="font-size:.95rem;color:var(--text-dim);max-width:46ch;margin:0">Pattern AI Labs is an <b style="color:#fff">Intel Edge AI Partner</b> — EdgeVision is optimised on Intel hardware for real-time inference at the edge.</p></div></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">19</span></div></section><section class="slide "><div class="chrome"><span class="chrome__brand"><svg class="mark mark--sm" aria-hidden="true"><use href="#pat-mark"/></svg><b>PATTERN</b><i>AI&nbsp;LABS</i><span class="chrome__div">/</span><span class="chrome__prod">RETAIL&nbsp;&&nbsp;QSR</span></span><span class="chrome__ctx">PROOF</span></div><div class="slide__body"><p class="eyebrow">Proof</p><h2 class="display display--mid">Built by a team that’s<br/>shipped this before.</h2><div class="wins"><article class="win"><div class="win__ic"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></div><h3>Intel Edge AI Partner</h3><p>Optimised on Intel and featured in Intel’s partner ecosystem.</p></article><article class="win"><div class="win__ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h3>Production CV at scale</h3><p>800+ product types already live in real grocery-vision deployments.</p></article><article class="win"><div class="win__ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 6 6.5.5-5 4 1.6 6.3L12 16l-5.6 3.8L8 13.5 3 9.5 9.5 9z"/></svg></div><h3>Retail + QSR focus</h3><p>Purpose-built for stores and multi-unit quick-service brands.</p></article></div><div class="trusted"><span class="trusted__l">TRUSTED BY</span><span>Intel</span><span>TATA</span><span>Schneider Electric</span><span>BigBasket</span></div></div><div class="foot"><span>EDGEVISION · RETAIL &amp; QSR</span><span class="foot__mid">One AI teammate for every camera</span><span class="foot__n">20</span></div></section><section class="slide slide--closing"><img class="slide__bg" src="../assets/images/ev-closing.png" alt=""/><div class="closing__veil"></div><div class="closing__inner"><div class="closing__brand"><svg class="mark mark--lg" aria-hidden="true"><use href="#pat-mark"/></svg><span class="cover__brandtxt"><b>PATTERN</b><i>AI&nbsp;LABS</i></span></div><h2 class="closing__head">See it live in your store<br/>in <span class="grad">three weeks</span>.</h2><p class="closing__sub">Pick one location. We install on the cameras you already have. By week three you’re watching real results on your own floor — with no risk to the rest of your estate.</p><div class="contact"><a class="contact__card"><span class="contact__h">EMAIL</span><span class="contact__v">info@pattern-ai.com</span></a><a class="contact__card"><span class="contact__h">WEB</span><span class="contact__v">www.edgevision.pro</span></a><a class="contact__card"><span class="contact__h">PHONE</span><span class="contact__v">+91 99618 71254</span></a></div><div class="closing__foot"><span>LET’S PICK ONE OF YOUR LOCATIONS</span><span>© 2026 PATTERN AI LABS · INTEL EDGE AI PARTNER</span></div></div></section></body></html>

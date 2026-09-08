@@ -1,0 +1,132 @@
+/* ═══════════════════════════════════════════════════════════
+   INTEL EVENT TEMPLATE THEME — light
+   White content slides · teal-gradient dividers · Intel blue/navy
+   Overrides deck.css (loaded after it). Palette from Retail.pptx theme:
+   navy #001E50 · Intel blue #0054AE · energy cyan #00C7FD · teal gradient.
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --bg:#FFFFFF; --bg-2:#F5F8FF; --bg-3:#EAF1FB;
+  --border:rgba(0,30,80,.13); --border-2:rgba(0,30,80,.24);
+  --text:#001E50; --text-dim:#3E4B66; --text-mute:#6E7C93; --text-faint:#B7C1D2;
+  --brand:#0054AE; --brand-2:#00C7FD; --brand-glow:rgba(0,84,174,.14);
+  --cyan:#00A3C7; --amber:#E08A2B;
+  --teal1:#5AE2CC; --teal2:#0F9B90; --ink:#001E50;
+}
+html,body{background:#fff}
+
+/* Intel logo (added by builder). Top-right replaces the context label. */
+.chrome__ctx{display:none}
+.intel-logo{position:absolute;top:37px;right:72px;height:24px;width:auto;z-index:5}
+.intel-logo--white{display:none}
+.slide--statement .intel-logo--blue{display:none}
+.slide--statement .intel-logo--white{display:block}
+.intel-corner{position:absolute;top:46px;right:72px;height:24px;width:auto;z-index:6}
+.cover__intel-logo{margin-left:auto;height:26px;width:auto}
+
+/* ---------- CONTENT SLIDE = white + Intel bottom pixel motif ---------- */
+.slide{background:#fff url(../assets/images/intel-white.jpg) center/cover no-repeat;
+  background-image:url(../assets/images/intel-white.jpg),linear-gradient(0deg,#fff,#fff);}
+.grad{background:linear-gradient(115deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* navy titles (these component classes appear only on white slides) */
+h1,h2,h3,h4{color:var(--text)}
+b{color:var(--text)}
+.display{color:var(--text)}
+.lede b{color:var(--text)}
+.num-card h3,.circ h3,.pipe-card h3,.week h3,.zone__h,.lens h3,.tl-card h3{color:var(--text)}
+.win h3,.vtile h3,.step h3,.uc h3{color:var(--text)}
+.speclist dd,.cmp td:first-child{color:var(--text)}
+.pullquote,.pullquote b{color:var(--text)}
+.pullquote i{color:var(--text-dim)}
+.console__stats b,.hbar__l{color:var(--text)}
+.ba__col--new ul li{color:var(--text)}
+
+/* card surfaces: subtle tint + soft border so white-on-white reads */
+.num-card,.circ,.pipe-card,.lens,.zone,.week,.tl-card,.win,.vtile,.step,.uc,.console>div,.cam-strip span,.ba__col{
+  background:var(--bg-2)}
+.two-col,.num-grid,.circle-grid,.vtiles,.wins,.ucards,.zones,.weeks,.console,.cam-strip,.ba,.reassure,.contact{
+  background:var(--border)}
+.ba__col--new{background:#EAF4FF}
+.cmp td.cmp__hi{background:#EAF4FF;color:var(--text)}
+.cmp thead th{background:var(--bg-3)}
+
+/* accent recolours already flow from --brand (#0054AE) + --brand-2 (cyan) */
+.step .step__ic,.win__ic,.vtile__ic{color:var(--brand)}
+.steps-note{color:var(--text-dim)}
+.bars i{background:#C7D3E6}.bars i.hi{background:var(--brand)}
+.hbar__t{background:#DCE5F2}.hbar__t i{background:var(--brand)}
+.dot{background:#9FB0C9}
+
+/* chrome + foot on white slides = navy/blue */
+.chrome__brand b{color:var(--text)}
+.chrome__brand i{color:var(--text-mute)}
+.chrome__prod{color:var(--brand)}
+.chrome__ctx{color:var(--text-mute)}
+.foot{color:var(--text-mute)}
+.foot__mid{color:var(--text-faint)}
+.foot__n{color:var(--brand)}
+.mark{color:var(--brand)}
+.mark--sm{color:var(--brand)}
+
+/* ---------- STATEMENT / DIVIDER = Intel teal gradient, white text ---------- */
+.slide--statement{background:url(../assets/images/intel-teal.jpg) center/cover no-repeat}
+.slide--statement .slide__bg{display:none}
+.slide--statement .divveil{display:none}
+.slide--statement .statement__eye{color:#EAFBF6}
+.slide--statement .statement__lead{color:#fff}
+.slide--statement .statement__sub{color:rgba(255,255,255,.92)}
+.slide--statement .statement__sub b{color:#fff}
+.slide--statement .chrome__brand b{color:#fff}
+.slide--statement .chrome__brand i{color:rgba(255,255,255,.8)}
+.slide--statement .chrome__prod{color:#fff}
+.slide--statement .chrome__ctx{color:rgba(255,255,255,.85)}
+.slide--statement .foot{color:rgba(255,255,255,.85)}
+.slide--statement .foot__mid{color:rgba(255,255,255,.6)}
+.slide--statement .foot__n{color:#fff}
+.slide--statement .mark--sm{color:#fff}
+
+/* ---------- COVER = photo hero + Intel navy/teal wash ---------- */
+.cover__veil{background:
+  linear-gradient(90deg,rgba(0,30,80,.90),rgba(0,30,80,.55) 42%,rgba(15,155,144,.30)),
+  linear-gradient(180deg,rgba(0,30,80,.5),rgba(0,30,80,.75))}
+.cover__brandtxt b{color:#fff}
+.cover__brandtxt i{color:rgba(255,255,255,.82)}
+.cover__edition{color:rgba(255,255,255,.85)}
+.cover__eyebrow{color:var(--brand-2)}
+.cover__eyebrow::before{background:var(--brand-2)}
+.cover__wordmark .w-edge{color:#fff}
+.cover__wordmark .w-vision{color:var(--brand-2)}
+.cover__wordmark .w-sub{color:#fff}
+.cover__tag{color:#fff}
+.cover__sub{color:rgba(255,255,255,.9)}
+.cover__tags{color:rgba(255,255,255,.9)}
+.cover__foot{color:rgba(255,255,255,.85);border-top-color:rgba(255,255,255,.25)}
+.cover__sigil{color:rgba(255,255,255,.9)}
+.cover .mark--lg{color:var(--brand-2)}
+
+/* ---------- CLOSING = photo + navy/teal wash ---------- */
+.closing__veil{background:
+  linear-gradient(90deg,rgba(0,30,80,.9),rgba(0,30,80,.6) 55%,rgba(15,155,144,.25)),
+  linear-gradient(180deg,rgba(0,30,80,.55),rgba(0,30,80,.8))}
+.closing__head{color:#fff}
+.closing__head .grad{background:linear-gradient(115deg,var(--brand-2),#7DEBD9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.closing__sub{color:rgba(255,255,255,.9)}
+.closing__brand .cover__brandtxt b{color:#fff}
+.closing__brand .cover__brandtxt i{color:rgba(255,255,255,.82)}
+.closing .mark--lg{color:var(--brand-2)}
+.contact{background:rgba(255,255,255,.18)}
+.contact__card{background:rgba(0,30,80,.55)}
+.contact__h{color:var(--brand-2)}
+.contact__v{color:#fff}
+.closing__foot{color:rgba(255,255,255,.8);border-top-color:rgba(255,255,255,.25)}
+
+/* detection boxes / media caps keep light-on-image styling (unchanged) */
+.mediacap,.det-chip,.heat__cap{background:rgba(0,30,80,.62);color:#fff}
+.split__media img{filter:none}
+.detfig img{filter:brightness(.85)}
+
+/* pull-quote bar + eyebrow + dashlist markers => Intel blue (from --brand) */
+.eyebrow{color:var(--brand)}.eyebrow::before{background:var(--brand)}
+.intel-badge{background:linear-gradient(135deg,#00377C,#0054AE)}
+.reassure .win h3{color:var(--text)}
+.trusted__l{color:var(--text-mute)}.trusted span:not(.trusted__l){color:var(--text-dim)}
