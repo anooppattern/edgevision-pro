@@ -21,7 +21,7 @@ ICON={
 }
 def ic(n): return '<svg viewBox="0 0 24 24">{}</svg>'.format(ICON[n])
 
-N=[0]; TOTAL=13
+N=[0]; TOTAL=15
 def bar():
     N[0]+=1
     return ('<div class="brandbar"><span><b>PATTERN AI LABS</b> · EDGEVISION</span>'
@@ -64,6 +64,14 @@ def splitwow(img,kicker,h1,points,cap):
         '<h1 class="h1 h1--sp">{h1}</h1><ul class="pts">{lis}</ul></div></section>').format(
         bar=bar(),i=IMG,img=img,cap=esc(cap),k=esc(kicker),h1=h1,lis=lis)
 
+def usecards(kicker,head,items):  # items: (img,title,line)
+    cells="".join('<article class="uc-card"><div class="im"><img src="{i}/{img}" alt=""/></div>'
+        '<div class="bd"><h3>{h}</h3><p>{p}</p></div></article>'.format(i=IMG,img=img,h=esc(h),p=esc(p))
+        for img,h,p in items)
+    return ('<section class="slide dark">{bar}<div class="head"><p class="kicker">{k}</p>'
+        '<h2 class="h2 h2--uc">{head}</h2></div><div class="uc-cards">{cells}</div></section>').format(
+        bar=bar(),k=esc(kicker),head=head,cells=cells)
+
 def contrast(kicker,head,old,new):
     lo="".join('<li>{}</li>'.format(esc(x)) for x in old)
     ln="".join('<li>{}</li>'.format(esc(x)) for x in new)
@@ -94,6 +102,10 @@ S.append(tiles("In-Store · What you get","Three wins on every shift.",
   [("trend","More sales","Convert more of the footfall you already pay for — see what pulls people in."),
    ("users","Better service","The right staff in the right place, the moment a customer needs help."),
    ("shield","Safer store","Spills, queues, shrink and safety — caught as they happen, not after.")]))
+S.append(usecards("In-Store · Sample use cases","A few things it sees on the floor.",
+  [("kuc-r1.png","Footfall & dwell","See where shoppers go and linger, so layout follows real behaviour — not guesswork."),
+   ("kuc-r2.png","Queue at billing","An alert the instant a queue builds, so you open a till before a walk-out."),
+   ("kuc-r3.png","Staff on the floor","Know every section is covered and customers are helped fast, even at peak.")]))
 S.append(splitwow("koc-retail2.png","A moment that matters",
   "A regular walks in —<br/>your team <span class='em'>knows in seconds</span>.",
   ["The manager’s phone lights up at the door","Name, tier and what to offer — for a warm welcome",
@@ -104,6 +116,10 @@ S.append(tiles("QSR · What you get","The three numbers every shift lives by.",
   [("clock","Faster service","Queues and slow stations spotted live — move staff before guests give up."),
    ("check","Right orders","Wrong or missing items caught before the bag leaves the counter."),
    ("leaf","Safe & clean","Gloves, hygiene and hold-times — checked continuously, audit-ready.")]))
+S.append(usecards("In the Restaurant · Sample use cases","A few things it sees on the line.",
+  [("kuc-q1.png","Order accuracy","Check items against the order and flag a wrong or missing one before it’s bagged."),
+   ("kuc-q2.png","Speed at the counter","Spot queues and slow stations live, and move staff before guests give up."),
+   ("kuc-q3.png","Hygiene & PPE","Gloves, handwash and hold-times — checked continuously, ready for the next audit.")]))
 S.append(splitwow("koc-qsr2.png","The wow moment",
   "It catches the missing item —<br/><span class='em'>before</span> the bag leaves.",
   ["Reads the order against what’s on the tray","Flags a miss the instant it happens",
@@ -194,6 +210,16 @@ body{font-family:var(--tx);color:#fff;font-weight:300;-webkit-font-smoothing:ant
 .cmp__new li{color:#fff}
 .cmp__old li::before{content:"—";position:absolute;left:0;color:var(--mute)}
 .cmp__new li::before{content:"→";position:absolute;left:0;color:var(--brand)}
+
+/* use-case image cards */
+.h2--uc{font-size:44px}
+.uc-cards{position:absolute;left:70px;right:70px;bottom:66px;z-index:3;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.uc-card{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.045)}
+.uc-card .im{height:280px;overflow:hidden}
+.uc-card .im img{width:100%;height:100%;object-fit:cover}
+.uc-card .bd{padding:22px 26px 26px}
+.uc-card h3{font-size:24px;font-weight:500;letter-spacing:-.01em;margin:0 0 8px}
+.uc-card p{font-size:16px;line-height:1.46;color:var(--dim);font-weight:300}
 
 /* split wow */
 .split{display:grid;grid-template-columns:1.05fr 1fr;background:var(--bg)}
