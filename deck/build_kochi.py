@@ -21,7 +21,7 @@ ICON={
 }
 def ic(n): return '<svg viewBox="0 0 24 24">{}</svg>'.format(ICON[n])
 
-N=[0]; TOTAL=15
+N=[0]; TOTAL=13
 def bar():
     N[0]+=1
     return ('<div class="brandbar"><span><b>PATTERN AI LABS</b> · EDGEVISION</span>'
@@ -98,10 +98,6 @@ S.append(steps4("How It Works","Simple to switch on.",
   "No new cameras · No cloud · Runs on one small Intel box inside your store"))
 S.append(fb("koc-retail.png","For your stores",
   "See every moment<br/>that <span class='em'>makes a sale</span>."))
-S.append(tiles("In-Store · What you get","Three wins on every shift.",
-  [("trend","More sales","Convert more of the footfall you already pay for — see what pulls people in."),
-   ("users","Better service","The right staff in the right place, the moment a customer needs help."),
-   ("shield","Safer store","Spills, queues, shrink and safety — caught as they happen, not after.")]))
 S.append(usecards("In-Store · Sample use cases","A few things it sees on the floor.",
   [("kuc-r1.png","Footfall & dwell","See where shoppers go and linger, so layout follows real behaviour — not guesswork."),
    ("kuc-r2.png","Queue at billing","An alert the instant a queue builds, so you open a till before a walk-out."),
@@ -112,10 +108,6 @@ S.append(splitwow("koc-retail2.png","A moment that matters",
    "Worked out inside the store · no faces stored"],"STORE FLOOR · ONE SCREEN"))
 S.append(fb("koc-qsr.png","For your restaurants",
   "Speed, accuracy, safety —<br/><span class='em'>every shift</span>."))
-S.append(tiles("QSR · What you get","The three numbers every shift lives by.",
-  [("clock","Faster service","Queues and slow stations spotted live — move staff before guests give up."),
-   ("check","Right orders","Wrong or missing items caught before the bag leaves the counter."),
-   ("leaf","Safe & clean","Gloves, hygiene and hold-times — checked continuously, audit-ready.")]))
 S.append(usecards("In the Restaurant · Sample use cases","A few things it sees on the line.",
   [("kuc-q1.png","Order accuracy","Check items against the order and flag a wrong or missing one before it’s bagged."),
    ("kuc-q2.png","Speed at the counter","Spot queues and slow stations live, and move staff before guests give up."),
